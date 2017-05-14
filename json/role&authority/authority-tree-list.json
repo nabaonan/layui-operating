@@ -1,0 +1,113 @@
+{
+	"data": [
+
+		{
+			"id": 1,
+			"fid": 0,
+			"authority":1,
+			"title": "系统权限",
+			"url": "www.baidu.com"
+		}, {
+			"id": 2,
+			"fid": 0,
+			"authority":2,
+			"title": "用户权限",
+			"url": "www.baidu.com"
+		}, {
+			"id": 3,
+			"fid": 0,
+			"authority":4,
+			"title": "其他权限",
+			"url": "www.baidu.com"
+		}, {
+			"id": 11,
+			"fid": 1,
+			"authority":8,
+			"title": "系统权限1",
+			"url": "www.google.com",
+			"checked":true
+		}, {
+			"id": 12,
+			"fid": 1,
+			"authority":16,
+			"title": "系统权限2",
+			"url": "www.google.com",
+			"checked":true
+		}, {
+			"id": 13,
+			"fid": 1,
+			"authority":32,
+			"title": "系统权限3",
+			"url": "www.google.com",
+			"checked":true
+		}, {
+			"id": 21,
+			"fid": 2,
+			"authority":64,
+			"title": "用户权限1",
+			"url": "www.google.com"
+		}, {
+			"id": 22,
+			"fid": 2,
+			"authority":128,
+			"title": "用户权限2",
+			"url": "www.google.com"
+		}, {
+			"id": 23,
+			"fid": 2,
+			"authority":256,
+			"title": "用户权限3",
+			"url": "www.google.com"
+		}, {
+			"id": 31,
+			"fid": 3,
+			"authority":512,
+			"title": "其他权限1",
+			"url": "www.google.com"
+		}, {
+			"id": 32,
+			"fid": 3,
+			"authority":1024,
+			"title": "其他权限2",
+			"url": "www.google.com"
+		}, {
+			"id": 33,
+			"fid": 3,
+			"authority":2048,
+			"title": "其他权限3",
+			"url": "www.google.com"
+		}, {
+			"id": 34,
+			"fid": 31,
+			"authority":4096,
+			"title": "其他权限11",
+			"url": "www.chinaedu.com"
+		}, {
+			"id": 35,
+			"fid": 31,
+			"authority":8192,
+			"title": "其他权限12",
+			"url": "www.chinaedu.com"
+		}, {
+			"id": 36,
+			"fid": 31,
+			"authority":900000000,
+			"title": "其他权限13",
+			"url": "www.chinaedu.com"
+		}, {
+			"id": 37,
+			"fid": 36,
+			"authority":1000000000,
+			"title": "其他权限131",
+			"url": "www.360.com"
+		}, {
+			"id": 38,
+			"fid": 37,
+			"authority":80000000,
+			"title": "其他权限1311",
+			"url": "www.qq.com"
+		}
+	],
+	"status": true
+
+}

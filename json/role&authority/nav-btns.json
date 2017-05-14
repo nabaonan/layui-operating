@@ -1,0 +1,23 @@
+{
+
+	"status": true,
+	"data": [
+		{
+			"btnKey": "add"
+		}, {
+			"btnKey": "delete"
+		}, {
+			"btnKey": "refresh"
+		}, {
+			"btnKey": "edit"
+		}, {
+			"btnKey": "row-edit"
+		}, {
+			"btnKey": "row-view"
+		}, {
+			"btnKey": "row-switch"
+		}, {
+			"btnKey": "row-reset-pwd"
+		}
+	]
+}

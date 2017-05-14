@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Data-Table 表格</title>
+    <link rel="stylesheet" href="../frame/layui/css/layui.css">
+    <!--<link rel="stylesheet" href="http://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">-->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../frame/bootstraptable/bootstrap-table.css">
+    <link rel="icon" href="../image/code.png">
+</head>
+<body class="body">
+
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>
+        <span class="layui-breadcrumb">
+            <a href="javascript:;">扩展</a>
+            <a><cite>data-table</cite></a>
+        </span>
+    </legend>
+</fieldset>
+
+<div class="my-btn-box">
+    <span class="fl">
+        <a class="layui-btn layui-btn-danger radius btn-delect" id="btn-delete-all">批量删除</a>
+        <a class="layui-btn btn-add btn-default" id="btn-add-article">发布文章</a>
+    </span>
+    <span class="fr">
+        <span class="layui-form-label">搜索条件：</span>
+        <div class="layui-input-inline">
+            <input type="text" autocomplete="off" placeholder="请输入搜索条件" class="layui-input">
+        </div>
+        <button class="layui-btn mgl-20">查询</button>
+    </span>
+</div>
+
+<table id="dateTable" class="layui-table">
+    <thead>
+    <tr>
+        <th><input type="checkbox" class="my-checkbox" /></th>
+        <th>名称</th>
+        <th>型号</th>
+        <th>规格</th>
+        <th>价格</th>
+        <th>简介</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><input type="checkbox" class="my-checkbox" data-id="1" /></td>
+        <td>心相印红悦卫生纸卷纸3层*12卷1</td>
+        <td>X1121</td>
+        <td>大</td>
+        <td>￥25.5</td>
+        <td>心相印红悦卫生纸卷纸3层*12卷</td>
+        <td>
+            <button class="layui-btn layui-btn-small">查看</button>
+            <button class="layui-btn layui-btn-small layui-btn-normal">编辑</button>
+            <button class="layui-btn layui-btn-small layui-btn-danger">删除</button>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" class="my-checkbox" data-id="2" /></td>
+        <td>心相印红悦卫生纸卷纸3层*12卷2</td>
+        <td>X1121</td>
+        <td>大</td>
+        <td>￥25.5</td>
+        <td>心相印红悦卫生纸卷纸3层*12卷</td>
+        <td>
+            <button class="layui-btn layui-btn-small">查看</button>
+            <button class="layui-btn layui-btn-small layui-btn-normal">编辑</button>
+            <button class="layui-btn layui-btn-small layui-btn-danger">删除</button>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" class="my-checkbox" data-id="3" /></td>
+        <td>心相印红悦卫生纸卷纸3层*12卷3</td>
+        <td>X1121</td>
+        <td>大</td>
+        <td>￥25.5</td>
+        <td>心相印红悦卫生纸卷纸3层*12卷</td>
+        <td>
+            <button class="layui-btn layui-btn-small">查看</button>
+            <button class="layui-btn layui-btn-small layui-btn-normal">编辑</button>
+            <button class="layui-btn layui-btn-small layui-btn-danger">删除</button>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" class="my-checkbox" data-id="4" /></td>
+        <td>心相印红悦卫生纸卷纸3层*12卷4</td>
+        <td>X1121</td>
+        <td>大</td>
+        <td>￥25.5</td>
+        <td>心相印红悦卫生纸卷纸3层*12卷</td>
+        <td>
+            <button class="layui-btn layui-btn-small">查看</button>
+            <button class="layui-btn layui-btn-small layui-btn-normal">编辑</button>
+            <button class="layui-btn layui-btn-small layui-btn-danger">删除</button>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" class="my-checkbox" data-id="5" /></td>
+        <td>心相印红悦卫生纸卷纸3层*12卷5</td>
+        <td>X1121</td>
+        <td>大</td>
+        <td>￥25.5</td>
+        <td>心相印红悦卫生纸卷纸3层*12卷</td>
+        <td>
+            <button class="layui-btn layui-btn-small">查看</button>
+            <button class="layui-btn layui-btn-small layui-btn-normal">编辑</button>
+            <button class="layui-btn layui-btn-small layui-btn-danger">删除</button>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" class="my-checkbox" data-id="6" /></td>
+        <td>心相印红悦卫生纸卷纸3层*12卷6</td>
+        <td>X1121</td>
+        <td>大</td>
+        <td>￥25.5</td>
+        <td>心相印红悦卫生纸卷纸3层*12卷</td>
+        <td>
+            <button class="layui-btn layui-btn-small">查看</button>
+            <button class="layui-btn layui-btn-small layui-btn-normal">编辑</button>
+            <button class="layui-btn layui-btn-small layui-btn-danger">删除</button>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" class="my-checkbox" data-id="7" /></td>
+        <td>心相印红悦卫生纸卷纸3层*12卷7</td>
+        <td>X1121</td>
+        <td>大</td>
+        <td>￥25.5</td>
+        <td>心相印红悦卫生纸卷纸3层*12卷</td>
+        <td>
+            <button class="layui-btn layui-btn-small">查看</button>
+            <button class="layui-btn layui-btn-small layui-btn-normal">编辑</button>
+            <button class="layui-btn layui-btn-small layui-btn-danger">删除</button>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" class="my-checkbox" data-id="8" /></td>
+        <td>心相印红悦卫生纸卷纸3层*12卷8</td>
+        <td>X1121</td>
+        <td>中</td>
+        <td>￥25.5</td>
+        <td>心相印红悦卫生纸卷纸3层*12卷</td>
+        <td>
+            <button class="layui-btn layui-btn-small">查看</button>
+            <button class="layui-btn layui-btn-small layui-btn-normal">编辑</button>
+            <button class="layui-btn layui-btn-small layui-btn-danger">删除</button>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" class="my-checkbox" data-id="9" /></td>
+        <td>心相印红悦卫生纸卷纸3层*12卷9</td>
+        <td>X1121</td>
+        <td>大</td>
+        <td>￥25.5</td>
+        <td>心相印红悦卫生纸卷纸3层*12卷</td>
+        <td>
+            <button class="layui-btn layui-btn-small">查看</button>
+            <button class="layui-btn layui-btn-small layui-btn-normal">编辑</button>
+            <button class="layui-btn layui-btn-small layui-btn-danger">删除</button>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" class="my-checkbox" data-id="10" /></td>
+        <td>心相印红悦卫生纸卷纸3层*12卷10</td>
+        <td>X1121</td>
+        <td>小</td>
+        <td>￥25.5</td>
+        <td>心相印红悦卫生纸卷纸3层*12卷</td>
+        <td>
+            <button class="layui-btn layui-btn-small">查看</button>
+            <button class="layui-btn layui-btn-small layui-btn-normal">编辑</button>
+            <button class="layui-btn layui-btn-small layui-btn-danger">删除</button>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" class="my-checkbox" data-id="11" /></td>
+        <td>心相印红悦卫生纸卷纸3层*12卷11</td>
+        <td>X1121</td>
+        <td>大</td>
+        <td>￥25.5</td>
+        <td>心相印红悦卫生纸卷纸3层*12卷</td>
+        <td>
+            <button class="layui-btn layui-btn-small">查看</button>
+            <button class="layui-btn layui-btn-small layui-btn-normal">编辑</button>
+            <button class="layui-btn layui-btn-small layui-btn-danger">删除</button>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" class="my-checkbox" data-id="12" /></td>
+        <td>心相印红悦卫生纸卷纸3层*12卷12</td>
+        <td>X1121</td>
+        <td>中</td>
+        <td>￥25.5</td>
+        <td>心相印红悦卫生纸卷纸3层*12卷</td>
+        <td>
+            <button class="layui-btn layui-btn-small">查看</button>
+            <button class="layui-btn layui-btn-small layui-btn-normal">编辑</button>
+            <button class="layui-btn layui-btn-small layui-btn-danger">删除</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<script type="text/javascript" src="../frame/layui/layui.js"></script>
+<!-- jQuery -->
+<script type="text/javascript" charset="utf8" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<!--<script type="text/javascript" src="http://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>-->
+<!--<script type="text/javascript" src="../js/table-tool.js"></script>-->
+
+<script src="../frame/bootstraptable/bootstrap-table.min.js"></script>
+<script src="../frame/bootstraptable/bootstrap-table-mobile.min.js"></script>
+<script src="../frame/bootstraptable/locale/bootstrap-table-zh-CN.min.js"></script>
+
+<script type="text/javascript">
+   $('#dateTable').bootstrapTable({
+               
+                search: true,
+                striped: true,
+                ordering: false,
+                pagination: true,
+                showRefresh: !0,
+                showToggle: !0,
+                showColumns: !0,
+                singleSelect: true,
+                clickToSelect: true,
+                sidePagination: "client",
+                iconSize: "outline",
+                toolbar: '#groupListToolbar',
+                icons: {
+                    refresh: "glyphicon-repeat",
+                    toggle: "glyphicon-list-alt",
+                    columns: "glyphicon-list"
+                },
+                uniqueId: "id"
+               
+            });
+     
+      
+</script>
+</body>
+</html>

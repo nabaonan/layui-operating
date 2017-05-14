@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>工具</title>
+    <link rel="stylesheet" href="./frame/layui/css/layui.css">
+    <!--<link rel="stylesheet" href="./css/style.css">-->
+    <link rel="icon" href="../image/code.png">
+    <style>
+        /*样式*/
+        html,body{ background-color: white; }
+        .tool-top{ position:fixed;top: 0;left: 0;right: 0;padding: 0 20px;background-color: #393D49; }
+        .layui-nav{ width:1000px;margin: 0 auto;padding: 0;border-radius: 0;  }
+        .tool-btn-add{ float: right;width: 60px;height: 60px;border: none;background-color: white; }
+        .tool-btn-add:hover{ cursor: pointer; }
+        .tool-btn-add i{ font-size: 18px;color: black; }
+
+        .main-box{ width: 1000px;min-height:200px;margin: 60px auto 0 auto;border-top: 1px solid transparent; }
+        .coll-box{ width: 100%;padding: 5px 0; }
+        .coll-box li{ width: 100px;height: 100px;display: inline-block;overflow: hidden;border: none;margin: 5px 0; }
+        .coll-box li>a{ display: inline-block; width: 100%;height: 100%;text-align:center; }
+        .coll-box li>a>div{ width: 70px;height: 70px;font-size: 2rem;line-height: 75px;background: #DDD;border-radius:5px;margin: 5px auto 0 auto; }
+        .coll-box li>a>p{ width: 100%;height: 25px;line-height: 25px;font-size:14px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis; }
+        .more-box{ width: 100%;text-align: center; }
+        .more-box .btn-more{ width: 100px; }
+
+        .add-type-box,.add-url-box{ padding: 15px 15px 0 15px; }
+
+        .hidden{ display: none; }
+
+        /*媒体查询*/
+        @media screen and (max-width: 1000px) {
+            .layui-nav{ width: 100%; }
+            .main-box{ width: 100%;text-align: center; }
+        }
+        @media screen and (max-width: 250px) {
+            .layui-nav li:first-child{ display: none; }
+        }
+    </style>
+</head>
+<body>
+<!--头部-->
+<div class="tool-top">
+    <ul class="layui-nav" lay-filter="nav">
+        <li class="layui-nav-item"><a href="javascript:;">返回博客</a></li>
+        <li class="layui-nav-item layui-this">
+            <a href="javascript:;">分类</a>
+            <dl class="layui-nav-child">
+                <dd><a href="javascript:;">分类1</a></dd>
+                <dd><a href="javascript:;">分类2</a></dd>
+                <dd><a href="javascript:;">分类3</a></dd>
+                <dd><a href="javascript:;">添加</a></dd>
+            </dl>
+        </li>
+        <button class="tool-btn-add" href="javascript:;"><i class="layui-icon">&#xe61f;</i></button>
+    </ul>
+</div>
+<!--内容-->
+<div class="main-box">
+    <ul class="coll-box">
+        <li>
+            <a href="javascript:;" title="网易新闻">
+                <div>网</div>
+                <p>网易新闻</p>
+            </a>
+
+        <li>
+            <a href="javascript:;" title="http://baidu.com">
+                <div>H</div>
+                <p>http://baidu.com</p>
+            </a>
+
+        <li>
+            <a href="javascript:;" title="https://www.teamviewer.com/zhcn/download/current-version/">
+                <div>H</div>
+                <p>https://www.teamviewer.com/zhcn/download/current-version/</p>
+            </a>
+
+        <li>
+            <a href="javascript:;" title="360">
+                <div>3</div>
+                <p>360</p>
+            </a>
+
+        <li>
+            <a href="javascript:;" title="361">
+                <div>3</div>
+                <p>361</p>
+            </a>
+
+        <li>
+            <a href="javascript:;" title="网易新闻">
+                <div>网</div>
+                <p>网易新闻</p>
+            </a>
+
+        <li>
+            <a href="javascript:;" title="http://baidu.com">
+                <div>H</div>
+                <p>http://baidu.com</p>
+            </a>
+
+        <li>
+            <a href="javascript:;" title="https://www.teamviewer.com/zhcn/download/current-version/">
+                <div>H</div>
+                <p>https://www.teamviewer.com/zhcn/download/current-version/</p>
+            </a>
+
+        <li>
+            <a href="javascript:;" title="360">
+                <div>3</div>
+                <p>360</p>
+            </a>
+
+        <li>
+            <a href="javascript:;" title="361">
+                <div>3</div>
+                <p>361</p>
+            </a>
+
+        <li>
+            <a href="javascript:;" title="361">
+                <div>3</div>
+                <p>361</p>
+            </a>
+
+        <li>
+            <a href="javascript:;" title="网易新闻">
+                <div>网</div>
+                <p>网易新闻</p>
+            </a>
+
+        <li>
+            <a href="javascript:;" title="http://baidu.com">
+                <div>H</div>
+                <p>http://baidu.com</p>
+            </a>
+
+        <li>
+            <a href="javascript:;" title="https://www.teamviewer.com/zhcn/download/current-version/">
+                <div>H</div>
+                <p>https://www.teamviewer.com/zhcn/download/current-version/</p>
+            </a>
+
+        <li>
+            <a href="javascript:;" title="360">
+                <div>3</div>
+                <p>360</p>
+            </a>
+
+        <li>
+            <a href="javascript:;" title="361">
+                <div>3</div>
+                <p>361</p>
+            </a>
+
+        <li>
+            <a href="javascript:;" title="网易新闻">
+                <div>网</div>
+                <p>网易新闻</p>
+            </a>
+
+        <li>
+            <a href="javascript:;" title="http://baidu.com">
+                <div>H</div>
+                <p>http://baidu.com</p>
+            </a>
+
+        <li>
+            <a href="javascript:;" title="https://www.teamviewer.com/zhcn/download/current-version/">
+                <div>H</div>
+                <p>https://www.teamviewer.com/zhcn/download/current-version/</p>
+            </a>
+
+        <li>
+            <a href="javascript:;" title="360">
+                <div>3</div>
+                <p>360</p>
+            </a>
+
+        <li>
+            <a href="javascript:;" title="361">
+                <div>3</div>
+                <p>361</p>
+            </a>
+
+        <li>
+            <a href="javascript:;" title="361">
+                <div>3</div>
+                <p>361</p>
+            </a>
+
+    </ul>
+    <!--加载更多-->
+    <div class="more-box">
+        <button class="layui-btn layui-btn-small btn-more">加载更多</button>
+    </div>
+</div>
+<!--添加分类表单-->
+<div class="hidden add-type-box">
+    <form class="layui-form layui-form-pane" action="">
+        <div class="layui-form-item">
+            <label class="layui-form-label">分类名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="type" lay-verify="type" autocomplete="off" placeholder="分类名称" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit="" lay-filter="sub">提交</button>
+                <!--<button type="reset" class="layui-btn layui-btn-primary">重置</button>-->
+            </div>
+        </div>
+    </form>
+</div>
+<!--添加网址表单-->
+<div class="hidden add-url-box">
+    <form class="layui-form layui-form-pane" action="">
+        <div class="layui-form-item">
+            <label class="layui-form-label">分类</label>
+            <div class="layui-input-block">
+                <select name="interest" lay-filter="type">
+                    <option value="1">分类1</option>
+                    <option value="2">分类2</option>
+                    <option value="3" selected="">分类3</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">输入网址</label>
+            <div class="layui-input-block">
+                <input type="text" name="url" lay-verify="url" autocomplete="off" placeholder="输入网址" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit="" lay-filter="sub">提交</button>
+                <!--<button type="reset" class="layui-btn layui-btn-primary">重置</button>-->
+            </div>
+        </div>
+    </form>
+</div>
+<!--js-->
+<script type="text/javascript" src="./frame/layui/layui.js"></script>
+<script>
+    layui.use(['element','layer','form'], function(){
+        var element = layui.element(),layer = layui.layer,form = layui.form(),$ = layui.jquery; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+        //监听导航点击
+        element.on('nav(nav)', function(elem){
+            layer.msg(elem.text());
+        });
+
+        //监听添加按钮
+        $('.tool-btn-add').on('click',function(res){
+            //配置一个透明的询问框
+            layer.confirm('',{
+                title:'选择你要添加的项',
+                btnAlign: 'c',
+                scrollbar: false,
+                btn: ['添加分类', '添加网址']
+            },function(index, layero){
+                console.log(layero);
+                layer.close(index);
+                //页面层-自定义
+                layer.open({
+                    type: 1,
+                    title: '添加分类',
+                    closeBtn: 1,
+                    shadeClose: true,
+                    scrollbar: false,
+                    content: $('.add-type-box')
+                });
+            },
+            function(index, layero){
+                console.log(layero);
+                layer.close(index);
+                //页面层-自定义
+                layer.open({
+                    type: 1,
+                    title: '添加网址',
+                    closeBtn: 1,
+                    shadeClose: true,
+                    scrollbar: false,
+                    content: $('.add-url-box')
+                });
+            }
+            );
+
+        });
+
+        //自定义验证规则
+        form.verify({
+            type: function(value){
+                if(value.length < 2){
+                    return '至少得2个字符';
+                }
+            }
+        });
+
+        //监听提交
+        form.on('submit(sub)', function(data){
+            layer.alert(JSON.stringify(data.field), {
+                title: '最终的提交信息'
+            });
+            return false;
+        });
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+	"data": [
+		{
+			"id": 1,
+			"name": "李书记",
+			"deptName": "技术部",
+			"role": "1",
+			"email": "erere.gmail.com",
+			"realName": "李达康"
+		}, {
+			"id": 2,
+			"name": "易书记",
+			"deptName": "技术部",
+			"role": "2",
+			"email": "erere.gmail.com",
+			"realName": "易学习"
+			
+		}
+	],
+	"recordsFiltered": 11,
+	"status": true
+}

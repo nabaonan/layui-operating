@@ -1,0 +1,25 @@
+{
+	"data": [
+		{
+			"id": 1,
+			"name": "web大前端工程师1",
+			"job": "开发",
+			"workAttr": "芍药居38号楼4层",
+			"recruitPeople": "管理员",
+			"jobStatus": "2",
+			"startDate": 1488988800000
+		}, {
+			"id": 2,
+			"name": "web大前端工程师2",
+			"job": "开发",
+			"workAttr": "芍药居38号楼4层",
+			"recruitPeople": "管理员",
+			"jobStatus": "2",
+			"startDate": 1488988800000
+			
+		}
+	],
+	"recordsFiltered": "1",
+	"recordsTotal": "5",
+	"status": true
+}

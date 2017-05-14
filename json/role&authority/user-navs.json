@@ -1,0 +1,145 @@
+{
+	"status": true,
+	"data": {
+		"navs": [
+			{
+				"name": "用户管理",
+				"children": [
+					{
+						"href": "views/user/user-list.html",
+						"name": "用户管理",
+						"id": "11"
+					}
+				]
+			}, {
+				"name": "分中心管理",
+				"children": [
+					{
+						"href": "views/user/user-list.html",
+						"name": "分中心管理",
+						"id": "21"
+					}
+				]
+			}, {
+				"name": "产品管理",
+				"children": [
+					{
+						"href": "views/product/user-list.html",
+						"name": "产品线管理",
+						"id": "31"
+					}, {
+						"href": "views/product/user-list.html",
+						"name": "产品管理",
+						"id": "32"
+					}
+				]
+			}, {
+				"name": "商品管理",
+				"children": [
+					{
+						"href": "views/good/user-list.html",
+						"name": "商品与定价",
+						"id": "41"
+					}, {
+						"href": "views/goods/not-audit-goods-list.html",
+						"name": "待审核商品",
+						"id": "42"
+					}
+				]
+			}, {
+				"name": "促销管理",
+				"children": [
+					{
+						"href": "views/user/user-list.html",
+						"name": "规则管理",
+						"id": "51"
+					}
+				]
+			}, {
+				"name": "报单管理",
+				"children": [
+					{
+						"href": "views/report/user-list.html",
+						"name": "报单",
+						"id": "61"
+					}
+				]
+			}, {
+				"name": "订单管理",
+				"children": [
+					{
+						"href": "views/order/order-list.html",
+						"name": "订单管理",
+						"id": "71"
+					}
+				]
+			}, {
+				"name": "财务管理",
+				"children": [
+					{
+						"href": "views/finance/user-list.html",
+						"name": "财务管理",
+						"id": "81"
+					}
+				]
+			}, {
+				"name": "统计报表",
+				"children": [
+					{
+						"href": "views/user/user-list.html",
+						"name": "销售统计",
+						"id": "91"
+					}, {
+						"href": "views/user/user-list.html",
+						"name": "财务统计",
+						"id": "101"
+					}
+				]
+			}, {
+				"name": "日志管理",
+				"children": [
+					{
+						"href": "views/log/user-list.html",
+						"name": "操作日志",
+						"id": "121"
+					}
+				]
+			}, {
+				"name": "权限管理",
+				"children": [
+					{
+						"href": "views/role&authority/authority-list.html",
+						"name": "权限列表",
+						"id": "131"
+					}, {
+						"href": "views/role&authority/sys-user-list.html",
+						"name": "系统用户管理",
+						"id": "132"
+					}, {
+						"href": "views/role&authority/role-list.html",
+						"name": "角色管理",
+						"id": "133"
+					}
+				]
+			}, {
+				"name": "基础配置",
+				"children": [
+					{
+						"href": "views/basic/user-list.html",
+						"name": "通用表",
+						"id": "141"
+					}
+				]
+			}, {
+				"name": "系统设置",
+				"children": [
+					{
+						"href": "views/system/config.html",
+						"name": "帐号设置",
+						"id": "151"
+					}
+				]
+			}
+		]
+	}
+}
