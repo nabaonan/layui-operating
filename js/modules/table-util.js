@@ -31,6 +31,7 @@ layui.define(requireModules, function(exports) {
 				ordering: false,
 				lengthChange: false,
 				retrieve: true,
+				autoWidth:true,
 				paginationType: "full_numbers",
 				ajax: {
 					url: option.url,
@@ -42,10 +43,21 @@ layui.define(requireModules, function(exports) {
 						} else {
 							param = {};
 						}
-
+						var orderInfo;
+						var order = requestParam.order;
+						 
+						var orderName,orderType;
+						
+						if(order && order.length!=0){//只支持单列排序，如果支持多列排序再改
+							orderName = requestParam.columns[order[0].column].data;
+							orderType = order[0].dir;
+						}
+						
 						var pageParam = {
 							start: requestParam.start,
 							length: requestParam.length,
+							orderName: orderName,
+							orderType: orderType
 						}
 						return $.extend(true, pageParam, param);
 					}

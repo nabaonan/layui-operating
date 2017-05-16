@@ -21,8 +21,8 @@ layui.define(requireModules, function(exports) {
 		'logout': {
 			url: '../true.json'
 		},
-		'getValidCode': {
-			url:'../../image/code.png'
+		'getValidImg': {
+			url:'../../image/v.png'
 		}
 	}
 	

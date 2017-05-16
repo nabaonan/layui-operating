@@ -46,6 +46,7 @@ layui.use(requireModules, function(
 		},
 
 		renderTable: function() {
+			delete this.selectRow;
 			console.log('renderTable');
 			//请求后台获取数据
 			ajax.request(roleApi.getUrl('getAllAutorityList'), null, function(result) {
@@ -135,10 +136,10 @@ layui.use(requireModules, function(
 		},
 
 		clickRow: function(data) {
+			var rowData = $('tr[data-tt-id="'+data.fid+'"]').data('rowData');			
+			data.fatherName = rowData?rowData.title:'';
 			controller.selectRow = data;
-//			console.log($('#authority-list').treetable('node',data.fid));
-//			data.fatherName = $('#authority-list').treetable('node',data.fid).title;
-//			console.log('%%%%',data,controller.selectRow);
+			
 		},
 
 		bindEvent: function() {
@@ -158,6 +159,7 @@ layui.use(requireModules, function(
 
 	//开方外部访问api
 	window.authorityList = {
+		
 		refreshTable: function() {
 			controller.renderTable();
 		}

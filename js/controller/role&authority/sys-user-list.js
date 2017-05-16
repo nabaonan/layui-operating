@@ -17,9 +17,7 @@ var requireModules = [
 	'valid-login'
 ];
 
-registeModule(window, requireModules, {
-	'role&authority-api': 'api/role&authority-api'
-});
+registeModule(window, requireModules);
 
 //参数有顺序
 layui.use(requireModules, function(
@@ -215,7 +213,13 @@ layui.use(requireModules, function(
 					yes: function(index, layero) {
 						var iframeWin = window[layero.find('iframe')[0]['name']];
 						var datas = iframeWin.tree.getSelectData();
-						console.log(datas[0]);
+						ajax.request(authorityApi.getUrl('updateAuthority'),{
+							deptId:datas[0].id,//
+							userId:data.id
+						},function(){
+							toast.success('修改部门成功');
+						});
+						
 						layer.close(index);
 					}
 				});

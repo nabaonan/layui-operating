@@ -16,13 +16,37 @@ layui.define('form',function(exports) {
 	
 	exports('form-util', {
 		renderSelects: function(targetSelector, templates) {
-
 			$(targetSelector).html("");
 			var options = "<option value=''>请选择</option>";
 			$.each(templates, function(index, item) { //这个是后台开发加上的
 				options += "<option value='" + item.key + "'>" + item.value + "</option>";
 			});
 			$(targetSelector).append(options);
+		},
+		
+		/**
+		 * 渲染checkbox
+		 * @param {Object} targetDomId
+		 * @param {Object} datas
+		 * @param {Object} targetName 表单提交的name属性名
+		 */
+		renderCheckboxes: function(targetDomId, datas, targetName) {
+			$("#" + targetDomId).html("");
+			var checkboxes = '';
+			$.each(datas, function(index, item) {
+				checkboxes += '<input type="checkbox" name="' + targetName + '" value="' + item.value + '" title="'+item.name+'"/>';
+			});
+			$("#" + targetDomId).append(checkboxes);
+		},
+		
+		renderRadios: function(targetSelector, templates) {
+
+			$("#" + targetDomId).html("");
+			var radios = '';
+			$.each(datas, function(index, item) {
+				radios += '<input type="radio" name="' + targetName + '" value="' + item.value + '" title="'+item.name+'"/>';
+			});
+			$("#" + targetDomId).append(radios);
 		},
 		
 		/**
@@ -42,9 +66,25 @@ layui.define('form',function(exports) {
 		},
 		
 		composeData: function($form) {
-			var searchParam = $form.serialzeJSON();
-           //这里应该做一些比如日期插件的处理，最后组织数据返回
-            return searchParam;
+			
+			var serialObj = {};
+
+			$($form.serializeArray()).each(function() {
+				serialObj[this.name] = this.value
+			});
+			return serialObj;
+		},
+		
+		composeCheckboxesValue: function($form) {
+			var result = {};
+			
+			$form.find(":checkbox:checked").each(function(index, item) {
+				if(!result[item.name].push) {
+					result[item.name] = [];
+				}
+				result[item.name].push(item.value);
+			});
+			return result;
 		}
 
 	});

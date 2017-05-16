@@ -15,7 +15,13 @@ var requireModules = [
 
 registeModule(window, requireModules);
 
-layui.use(requireModules, function(form, formUtil, layer, ajax,roleApi) {
+layui.use(requireModules, function(
+	form, 
+	formUtil,
+	layer, 
+	ajax,
+	roleApi
+) {
 	var $ = layui.jquery;
 	var param = ajax.getAllUrlParam();
 
@@ -37,13 +43,21 @@ layui.use(requireModules, function(form, formUtil, layer, ajax,roleApi) {
 //			parent.roleList.refreshTable();
 		});
 	});
+	
+	$('button[type="reset"]').click(function() {
+		authorityData = undefined;
+	});
+	
+
 
 	$('#choose-authority').click(function() {
-		console.log('asdfasdfasdf');
+		var ids = authorityData?authorityData.ids:'';
 		
 		var url = ajax.composeUrl(webName + '/views/role&authority/authority-tree.html', {
-			check: true
+			check: true,
+			recheckData: ids//前端回显数据
 		});
+		
 		layer.open({
 			type: 2,
 			title: "选择权限",

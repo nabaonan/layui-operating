@@ -11,6 +11,8 @@
 		}, {
 			"btnKey": "edit"
 		}, {
+			"btnKey": "export"
+		}, {
 			"btnKey": "row-edit"
 		}, {
 			"btnKey": "row-view"
@@ -18,6 +20,8 @@
 			"btnKey": "row-switch"
 		}, {
 			"btnKey": "row-reset-pwd"
+		}, {
+			"btnKey": "row-config"
 		}
 	]
 }

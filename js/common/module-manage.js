@@ -53,7 +53,8 @@ function registeModule(window,modulesYouWanted,otherModules) {
 			'good-api':'api/good-api',
 			'login-api':'api/login-api',
 			'role&authority-api':'api/role&authority-api',
-			'user-api':'api/user-api'
+			'user-api':'api/user-api',
+			'product-api':'api/product-api'
 		}
 		
 		//刨除系统自带modules

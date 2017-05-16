@@ -24,11 +24,11 @@
 				"name": "产品管理",
 				"children": [
 					{
-						"href": "views/product/user-list.html",
+						"href": "views/product/productline-list.html",
 						"name": "产品线管理",
 						"id": "31"
 					}, {
-						"href": "views/product/user-list.html",
+						"href": "views/product/product-list.html",
 						"name": "产品管理",
 						"id": "32"
 					}

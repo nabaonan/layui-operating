@@ -1,0 +1,40 @@
+{
+	"data": [
+		{
+			"businessType": [
+				"2"
+			],
+			"businessName": [
+				"组织"
+			],
+			"code": null,
+			"comments": "备注...",
+			"createDate": 1494259200000,
+			"creater": "admin",
+			"departmentId": [
+				"1",
+				"2"
+			],
+			"departmentName": [
+				"学校事业部",
+				"学生事业部"
+			],
+			"effDate": null,
+			"effStatus": null,
+			"header": "admin",
+			"id": "05d0819d-4dc4-4595-af48-a780f35ce72d",
+			"name": "产品线7",
+			"phone": "123456789",
+			"portalAddress": "http://www.baidu.com",
+			"startUse": null
+		}
+	],
+	"msg": null,
+	"recordsFiltered": "1",
+	"status": true
+}
+
+
+
+
+

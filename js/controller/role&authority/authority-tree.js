@@ -20,9 +20,21 @@ layui.config({
 }).use(requireModules, function(ajax, authorityApi, toast, treeUtil) {
 
 	var check = ajax.getFixUrlParams('check') ? true : false;
+	var recheckData = ajax.getFixUrlParams('recheckData');
+	
 	var treeId = 'authority-tree';
 	ajax.request(authorityApi.getUrl('getAuthorityTree'), null, function(result) {
 		var treeId = 'authority-tree';
+		if(!$.isEmptyObject(recheckData)){
+			recheckData = recheckData.split(",");
+			$.each(result.data, function(index,item) {
+				delete item.checked;
+				if($.inArray(''+item.id,recheckData) != -1){
+					item.checked = true;
+				}
+			});
+		}
+		
 		treeUtil.renderTree($('#' + treeId), null, result.data, check);
 	});
 

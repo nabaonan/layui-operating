@@ -27,6 +27,11 @@ layui.define(function(exports) {
 			icon: '&#x1002;',
 			name:'刷新'
 		},
+		'export': {
+			className: baseBtnClass + 'layui-btn-normal export',
+			icon: '&#xe61e;',
+			name:'导出'
+		},
 		'row-edit': {
 			className: baseBtnClass + 'layui-btn-small layui-btn-warm row-edit',
 			icon: '&#xe642;',

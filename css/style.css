@@ -169,7 +169,7 @@
     text-align: center;
 }
 
-.login-box .layui-input[type='number'] {
+.login-box .layui-input.half {
     display: inline-block;
     width: 50%;
     vertical-align: top;
@@ -263,7 +263,7 @@ input[type='checkbox'] {
     font-family: "Microsoft Yahei";
     content: "√";
     color: #FFFFFF;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 600;
 }
 

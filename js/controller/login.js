@@ -7,7 +7,8 @@ layui.config({
 var requireModules = [
 	'form',
 	'layer',
-	'login'
+	'login',
+	'login-api'
 ];
 
 registeModule(window, requireModules);
@@ -15,7 +16,8 @@ registeModule(window, requireModules);
 layui.use(requireModules, function(
 	form,
 	layer,
-	login
+	login,
+	loginApi
 ) {
 	var $ = layui.jquery,
 		f = form();
@@ -39,6 +41,12 @@ layui.use(requireModules, function(
 			}
 		}
 	});
+	
+	$('#valid-img').attr('src',loginApi.getUrl('getValidImg').url+'?_='+Math.random()); //初始化验证码赋值
+	$('#valid-img').click(function() {
+		$(this).attr('src',loginApi.getUrl('getValidImg').url+'?_='+Math.random()); 
+	});
+	
 	// 提交监听
 	f.on('submit(login)', function(data) {
 		var user = data.field;

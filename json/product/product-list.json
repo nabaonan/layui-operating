@@ -1,0 +1,35 @@
+{
+	"data": [
+		{
+			"id": 1,
+			"code":"c001",
+			"name":"业务名称",
+			"businessType":"业务类型",
+			"portalAddress":"http://sadfasdfasdf.com",
+			"header":"负责人",
+			"phone":"13401111111",
+			"schoolSystem":"学制",
+			"schoolLevel":"学段",
+			"timeLength":"时长",
+			"grade":"年级",
+			"specialty":"学科",
+			
+			"phone":"13401111111",
+			
+			"effDate":"2017-01-02 22:22:33"
+			
+		}, {
+			"id": 2,
+			"code":"c002",
+			"name":"业务名称",
+			"businessType":"业务类型",
+			"portalAddress":"http://sadfasdfasdf.com",
+			"header":"负责人",
+			"phone":"13401111111",
+			"effDate":"2017-01-02 22:22:33"
+			
+		}
+	],
+	"recordsFiltered": "1",
+	"status": true
+}
