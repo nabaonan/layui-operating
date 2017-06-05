@@ -26,7 +26,7 @@ layui.define('base-url', function(exports) {
 			url: 'authority-tree-list.json'
 		},
 		'getAuthorityTree':{//这里可以和上边配成同一个接口，但是感觉配成同一个不好，因为这里是纯tree，上面那个有其他字段，最好分开   ---配置权限的树型结构
-			url: 'authority-tree-list.json'
+			url: 'authority-tree.json'
 		},
 		'deleteAuthority':{	//删除权限
 			url: '../true.json'
@@ -44,12 +44,10 @@ layui.define('base-url', function(exports) {
 			url:'../true.json'
 		},
 		'updateAuthority':{//更新权限
-			url:'../true.json',
-			type:'post'
+			url:'../true.json'
 		},
 		'updateRole':{//更新橘色
-			url:'../true.json',
-			type:'post'
+			url:'../true.json'
 		},
 		'enableUser':{//启用系统用户
 			url:'../false.json'

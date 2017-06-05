@@ -53,13 +53,14 @@ layui.use(requireModules, function(
 
 		renderTable: function() {
 			tableUtil.renderTable($table, {
+				dom: "t",
 				url: authorityApi.getUrl('getRoleList').url,
 				columns: [{
-					data: 'name',
+					data: 'groupName',
 					title: '角色名称',
 					width: '20%'
 				}, {
-					data: 'desc',
+					data: 'description',
 					title: '角色描述',
 					width: '40%'
 				}, {
@@ -78,8 +79,7 @@ layui.use(requireModules, function(
 			var index = layer.open({
 				type: 2,
 				title: "修改权限",
-				area: ['50%', '300px'],
-				offset: '10%',
+				area: ['50%', '90%'],
 				scrollbar: false,
 				content: ajax.composeUrl(url, {
 					check: true
@@ -91,7 +91,6 @@ layui.use(requireModules, function(
 					var data = $.extend(true, authorityData, {
 						userId: rowData.id
 					});
-					console.log(data);
 					ajax.request(authorityApi.getUrl('updateAuthority'), data, function() {
 						layer.close(index);
 					});
@@ -107,7 +106,7 @@ layui.use(requireModules, function(
 			var index = layer.open({
 				type: 2,
 				title: "添加角色",
-				area: ['50%','50%'],
+				area: ['50%','80%'],
 				offset: '10%',
 				scrollbar: false,
 				content: webName + '/views/role&authority/role-update.html'
@@ -120,7 +119,7 @@ layui.use(requireModules, function(
 			var index = layer.open({
 				type: 2,
 				title: "修改权限",
-				area: ['50%','50%'],
+				area: ['50%','80%'],
 				offset: '10%',
 				scrollbar: false,
 				content: url
@@ -134,7 +133,6 @@ layui.use(requireModules, function(
 				new form().render();
 			});
 
-			$table.on('click', '.row-config', controller.chooseAuth);
 
 			//点击刷新
 			$('body').on('click', '.refresh', controller.refresh);
@@ -148,4 +146,12 @@ layui.use(requireModules, function(
 	};
 
 	controller.init();
+	
+	//开方外部访问api
+	window.list = {
+		refresh: function() {
+			controller.refresh();
+		}
+	}
+	
 });

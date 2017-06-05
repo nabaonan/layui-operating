@@ -9,16 +9,30 @@
 		<title>产品管理</title>
 		<link rel="stylesheet" href="../../frame/layui/css/layui.css">
 		<link rel="stylesheet" href="../../css/style.css">
+		<style type="text/css">
+			.choose-area-btn {
+				width: 30%;
+				border-color: #e6e6e6;
+				border-radius: 0 2px 2px 0;
+				background: #FBFBFB;
+			}
+			
+			.choose-area-input {
+				width: 70%;
+				float: left;
+				border-right: none;
+			}
+		</style>
 	</head>
 
 	<body class="body">
 
-		<form class="layui-form" action="">
+		<form id="condition" class="layui-form layui-form-pane" action="">
 			<div class="layui-form-item">
 				<div class="layui-inline">
 					<label class="layui-form-label">关键词</label>
 					<div class="layui-input-inline">
-						<input type="text" name="keyword" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+						<input type="text" name="name" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
 					</div>
 
 				</div>
@@ -33,9 +47,8 @@
 				<div class="layui-inline">
 					<label class="layui-form-label">产品线</label>
 					<div class="layui-input-inline">
-						<select id="" name="">
+						<select id="product-line" name="productLine">
 							<option value="">全部</option>
-
 						</select>
 					</div>
 
@@ -45,9 +58,8 @@
 
 					<label class="layui-form-label">产品类型</label>
 					<div class="layui-input-inline">
-						<select id="" name="">
+						<select id="element-type" name="productType">
 							<option value="">全部</option>
-
 						</select>
 					</div>
 
@@ -56,7 +68,18 @@
 
 					<label class="layui-form-label">学制</label>
 					<div class="layui-input-inline">
-						<select id="" name="">
+						<select id="school-system" name="schoolSystem">
+							<option value="">全部</option>
+						</select>
+					</div>
+
+				</div>
+
+				<div class="layui-inline">
+
+					<label class="layui-form-label">学段</label>
+					<div class="layui-input-inline">
+						<select id="period" name="schoolLevel" lay-filter="period">
 							<option value="">全部</option>
 						</select>
 					</div>
@@ -67,7 +90,7 @@
 
 					<label class="layui-form-label">年级</label>
 					<div class="layui-input-inline">
-						<select id="" name="">
+						<select id="grade" name="grade">
 							<option value="">全部</option>
 						</select>
 					</div>
@@ -78,7 +101,7 @@
 
 					<label class="layui-form-label">学科</label>
 					<div class="layui-input-inline">
-						<select id="" name="">
+						<select id="specialty" name="specialty">
 							<option value="">全部</option>
 						</select>
 					</div>
@@ -88,22 +111,17 @@
 				<div class="layui-inline">
 					<label class="layui-form-label">适用地区</label>
 					<div class="layui-input-inline">
-						<input type="text" name="" placeholder="请输入" autocomplete="off" class="layui-input">
+						<input type="text" name="area" readonly="readonly" autocomplete="off" class="layui-input choose-area-input">
+						<button type="button" class="layui-btn layui-btn-primary choose-area-btn">
+						    <i class="layui-icon">&#xe61a;</i>
+						</button>
 					</div>
 				</div>
 
 				<div class="layui-inline">
-					<label class="layui-form-label">有效期</label>
-					<div class="layui-input-inline">
-						<input type="text" name="" placeholder="请输入" autocomplete="off" class="layui-input">
-					</div>
-				</div>
-
-				<div class="layui-inline">
-
 					<label class="layui-form-label">计费方式</label>
 					<div class="layui-input-inline">
-						<select id="" name="">
+						<select id="bill-type" name="billType">
 							<option value="">全部</option>
 						</select>
 					</div>
@@ -113,7 +131,18 @@
 
 					<label class="layui-form-label">业务类型</label>
 					<div class="layui-input-inline">
-						<select id="" name="">
+						<select id="business-type" name="businessType">
+							<option value="">全部</option>
+						</select>
+					</div>
+
+				</div>
+
+				<div class="layui-inline">
+
+					<label class="layui-form-label">审核状态</label>
+					<div class="layui-input-inline">
+						<select id="review-status" name="reviewStatus">
 							<option value="">全部</option>
 						</select>
 					</div>
@@ -123,23 +152,30 @@
 				<div class="layui-inline">
 					<label class="layui-form-label">同步时间</label>
 					<div class="layui-input-inline">
-						<input type="text" name="" placeholder="请输入" autocomplete="off" class="layui-input">
+						<input class="layui-input synDateStart" name="uploadTimeBegin" placeholder="起始日期">
+					</div>
+					<div class="layui-form-mid">~</div>
+					<div class="layui-input-inline">
+						<input class="layui-input synDateEnd" name="uploadTimeEnd" placeholder="截至日期">
 					</div>
 				</div>
 
 				<div class="layui-inline">
+					<label class="layui-form-label">有效期</label>
 
-					<label class="layui-form-label">审核状态</label>
 					<div class="layui-input-inline">
-						<select id="" name="">
-							<option value="">全部</option>
-						</select>
+						<input class="layui-input effDateStart" name="expiryDateBegin" placeholder="起始日期">
 					</div>
-
+				 	<div class="layui-form-mid">~</div>
+					<div class="layui-input-inline">
+						<input class="layui-input effDateEnd" name="expiryDateEnd" placeholder="截至日期">
+					</div>
 				</div>
 
 				<div class="layui-inline fr">
-					<a class="layui-btn btn-search mgl-20">查询</a>
+					<button id="search-btn" type="button" class="layui-btn btn-search mgl-20">
+						<i class="layui-icon">&#xe615;</i> 查询
+					</button>
 				</div>
 			</div>
 
@@ -147,8 +183,10 @@
 
 		<div id="page-btns" class="layui-btn-group fl">
 		</div>
-
-		<table id="product-list" class="layui-table"></table>
+		<!--必须套在layuiform中，否则checkbox不生效-->
+		<div class="layui-form">
+			<table id="product-list" class="layui-table" lay-skin="row"></table>
+		</div>
 
 		<script type="text/javascript" src="../../js/common/module-manage.js"></script>
 		<script type="text/javascript" charset="utf8" src="../../frame/layui/layui.js"></script>

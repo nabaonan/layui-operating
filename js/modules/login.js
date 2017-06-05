@@ -29,7 +29,6 @@ layui.define(requireModules,function(exports) {
 			if('undefined'==user||undefined==user||''==user){
 				redirect("login.html");
 			}else{
-				console.log("asdfasdf",user);
 				return JSON.parse(user);
 			}
 		},
@@ -39,11 +38,11 @@ layui.define(requireModules,function(exports) {
 			sessionStorage.setItem('login',JSON.stringify(data));
 		},
 		
-		login: function(userData){
+		login: function(userData,errorCall){
 			ajax.request(loginApi.getUrl('login'), userData, function(result) {
 				login.setLoginInfo(result.data);
 				redirect('index.html');
-			});
+			},true,errorCall);
 		},
 
 		removeLogin: function() {

@@ -12,9 +12,9 @@ var requireModules = [
 	'authority',
 	'btns',
 	'form-util',
-	'product-api'
-	/*,
-		'valid-login'*/
+	'product-api',
+	'toast',
+	'valid-login'
 ];
 
 registeModule(window, requireModules);
@@ -28,57 +28,85 @@ layui.use(requireModules, function(
 	authority,
 	btns,
 	formUtil,
-	productApi
+	productApi,
+	toast
 
 ) {
 	var $ = layui.jquery;
 
 	var f = new form();
+
+	var count = 0; //记录动态框的个数
 	var controller = {
 		init: function() {
-			
+
 			var data = ajax.getAllUrlParam();
-			if(!$.isEmptyObject(data)) {
-				data.departmentId = data.departmentId.split(',');
-				data.businessType = data.businessType.split(',');
-				formUtil.renderData($('#productline-form'), data);
-				f.render();
-			}
+			controller.renderBusinessType();
+			controller.renderDept();
+			
+
+			var interval = setInterval(function() {
+				if(count == 2) {
+					if(!$.isEmptyObject(data)) {
+						
+						data.departmentId = data.departmentId.split(',');
+						data.businessType = data.businessType.split(',');
+						
+						formUtil.renderData($('#productline-form'), data);
+					}
+					clearInterval(interval);
+					f.render();
+				}
+			}, 0);
+
 			controller.bindEvent();
-		
+
 		},
 
 		renderBusinessType: function() {
-			ajax.request(productApi.getUrl('getBusinessTypeSelect'), null, function(result) {
-				
-				result.data.unshift({
-					key:'all',
-					value:'全部'
-				});
-				formUtil.renderSelects('#business-type', result.data);
+			ajax.request(productApi.getUrl('getKeyValue'), {
+				type: 'business_type'
+			}, function(result) {
+				formUtil.renderRadios('#business-type', result.data, "businessType");
+				$('#business-type :radio:eq(0)').attr('checked',true);
+				count++;
 			});
 		},
 
 		renderDept: function() {
-			ajax.request(productApi.getUrl('getUseStateSelect'), null, function(result) {
-				result.data.unshift({
-					key:'all',
-					value:'全部'
-				});
-				formUtil.renderSelects('#use-state', result.data);
+			ajax.request(productApi.getUrl('getKeyValue'), {
+				type: 'department'
+			}, function(result) {
+				formUtil.renderCheckboxes('#dept', result.data, "departmentId");
+				count++;
 			});
 		},
-		
 
 		bindEvent: function() {
-
+			
+			
+			f.verify({
+				telphone: function(value, item) {
+					if(value!==''){
+						if(!(/^1[34578]\d{9}$/.test(value))){
+							return '请输入正确手机号!';
+						}
+					}
+				}
+			});
+			
+			
 			//监听提交
 			f.on('submit(productline-form)', function(data) {
-				var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
-				console.log('d提交的产品线数据',data.field);
-				ajax.request(productApi.getUrl('updateProductline'),data.field,function(){
+				var checkboxes = formUtil.composeCheckboxesValue($(data.form));
+				var data = $.extend(true, data.field, checkboxes);
+				ajax.request(productApi.getUrl('updateProductline'), data, function() {
+					toast.success('产品线信息提交成功！');
+					var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+					parent.list.refresh();
 					parent.layer.close(index); //再执行关闭
 				});
+				return false;
 			});
 
 		}

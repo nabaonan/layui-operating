@@ -47,24 +47,20 @@ layui.use(requireModules, function(
 
 		renderTable: function() {
 			delete this.selectRow;
-			console.log('renderTable');
 			//请求后台获取数据
 			ajax.request(roleApi.getUrl('getAllAutorityList'), null, function(result) {
 				treeTable.init($('#authority-list'), {
 					data: result.data,
-					column: 1,
+					column: 0,
 					initialState: "expanded",
 					alias: {
-						pid: 'fid'
+						pid: 'parentId'
 					},
 					columns: [{
-						title: "id",
-						name: "id"
-					}, {
-						title: "title",
+						title: "menuName",
 						name: "权限名称"
 					}, {
-						title: 'url',
+						title: 'menuUrl',
 						name: '权限链接'
 					}],
 					events: {
@@ -78,16 +74,12 @@ layui.use(requireModules, function(
 			var index = layer.open({
 				type: 2,
 				title: "添加权限",
-				area: '80%',
+				area: ['80%','80%'],
 				offset: '10%',
 				scrollbar: true,
-				content: webName + '/views/role&authority/authority-update.html',
-				success: function(ly, index) {
-					layer.iframeAuto(index);
-				}
+				content: webName + '/views/role&authority/authority-update.html'
 			});
 
-			console.log('添加');
 		},
 		
 		deleteAuth: function() {
@@ -101,7 +93,10 @@ layui.use(requireModules, function(
 				icon: 3,
 				title: '提示'
 			}, function(index) {
-				ajax.request(roleApi.getUrl('deleteAuthority'), null, function() {
+				ajax.request(roleApi.getUrl('deleteAuthority'), {
+					id:controller.selectRow.id
+				},
+				function() {
 					controller.renderTable();
 					layer.close(index);
 				});
@@ -121,13 +116,10 @@ layui.use(requireModules, function(
 			var index = layer.open({
 				type: 2,
 				title: "修改权限",
-				area: '80%',
+				area: ['80%','80%'],
 				offset: '10%',
 				scrollbar: true,
-				content: ajax.composeUrl(url, controller.selectRow),
-				success: function(ly, index) {
-					layer.iframeAuto(index);
-				}
+				content: ajax.composeUrl(url, controller.selectRow)
 			});
 		},
 
@@ -136,8 +128,8 @@ layui.use(requireModules, function(
 		},
 
 		clickRow: function(data) {
-			var rowData = $('tr[data-tt-id="'+data.fid+'"]').data('rowData');			
-			data.fatherName = rowData?rowData.title:'';
+			var rowData = $('tr[data-tt-id="'+data.parentId+'"]').data('rowData');			
+			data.fatherName = rowData?rowData.menuName:'';
 			controller.selectRow = data;
 			
 		},

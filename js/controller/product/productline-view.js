@@ -6,7 +6,9 @@ layui.config({
 
 var requireModules = [
 	'form-util',
-	'request'
+	'request',
+	'date-util',
+	'valid-login'
 
 ];
 
@@ -16,12 +18,16 @@ registeModule(window, requireModules);
 layui.use(requireModules, function(
 
 	formUtil,
-	ajax
+	ajax,
+	dateUtil
 ) {
 	var $ = layui.jquery;
 	var data = ajax.getAllUrlParam();
 	if(!$.isEmptyObject(data)){
-		console.log('查看数据',data);
+		if(data.effDate && data.effDate!=='') {
+			data.effDate = dateUtil.formatStr(new Date(parseInt(data.effDate)), "yyyy-MM-dd");
+		}
+		
 		formUtil.renderData($('#productline-form'),data);
 	}
 });

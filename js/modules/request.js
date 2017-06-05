@@ -66,23 +66,40 @@ layui.config({
 		   return theRequest;   
 		},
 		
-		composeUrl: function(url,data) {
+		composeUrl: function(url,data,notEncodeUri,isTransArr) {
 			
 			if(!$.isEmptyObject(data)){
-				var str = '?';
+				var str = '&';//如果是有参数的则追加参数
+				if(url.indexOf('?') == -1){
+					str = '?';
+				}
+				
 				$.each(data,function(prop,value){
-					str+=prop+'='+value+'&'
+					
+					
+					if(isTransArr && value instanceof Array){
+						$.each(value, function(i,v) {
+							v = (v == null?'':v);
+							str+=(prop+'[]='+v+'&');
+						});
+					}else{
+						value = (value == null?'':value);
+						str+=prop+'='+value+'&';
+					}
 				});
 				str = str.substring(0,str.length-1);
-				
-				return encodeURI(url + str);
+				if(notEncodeUri){
+					return  url+str;
+				}else{
+					return encodeURI(url + str);
+				}
 			}else{
 				return url;
 			}
 		},
 		
 		
-		request: function(urlObj, data, successCallback, isAsync, errorCallback, linkErrorCallback) {
+		request: function(urlObj, data, successCallback, isAsync, errorCallback, linkErrorCallback,otherOpts) {
 			var returnData;
 			var asy = true;
 			if(isAsync != undefined || isAsync != null) {
@@ -92,6 +109,7 @@ layui.config({
 				type: urlObj.type,
 				url: urlObj.url,
 				async: asy,
+				contentType:'application/x-www-form-urlencoded',
 				data: data || {},
 				dataType: "json",
 				success: function(result) {
@@ -117,7 +135,9 @@ layui.config({
 
 				}
 			};
-			$.ajax(opts);
+			var totalOpt = $.extend({}, opts, otherOpts);
+			
+			$.ajax(totalOpt);
 			//			$.log("请求参数是", result, opts.async);
 			return returnData; //如果设置同步请求可以返回，需要用就用，不需要就不用
 		},

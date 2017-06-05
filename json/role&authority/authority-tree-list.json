@@ -1,113 +1,138 @@
 {
 	"data": [
-
 		{
-			"id": 1,
-			"fid": 0,
-			"authority":1,
-			"title": "系统权限",
-			"url": "www.baidu.com"
+			"authValue": "4096",
+			"btnKey": "",
+			"checked": false,
+			"id": "04237a1f-f853-4f14-ab7e-f17eb12c0b6d",
+			"levels": "2",
+			"menuName": "测试1",
+			"menuUrl": "aa",
+			"parentId": "fa19a2da-394a-4b8d-8463-a03d93b95f11",
+			"type": "0"
 		}, {
-			"id": 2,
-			"fid": 0,
-			"authority":2,
-			"title": "用户权限",
-			"url": "www.baidu.com"
+			"authValue": "1",
+			"btnKey": null,
+			"checked": false,
+			"id": "1",
+			"levels": "1",
+			"menuName": "权限管理",
+			"menuUrl": "",
+			"parentId": "0",
+			"type": "0"
 		}, {
-			"id": 3,
-			"fid": 0,
-			"authority":4,
-			"title": "其他权限",
-			"url": "www.baidu.com"
+			"authValue": "2",
+			"btnKey": null,
+			"checked": false,
+			"id": "2",
+			"levels": "2",
+			"menuName": "权限列表",
+			"menuUrl": "views/role&authority/authority-list.html",
+			"parentId": "1",
+			"type": "0"
 		}, {
-			"id": 11,
-			"fid": 1,
-			"authority":8,
-			"title": "系统权限1",
-			"url": "www.google.com",
-			"checked":true
+			"authValue": "4",
+			"btnKey": "add",
+			"checked": false,
+			"id": "2bad807d-8015-41d7-870b-6bc1c3115e16",
+			"levels": "3",
+			"menuName": "角色添加",
+			"menuUrl": "/group/saveGroup",
+			"parentId": "4",
+			"type": "1"
 		}, {
-			"id": 12,
-			"fid": 1,
-			"authority":16,
-			"title": "系统权限2",
-			"url": "www.google.com",
-			"checked":true
+			"authValue": "8",
+			"btnKey": null,
+			"checked": false,
+			"id": "3",
+			"levels": "2",
+			"menuName": "系统用户管理",
+			"menuUrl": "views/role&authority/sys-user-list.html",
+			"parentId": "1",
+			"type": "0"
 		}, {
-			"id": 13,
-			"fid": 1,
-			"authority":32,
-			"title": "系统权限3",
-			"url": "www.google.com",
-			"checked":true
+			"authValue": "16",
+			"btnKey": null,
+			"checked": false,
+			"id": "4",
+			"levels": "2",
+			"menuName": "角色管理",
+			"menuUrl": "views/role&authority/role-list.html",
+			"parentId": "1",
+			"type": "0"
 		}, {
-			"id": 21,
-			"fid": 2,
-			"authority":64,
-			"title": "用户权限1",
-			"url": "www.google.com"
+			"authValue": "32",
+			"btnKey": "add",
+			"checked": false,
+			"id": "5",
+			"levels": "3",
+			"menuName": "添加",
+			"menuUrl": "/authority/saveAuthority",
+			"parentId": "2",
+			"type": "1"
 		}, {
-			"id": 22,
-			"fid": 2,
-			"authority":128,
-			"title": "用户权限2",
-			"url": "www.google.com"
+			"authValue": "64",
+			"btnKey": "add",
+			"checked": false,
+			"id": "797fc241-4672-4062-a497-ca982c6eff51",
+			"levels": "3",
+			"menuName": "增加用户",
+			"menuUrl": "/user/saveorUpdate",
+			"parentId": "3",
+			"type": "1"
 		}, {
-			"id": 23,
-			"fid": 2,
-			"authority":256,
-			"title": "用户权限3",
-			"url": "www.google.com"
+			"authValue": "128",
+			"btnKey": "edit",
+			"checked": false,
+			"id": "b9236955-30c3-4ba2-9630-6d0046ef4ec8",
+			"levels": "3",
+			"menuName": "编辑",
+			"menuUrl": "/authority/saveAuthority",
+			"parentId": "2",
+			"type": "1"
 		}, {
-			"id": 31,
-			"fid": 3,
-			"authority":512,
-			"title": "其他权限1",
-			"url": "www.google.com"
+			"authValue": "256",
+			"btnKey": "row-edit",
+			"checked": false,
+			"id": "c1d0cbdc-2118-49bc-a262-e4ee4f7c03f9",
+			"levels": "3",
+			"menuName": "编辑角色",
+			"menuUrl": "/group/saveGroup",
+			"parentId": "4",
+			"type": "1"
 		}, {
-			"id": 32,
-			"fid": 3,
-			"authority":1024,
-			"title": "其他权限2",
-			"url": "www.google.com"
+			"authValue": "512",
+			"btnKey": "row-edit",
+			"checked": false,
+			"id": "d55458ed-a4e9-4236-9346-505300f09290",
+			"levels": "3",
+			"menuName": "编辑用户",
+			"menuUrl": "/user/saveorUpdate",
+			"parentId": "3",
+			"type": "1"
 		}, {
-			"id": 33,
-			"fid": 3,
-			"authority":2048,
-			"title": "其他权限3",
-			"url": "www.google.com"
+			"authValue": "1024",
+			"btnKey": "row-switch",
+			"checked": false,
+			"id": "f64cccf0-7667-41ab-a46a-44f827c6bc94",
+			"levels": "3",
+			"menuName": "使用 禁用",
+			"menuUrl": "/user/openUser",
+			"parentId": "3",
+			"type": "1"
 		}, {
-			"id": 34,
-			"fid": 31,
-			"authority":4096,
-			"title": "其他权限11",
-			"url": "www.chinaedu.com"
-		}, {
-			"id": 35,
-			"fid": 31,
-			"authority":8192,
-			"title": "其他权限12",
-			"url": "www.chinaedu.com"
-		}, {
-			"id": 36,
-			"fid": 31,
-			"authority":900000000,
-			"title": "其他权限13",
-			"url": "www.chinaedu.com"
-		}, {
-			"id": 37,
-			"fid": 36,
-			"authority":1000000000,
-			"title": "其他权限131",
-			"url": "www.360.com"
-		}, {
-			"id": 38,
-			"fid": 37,
-			"authority":80000000,
-			"title": "其他权限1311",
-			"url": "www.qq.com"
+			"authValue": "2048",
+			"btnKey": "",
+			"checked": false,
+			"id": "fa19a2da-394a-4b8d-8463-a03d93b95f11",
+			"levels": "1",
+			"menuName": "测试",
+			"menuUrl": "",
+			"parentId": "0",
+			"type": "0"
 		}
 	],
+	"msg": null,
+	"recordsFiltered": 0,
 	"status": true
-
 }

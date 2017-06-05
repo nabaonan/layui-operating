@@ -2,12 +2,14 @@
 	"data": [
 		{
 			"id": 1,
-			"name": "超级管理员",
-			"desc": "描述12312"
+			"groupName": "超级管理员",
+			"description": "描述12312",
+			"authValue":1024
 		}, {
 			"id": 2,
-			"name": "普通管理员",
-			"desc": "描述12222222"
+			"groupName": "普通管理员",
+			"description": "描述12222222",
+			"authValue":1024
 		}
 	],
 	"recordsFiltered": "1",

@@ -24,7 +24,9 @@ layui.define(requireModules, function(exports) {
 	function validLogin() {
 		//只有sessionstorage中有信息并且window。top。name是index才能通过
 		var pageName = window.top.location.pathname.split("/").pop();
-		ajax.request(loginApi.getUrl('validLogin'), null, function(result) {
+		var userInfo = login.getLoginInfo();
+		
+		ajax.request(loginApi.getUrl('validLogin'), userInfo, function(result) {
 			if(pageName !== 'index.html') {
 				login.backToLogin();
 			}

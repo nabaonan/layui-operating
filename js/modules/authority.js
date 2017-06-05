@@ -22,11 +22,6 @@ layui.define(requireModules,function(exports) {
 	authority = layui.authority,
 	roleApi = layui['role&authority-api'];
 	
-	var authorityBtns = {
-		'edit': 'dfsdfsd'
-	};
-
-
 	var authority = {
 		
 		getNavs: function() {//获取左侧导航信息
@@ -40,7 +35,7 @@ layui.define(requireModules,function(exports) {
 			var user = login.getLoginInfo();
 			return ajax.request(roleApi.getUrl('getNavBtns'),{
 				userId:user.id,
-				navId:navId
+				id:navId
 			},function(result){
 				return result.data;
 			},false);

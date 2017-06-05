@@ -9,12 +9,12 @@
 		<title>产品线配置</title>
 		<link rel="stylesheet" href="../../frame/layui/css/layui.css">
 		<link rel="stylesheet" href="../../css/style.css">
-
+		<link rel="stylesheet" href="../../css/icon-key/iconfont.css">
 	</head>
 
 	<body class="body">
 
-		<form class="layui-form" action="">
+		<form id="productline-config-form" class="layui-form" action="">
 			<div class="layui-form-item">
 				<div class="layui-block">
 					<label class="layui-form-label"> 
@@ -55,25 +55,26 @@
 						接口密钥
 					</label>
 					<div class="layui-input-block">
-						<input type="text" name="secretKey" autocomplete="off" disabled="disabled" class="layui-input">
+						<input id="secretKey" type="text" name="secretKey" autocomplete="off" disabled="disabled" class="layui-input">
 					</div>
-
 				</div>
-
 			</div>
 
 			<div class="layui-form-item">
 				<div class="layui-input-block">
 					<button class="layui-btn" lay-submit="" lay-filter="productline-config-form">
 						<i class="layui-icon">&#xe605;</i>
+						
 						提交
 					</button>
-					<button type="button" class="layui-btn layui-btn-primary">
-						 <i class="layui-icon">&#x1006;</i>
+					<button id="genkey-btn" type="button" class="layui-btn layui-btn-primary">
+						 <i class="iconfont">&#xe617;</i>
 						 生成密钥
 					</button>
 				</div>
 			</div>
+			
+			<input type="hidden" name="productLine" />
 
 		</form>
 

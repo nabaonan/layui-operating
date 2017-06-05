@@ -1,20 +1,23 @@
 {
 	"data": [
 		{
-			"id": 1,
-			"name": "李书记",
+			"userId": 1,
+			"userName": "李书记",
+			"deptId": "1",
 			"deptName": "技术部",
-			"role": "1",
+			"groupId": "1",
+			"groupName": "超级管理员",
 			"email": "erere.gmail.com",
 			"realName": "李达康"
 		}, {
-			"id": 2,
-			"name": "易书记",
+			"userId": 2,
+			"userName": "易书记",
+			"deptId": "1",
 			"deptName": "技术部",
-			"role": "2",
+			"groupId": "2",
+			"groupName": "超级管理员",
 			"email": "erere.gmail.com",
 			"realName": "易学习"
-			
 		}
 	],
 	"recordsFiltered": 11,

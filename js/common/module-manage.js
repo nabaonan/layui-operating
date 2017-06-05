@@ -50,11 +50,12 @@ function registeModule(window,modulesYouWanted,otherModules) {
 		var myModules = {//只有模块下中的子目录模块需要在这里配置
 			 //可以在这里定义依赖的js，路径	都是相对于base的,这里不能用相对路径写，感觉这个应该有待改进
 			'base-url':'api/base-url',
-			'good-api':'api/good-api',
+			'commodity-api':'api/commodity-api',
 			'login-api':'api/login-api',
 			'role&authority-api':'api/role&authority-api',
 			'user-api':'api/user-api',
-			'product-api':'api/product-api'
+			'product-api':'api/product-api',
+			'file-api':'api/file-api'
 		}
 		
 		//刨除系统自带modules
@@ -88,8 +89,6 @@ function registeModule(window,modulesYouWanted,otherModules) {
 		}
 
 		var extendModules = {};
-		
-		
 		
 		$.each(modulesYouWanted,function(key,moduleKey){
 			

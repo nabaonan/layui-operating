@@ -31,7 +31,7 @@
 						产品线名称
 					</label>
 					<div class="layui-input-inline">
-						<input type="text" name="name" autocomplete="off" placeholder="请输入产品线名称" class="layui-input">
+						<input type="text" name="name" lay-verify="required" autocomplete="off" placeholder="请输入产品线名称" class="layui-input">
 					</div>
 
 				</div>
@@ -39,7 +39,7 @@
 				<div class="layui-inline">
 					<label class="layui-form-label">产品线负责人</label>
 					<div class="layui-input-inline">
-						<input type="text" name="header" lay-verify="required" placeholder="请输入产品线负责人" autocomplete="off" class="layui-input">
+						<input type="text" name="header" placeholder="请输入产品线负责人" autocomplete="off" class="layui-input">
 					</div>
 				</div>
 
@@ -53,7 +53,7 @@
 						网址
 					</label>
 					<div class="layui-input-inline">
-						<input type="text" name="portalAddress" autocomplete="off" placeholder="请输入网址" class="layui-input">
+						<input type="text" name="portalAddress" lay-verify="required|url" autocomplete="off" placeholder="请输入网址" class="layui-input">
 					</div>
 
 				</div>
@@ -61,7 +61,7 @@
 				<div class="layui-inline" >
 					<label class="layui-form-label">手机号</label>
 					<div class="layui-input-inline">
-						<input type="text" name="phone" lay-verify="required" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+						<input type="text" name="phone" lay-verify="telphone" placeholder="请输入手机号" autocomplete="off" class="layui-input">
 					</div>
 				</div>
 
@@ -74,9 +74,9 @@
 						业务类型
 					</label>
 					<div class="layui-input-block" id="business-type">
-						<input type="radio" name="businessType" value="1" title="个人" >
+						<!--<input type="radio" name="businessType" value="1" title="个人" >
 						<input type="radio" name="businessType" value="2" title="组织">
-						<input type="radio" name="businessType" value="3" title="组织+个人">
+						<input type="radio" name="businessType" value="3" title="组织+个人">-->
 					</div>
 
 				</div>
@@ -86,8 +86,8 @@
 				<div class="layui-block">
 					<label class="layui-form-label">所属部门</label>
 					<div class="layui-input-block" id="dept">
-						<input type="checkbox" name="departmentId" value="1" title="学生事业部">
-						<input type="checkbox" name="departmentId" value="2" title="学校事业部" >
+						<!--<input type="checkbox" name="departmentId" value="1" title="学生事业部">
+						<input type="checkbox" name="departmentId" value="2" title="学校事业部" >-->
 					</div>
 				</div>
 
@@ -98,7 +98,7 @@
 				<div class="layui-block">
 					<label class="layui-form-label">备注</label>
 					<div class="layui-input-inline" style="width: 80%;">
-				      	<textarea placeholder="请输入备注" name="content" class="layui-textarea"></textarea>
+				      	<textarea placeholder="请输入备注" name="comments" class="layui-textarea"></textarea>
 				    </div>
 				</div>
 
@@ -110,13 +110,13 @@
 						<i class="layui-icon">&#xe605;</i>
 						提交
 					</button>
-					<button type="reset" class="layui-btn layui-btn-primary">
+					<button id="cancel" type="button" class="layui-btn layui-btn-primary">
 						 <i class="layui-icon">&#x1006;</i>
-						 重置
+						 取消
 					</button>
 				</div>
 			</div>
-
+			<input type="hidden" name="id"/>
 		</form>
 
 		<script type="text/javascript" src="../../js/common/module-manage.js"></script>

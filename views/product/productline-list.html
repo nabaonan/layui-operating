@@ -13,12 +13,12 @@
 
 	<body class="body">
 
-		<form id="condition" class="layui-form" action="">
+		<form id="condition" class="layui-form layui-form-pane" action="">
 			<div class="layui-form-item">
 				<div class="layui-inline">
 					<label class="layui-form-label">关键词</label>
 					<div class="layui-input-inline">
-						<input type="text" name="keyword" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+						<input type="text" name="name" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
 					</div>
 
 				</div>
@@ -35,7 +35,6 @@
 					<div class="layui-input-inline">
 						<select id="business-type" name="businessType">
 							<option value="">全部</option>
-							
 						</select>
 					</div>
 
@@ -45,16 +44,16 @@
 
 					<label class="layui-form-label">启用状态</label>
 					<div class="layui-input-inline">
-						<select id="use-state" name="useState">
+						<select id="use-state" name="startUse">
 							<option value="">全部</option>
-							
-
 						</select>
 					</div>
 
 				</div>
 				<div class="layui-inline fr">
-					<a id="search-btn" class="layui-btn btn-search mgl-20" >查询</a>
+					<button type="button" id="search-btn" class="layui-btn btn-search mgl-20" >
+						<i class="layui-icon">&#xe615;</i>
+						查询</button>
 				</div>
 			</div>
 

@@ -1,0 +1,10 @@
+{
+	"msg": null,
+	"data": {
+		"id": "c57a5169-1e5e-4665-9191-089a613da766",
+		"interfaceName": "接口名称",
+		"productLine": "05d0819d-4dc4-4595-af48-a780f35ce72d",
+		"secretKey": "123456"
+	},
+	"status": true
+}

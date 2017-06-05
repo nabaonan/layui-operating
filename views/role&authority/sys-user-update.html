@@ -9,6 +9,15 @@
 		<title>系统用户添加</title>
 		<link rel="stylesheet" href="../../frame/layui/css/layui.css">
 		<link rel="stylesheet" href="../../css/style.css">
+		<style type="text/css">
+			.operate{
+				text-align: center;
+			    bottom: 0;
+			    position: relative;
+			    left: 0;
+			    right: 0;
+			}
+		</style>
 	</head>
 
 	<body class="body">
@@ -16,7 +25,7 @@
 			<div class="layui-form-item">
 				<label class="layui-form-label">用户名</label>
 				<div class="layui-input-block">
-					<input id="username" type="text" name="name" lay-verify="required" autocomplete="off" placeholder="请输入权限名称" class="layui-input">
+					<input id="username" type="text" name="userName" lay-verify="required" autocomplete="off" placeholder="请输入权限名称" class="layui-input">
 				</div>
 			</div>
 
@@ -34,6 +43,13 @@
 					<input type="text" name="email" lay-verify="required|email" autocomplete="off" placeholder="请输入权限名称" class="layui-input">
 				</div>
 			</div>
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label">手机</label>
+				<div class="layui-input-block">
+					<input type="text" name="phone" lay-verify="required|phone" autocomplete="off" placeholder="请输入手机" class="layui-input">
+				</div>
+			</div>
 
 			<div class="layui-form-item">
 				<label class="layui-form-label">真实姓名</label>
@@ -45,24 +61,26 @@
 			<div class="layui-form-item">
 				<label class="layui-form-label">角色</label>
 				<div class="layui-input-block">
-					<select name="role" id="roles">
+					<select name="groupId" id="roles">
 						<option value="">请选择</option>
 					</select>
 				</div>
 			</div>
 
-			<div class="layui-form-item">
-				<div class="layui-input-block">
+			<div class="layui-form-item operate">
+				<!--<div class="layui-input-block">-->
 					<button class="layui-btn" type="button" lay-submit lay-filter="sys-user-form">
 						<i class="layui-icon">&#xe605;</i>
 						保存
 					</button>
-					<button type="button" class="layui-btn layui-btn-primary cancel">
+					<button id="cancel" type="button" class="layui-btn layui-btn-primary">
 						 <i class="layui-icon">&#x1006;</i>
 						 取消
 					</button>
-				</div>
+				<!--</div>-->
 			</div>
+			<input type="hidden" name="userId"/>
+			
 		</form>
 
 		<script type="text/javascript" src="../../js/common/module-manage.js"></script>

@@ -1,0 +1,13 @@
+{
+	"data": [
+		{
+			"key": 1,
+			"value": "个人"
+		}, {
+			"key": 2,
+			"value": "组织"
+		}
+	],
+	
+	"status": true
+}

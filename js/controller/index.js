@@ -25,32 +25,30 @@ layui.use(requireModules, function() {
 		ajax = layui.request,
 		login = layui.login,
 		util = layui.util; //导航的hover效果、二级菜单等功能，需要依赖element模块
-	var side = $('.my-side');
-	var body = $('.my-body');
-	var footer = $('.my-footer');
+	var side = $('.my-side'),
+	 	body = $('.my-body'),
+	 	footer = $('.my-footer');
 
 	// 监听导航栏收缩
-	$('.btn-nav').on('click', function() {
+	$('.btn-nav').on('click', function(e) {
+		
 		if(localStorage.log == 0) {
+			$(this).find('.layui-icon').html('&#xe603;');
 			navShow(50);
 		} else {
+			$(this).find('.layui-icon').html('&#xe602;');
 			navHide(50);
 		}
 
 	});
-
 	
 	var navData = authority.getNavs();
 	var navsTpl = navs.innerHTML;
-	console.log(navData);
 	laytpl(navsTpl).render(navData, function(html) {
 		//动态渲染左侧导航
 		navview.innerHTML = html;
 		element.init();
 	});
-
-
-	
 
 	$('#logout').click(function() {
 		login.backToLogin();
@@ -96,6 +94,7 @@ layui.use(requireModules, function() {
 	element.on('nav(side-left)', function(elem) {
 		// 添加tab方法
 		addTab(element, elem);
+	
 	});
 
 	// 监听顶部右侧导航
@@ -110,7 +109,8 @@ layui.use(requireModules, function() {
 		}
 
 	});
-
+	
+	
 	// 添加TAB选项卡
 	function addTab(element, elem) {
 		var card = 'card'; // 选项卡对象
@@ -129,19 +129,25 @@ layui.use(requireModules, function() {
 				var src = ajax.composeUrl(src,{
 					navId:navId
 				});
+				
+				layer.load(0, {
+					shade: 0.5
+				});
+				
 				element.tabAdd(card, {
 					title: '<span>' + title + '</span>',
-					content: '<iframe src="' + src + '" frameborder="0"></iframe>',
+					content: '<iframe src="' + src + '" frameborder="0" onload="layer.closeAll(\'loading\');" ></iframe>',
 					id: id
 				});
+				
 				// 关闭弹窗
-				layer.closeAll();
+//				layer.closeAll('loading');
 			}
 		}
 		// 切换相应的ID tab
 		element.tabChange(card, id);
 		// 提示信息
-		layer.msg(title);
+//		layer.msg(title);
 	}
 
 	// 根据导航栏text获取lay-id
@@ -174,7 +180,7 @@ layui.use(requireModules, function() {
 							title: false, // 标题
 							offset: 'l', // 定位 左边
 							closeBtn: 0, // 关闭按钮
-							anim: 0, // 动画
+							anim:3, // 动画3
 							shadeClose: true, // 点击遮罩关闭
 							shade: 0.8, // 半透明
 							area: ['150px', '100%'], // 区域
@@ -219,10 +225,12 @@ layui.use(requireModules, function() {
 	$(window).on('resize', function() {
 		if($(this).width() > 1024) {
 			if(localStorage.log == 0) {
+				
 				navShow();
 			}
 		} else {
 			if(localStorage.log == 1) {
+				
 				navHide();
 			}
 		}
@@ -233,8 +241,10 @@ layui.use(requireModules, function() {
 	function init() {
 		// 起始判断收缩还是展开
 		if(localStorage.log == 0) {
+			$('.btn-nav .layui-icon').html('&#xe602;');
 			navHide(100);
 		} else {
+			$('.btn-nav .layui-icon').html('&#xe603;');
 			navShow(1);
 		}
 		// 工具

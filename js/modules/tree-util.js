@@ -54,9 +54,14 @@ layui.define(function(exports) {
 			zTree.selectNode(node); //选择点  
 
 		},
-		getSelectData: function(treeId) {
+		getCheckedData: function(treeId) {
 			var treeObj = $.fn.zTree.getZTreeObj(treeId);
 			return treeObj.getCheckedNodes(true);
+		},
+		
+		getSelectData: function(treeId) {
+			var treeObj = $.fn.zTree.getZTreeObj(treeId);
+			return treeObj.getSelectedNodes();
 		}
 	}
 

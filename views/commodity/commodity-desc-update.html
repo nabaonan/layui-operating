@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>商品描述</title>
+		<link rel="stylesheet" href="../../frame/layui/css/layui.css" media="all">
+		<link rel="stylesheet" href="../../css/style.css">
+		<style type="text/css">
+			.layui-input-inline {
+				position: relative;
+			}
+			
+			i.delete {
+				position: absolute;
+				right: -8px;
+				top: -10px;
+				color: #d2d2d2;
+				font-size: 20px;
+				cursor: pointer;
+			}
+			i.delete:hover{
+				color: #FF5722;
+			}
+			.add-desc{
+				display: block;
+				margin: 0 auto;
+				margin-top: 10px;
+				width: 20%;
+			}
+			.desc-container{
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+
+	<body class="body">
+
+		<form class="layui-form desc-form" action="">
+
+			<div class="layui-form-item">
+				<div class="layui-block">
+
+					<label class="layui-form-label"> 
+						选择销售期
+					</label>
+
+					<div class="layui-input-inline">
+						<select id="saledate" name="saledate" lay-filter="saledate">
+							<option value="">全部</option>
+						</select>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="saledate-container" style="display: none;">
+				
+				
+				<div class="layui-form-item">
+					<div class="layui-block">
+
+						<label class="layui-form-label"> 
+							缩略图
+						</label>
+
+						<div class="layui-input-inline pic-container">
+							<input type="text" name="pic" readonly="readonly" class="layui-input">
+							<input type="hidden" name="picId" />
+							<i class="layui-icon delete">&#x1007;</i>
+						</div>
+
+						<div class="layui-input-inline add-pic">
+							<input type="file" name="file" lay-type="images" class="layui-upload-file upload-pic">
+						</div>
+
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<div class="layui-block">
+
+						<label class="layui-form-label"> 
+							视频
+						</label>
+
+						<div class="layui-input-inline video-container">
+							<input type="text" name="video" readonly="readonly" class="layui-input">
+							<input type="hidden" name="videoId" />
+							<i class="layui-icon delete">&#x1007;</i>
+						</div>
+
+						<div class="layui-input-inline add-video">
+							<input type="file" name="file" lay-type="video" class="layui-upload-file upload-video">
+						</div>
+
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<div class="layui-block">
+
+						<label class="layui-form-label"> 
+							栏目说明
+						</label>
+
+						<div class="layui-input-block desc-container">
+							<textarea class="layui-textarea" name="descript"></textarea>
+							<input type="hidden" name="descId" />
+							<i class="layui-icon delete">&#x1007;</i>
+						</div>
+						
+						<button type="button" class="layui-btn layui-btn-primary add-desc">
+							<i class="layui-icon">&#xe608;</i>
+							添加栏目说明
+						</button>
+					
+					</div>
+					
+					
+				</div>
+
+			</div>
+
+			<div class="layui-form-item submit-container">
+				<div class="layui-input-block">
+					<button class="layui-btn" type="button" lay-submit="" lay-filter="commodity-desc-form">
+						<i class="layui-icon">&#xe605;</i>
+						提交
+					</button>
+					<button id="cancel" type="button" class="layui-btn layui-btn-primary">
+						 <i class="layui-icon">&#x1006;</i>
+						 取消
+					</button>
+				</div>
+			</div>
+
+		</form>
+
+		<script type="text/javascript" src="../../js/common/module-manage.js"></script>
+		<script type="text/javascript" charset="utf8" src="../../frame/layui/layui.js"></script>
+		<script type="text/javascript" charset="utf8" src="../../js/controller/commodity/commodity-desc-update.js"></script>
+	</body>
+
+</html>

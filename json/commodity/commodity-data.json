@@ -1,0 +1,68 @@
+{
+	"data": {
+		"commoditySort": "2",
+		"commodityProducts": [
+			{
+				"areaName": [
+					"南昌县",
+					"顺庆区"
+				],
+				"auditStatus": null,
+				"billType": "计时",
+				"code": null,
+				"commodityCode": null,
+				"commodityId": "159d1f8f-81cb-44d2-b8fb-5295118126e2",
+				"commodityName": "学酷01",
+				"createDate": null,
+				"currentPrice": null,
+				"expiryLength": "100",
+				"gradeName": null,
+				"group": null,
+				"ids": null,
+				"isPass": null,
+				"isSingleProduct": null,
+				"number": 1,
+				"productCurrentPrice": 24335,
+				"productId": "f910bff1-abbe-4f15-a5a5-d9523f99a3ec",
+				"productLineName": "学酷1",
+				"productOriginalPrice": 23335,
+				"productSource": "3b40e1f2-956c-4c58-839b-83ecca960600",
+				"productType": "同步课程",
+				"saleStatus": null,
+				"singleCommodityId": null,
+				"singleCommodityName": null,
+				"specialtyName": null,
+				"timeLength": "100",
+				"unitPrice": 22335
+			}
+		],
+		"commodityEducational": [
+			"2"
+		],
+		"commoditySpecialty": [
+			"1"
+		],
+		"commoditySaledepartments": [
+			"2"
+		],
+		"areaIds": "511302,360121",
+		"commodityLevels": [
+		"1",
+			"2"
+		],
+		"areaNames": "顺庆区,南昌县",
+		"commodityUserType": [
+			"4",
+			"3"
+		],
+		"commodityCode": "C016YS37SP44",
+		"isGive": 2,
+		"commodityGrade": [
+			"1"
+		],
+		"id": "159d1f8f-81cb-44d2-b8fb-5295118126e2",
+		"businessType": "2",
+		"commodityName": "学酷01"
+	},
+	"status": true
+}

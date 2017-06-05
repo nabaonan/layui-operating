@@ -1,0 +1,50 @@
+{
+	"data": [
+		{
+			"id": "1",
+			"commodityCode": 1,
+			"commodityName": "商品1",
+			"isSingleProduct": "1",
+			"gradeName": "一年级",
+			"specialtyName": "物理",
+			"currentPrice": 1000,
+			"productLineName": "产品线1",
+			"auditStatus": "2",
+			"saleStatus": "一开售",
+			"isGrounding":"2",
+			"isEdited": "1",
+			"createDate": 1495214737000
+		}, {
+			"id": "2",
+			"commodityCode": 1,
+			"commodityName": "商品2",
+			"isSingleProduct": "2",
+			"gradeName": "二年级",
+			"specialtyName": "物理",
+			"currentPrice": 1000,
+			"isGrounding":"3",
+			"productLineName": "产品线3",
+			"auditStatus": "1",
+			"saleStatus": "已停售",
+			"isEdited": "2",
+			"createDate": 1495214737000
+		}, {
+			"id": "3",
+			"commodityCode": 1,
+			"commodityName": "商品2",
+			"isSingleProduct": "2",
+			"gradeName": "二年级",
+			"specialtyName": "物理",
+			"currentPrice": 1000,
+			"isGrounding":"1",
+			"productLineName": "产品线3",
+			"auditStatus": "1",
+			"saleStatus": "已停售",
+			"isEdited": "1",
+			"createDate": 1495214737000
+		}
+	],
+	"recordsFiltered": "1",
+	"recordsTotal": "5",
+	"status": true
+}

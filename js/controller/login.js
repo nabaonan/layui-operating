@@ -47,10 +47,22 @@ layui.use(requireModules, function(
 		$(this).attr('src',loginApi.getUrl('getValidImg').url+'?_='+Math.random()); 
 	});
 	
+	//光标自动聚焦
+	$('input:first').focus();
+	
+	//点击回车登录
+	$(document).keyup(function(event){
+	  if(event.keyCode ==13){
+	    $(".btn-submit").trigger("click");
+	  }
+	});
+	
 	// 提交监听
 	f.on('submit(login)', function(data) {
 		var user = data.field;
-		login.login(user);
+		login.login(user,function(){
+			$('#valid-img').trigger('click');
+		});
 		return false;
 	});
 

@@ -5,7 +5,7 @@
 layui.define(function(exports) {
 
 	var treeTableUtil = {
-		init: function($table,options) {
+		init: function($table, options) {
 			var opt = {
 				/*ajax: {
 					url: '',
@@ -15,102 +15,116 @@ layui.define(function(exports) {
 				},*/
 				expandable: true,
 				column: 0,
-				events:{
-					click:function(data){
-						console.log('这里重写方法');
+				events: {
+					click: function(data) {
+//						console.log('这里重写方法');
 					}
 				}
 			};
-			
-			var totalOption = $.extend(true,opt,options);
-			
+
+			var totalOption = $.extend(true, opt, options);
+
 			var _this = this;
-			
-			totalOption.data = _this.sortData(totalOption.data,totalOption.alias);
-			_this.renderTable($table,totalOption);
-			
+
+			totalOption.data = _this.sortData(totalOption.data, totalOption.alias);
+			_this.renderTable($table, totalOption);
+
 			//绑定事件
 			$(function() {
-				_this.bindEvent($table,totalOption.events);
+				_this.bindEvent($table, totalOption.events);
 			});
 		},
-		
-		sortData: function(data,alias) {
-			var array = data.concat();
-		
-			var Length = data.length;
+
+		sortData: function(arr, alias) {
+			var result = [];
 			
-			function findChild(pointer){
-			    var tempArr = array.concat();
-			    var id = array[pointer].id;
-			    var index = pointer + 1;
-			    for(var i = pointer + 1; i < Length; i++){
-			    	var pid = (tempArr[i].pid == undefined?tempArr[i][alias.pid]:tempArr[i].pid);
-//			    	console.log(alias,pid,tempArr[i][alias.pid]);
-			        if(pid == id){
-			            array.splice(i,1);
-			            array.splice(index,0,tempArr[i]);
-			            index ++;
-			            tempArr = array.concat();
-			        }
-			    }
-			
-			    pointer++;
-			    if(pointer < data.length){
-			        findChild(pointer);
-			    }else{
-			        for(var k = 0; k < Length; k++){
-			        }
-			    }
+			/**
+			 * 这是王占政写法，利用递归
+			 * @param {Object} id
+			 */
+			function findChild2(id){
+				$.each(arr, function(index,item) {
+					
+					var pid = item[alias.pid];
+					if(pid == id){
+						result.push(item);
+						findChild2(item.id);
+					}
+				});
 			}
-			findChild(0);
-			return array;
-		},
 		
+			
+			
+			/**
+			 * 这是我的写法，主要是优化递归带来的性能损失
+			 * @author 那宝楠
+			 */
+			function getChild() {
+
+				for(var i = 0; i < arr.length; i++) {
+					if(arr[i][alias.pid] == 0) {
+						result.push(arr[i]);
+						arr.splice(i, 1);
+					}
+				}
+
+				for(var j = 0; j < result.length; j++) {
+					for(var k = 0; k < arr.length; k++) {
+						if(result[j].id == arr[k][alias.pid]) {
+							var a = arr.splice(k, 1);
+							result.splice(j + 1, 0, a[0]);
+							k--;//由于数组少一个，所以需要将指针减一
+						}
+					}
+				}
+			}
+//			findChild2(0);
+			getChild();
+			return result;
+
+		},
+
 		renderTable: function($table, options) {
 			///请求数据
-			
+
 			$table.html('').removeClass('treetable');
 			$table.removeData('treetable');
 			var _this = this;
-			
+
 			var fixColumns = options.columns;
 			$table.append(_this.createHead(fixColumns));
-			
+
 			if(!options.ajax) {
 				//读取本地数据
 				$.each(options.data, function(index, item) {
-					$table.append(_this.createRow(item,fixColumns,options.alias));
+					$table.append(_this.createRow(item, fixColumns, options.alias));
 				});
 
 			} else {
 				//请求后台数据
 			}
-			
+
 			$table.treetable(options);
-			
+
 		},
-		
-		
-		
+
 		createHead: function(fixColumns) {
 			var thead = '<thead><tr>'
-			
+
 			$.each(fixColumns, function(index, fixColumn) {
 				thead += ('<th>' + fixColumn.name + '</th>');
 			});
-			thead+='</tr></thead>';
+			thead += '</tr></thead>';
 			return thead;
 		},
 
-		createRow: function(rowData, fixColumns,alias) {
+		createRow: function(rowData, fixColumns, alias) {
 			var _this = this;
-			var tr = '<tr  data-tt-id="' + rowData.id + '" data-tt-parent-id="' + (rowData.pid == undefined?rowData[alias.pid]:rowData.pid) + '">';
-			tr += _this.createCols(rowData,fixColumns);
+			var tr = '<tr  data-tt-id="' + rowData.id + '" data-tt-parent-id="' + (rowData.pid == undefined ? rowData[alias.pid] : rowData.pid) + '">';
+			tr += _this.createCols(rowData, fixColumns);
 			tr += '</tr>';
-			
-			
-			return $(tr).data('rowData',rowData);
+
+			return $(tr).data('rowData', rowData);
 		},
 
 		/**
@@ -118,11 +132,11 @@ layui.define(function(exports) {
 		 * @param {Object} columnValue
 		 * @param {Object} fixColumns
 		 */
-		createCols: function(rowData,fixColumns) {
+		createCols: function(rowData, fixColumns) {
 			var _this = this;
 			var cols = '';
 			$.each(fixColumns, function(index, fixColumn) {
-				cols += ('<td>' + _this.getFixColumnValue(rowData,fixColumn.title) + '</td>');
+				cols += ('<td>' + _this.getFixColumnValue(rowData, fixColumn.title) + '</td>');
 			});
 			return cols;
 		},
@@ -136,36 +150,31 @@ layui.define(function(exports) {
 			var result = '';
 			$.each(rowData, function(columnName, columnValue) {
 				if(fixColumnName == columnName) {
-					
+
 					result = columnValue;
 					return false;
 				}
 			});
-			
-//			alert('没有找到指定'+fixColumnName+'列');
+
+			//			alert('没有找到指定'+fixColumnName+'列');
 			return result;
 		},
-		
-		
 
-		bindEvent: function($table,events) {
+		bindEvent: function($table, events) {
 			var _this = this;
-			
-			
-			$table.on('click','tbody tr',function(){
+
+			$table.on('click', 'tbody tr', function() {
 				$table.find('tr.selected').removeClass('selected');
 				$(this).addClass('selected');
-				
+
 				events.click($(this).data('rowData'));
-				
-//				var data =$(this).data('rowData');
-//				console.log(data);
+
+				//				var data =$(this).data('rowData');
+				//				console.log(data);
 			});
 		}
 	};
-	
-	
-	exports('tree-table',treeTableUtil);
-	
-	
+
+	exports('tree-table', treeTableUtil);
+
 });

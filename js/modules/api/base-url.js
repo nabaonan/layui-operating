@@ -8,8 +8,13 @@ layui.define(function(exports) {
 
 		baseUrl:window.top.getWebName()+ "/json/", //根目录
 		"datatables/language": {
-			url:window.top.getWebName() + "/frame/datatables/language/chs.json"//这个url是相对baseUrl的
+			url:"../frame/datatables/language/chs.json"//这个url是相对baseUrl的
 		},
+		//下拉框和radio，checkbox接口
+		"getKeyValue": {
+			url: "../key-value.json"
+		},
+		
 		getUrl: function(urlKey) {
 			var url, type;
 			try {

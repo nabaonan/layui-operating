@@ -31,29 +31,22 @@ layui.use(requireModules, function(
 	var data = ajax.getAllUrlParam();
 	
 	ajax.request(roleApi.getUrl('getRolesSelect'), null, function(result) {
-		console.log(result.data);
 		formUtil.renderSelects('#roles', result.data);
 		if(!$.isEmptyObject(data)){
-			console.log('3333333333333',data);
 			$('#username').attr('disabled',true);
 			formUtil.renderData($('#sys-user-form'),data);
 		}
 		f.render();
 	});
 	
-	
-
-	$('.cancel').click(function() {
-		var index = window.parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
-		parent.layer.close(index); //再执行关闭  
-	});
 
 	f.on('submit(sys-user-form)', function(data) {
-		console.log('444444444444444', data.field); //当前容器的全部表单字段，名值对形式：{name: value}
 		ajax.request(roleApi.getUrl('updateSysUser'), data.field, function() {
 			toast.success('添加用户成功');
 			var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
 			parent.layer.close(index); //再执行关闭  
+			parent.list.refresh();//刷新列表
+			
 		});
 		return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
 	});

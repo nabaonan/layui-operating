@@ -1,0 +1,33 @@
+{
+	"status": true,
+	"data": {
+		"saledateId": "1",
+		"descList": [
+			{
+				"id": "222",
+				"descript": "hello world"
+			}, {
+				"id": "2223",
+				"descript": "hello world111"
+			}
+		],
+		"videosList": [
+			{
+				"id": "333",
+				"video": "http://www.google.com"
+			}, {
+				"id": "444433",
+				"video": "http://www.google.com21123123"
+			}
+		],
+		"pictureList": [
+			{
+				"id": "444",
+				"thumbnail": "http:www.baidu.com"
+			}, {
+				"id": "6666",
+				"thumbnail": "http:www.baidu.com32323"
+			}
+		]
+	}
+}

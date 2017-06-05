@@ -12,16 +12,33 @@
 			"btnKey": "edit"
 		}, {
 			"btnKey": "export"
+		},{
+			"btnKey": "copy"
+		}, {
+			"btnKey": "audit"
 		}, {
 			"btnKey": "row-edit"
 		}, {
 			"btnKey": "row-view"
 		}, {
 			"btnKey": "row-switch"
+		},{
+			"btnKey": "row-switch-sale"
 		}, {
 			"btnKey": "row-reset-pwd"
 		}, {
 			"btnKey": "row-config"
+		}, {
+			"btnKey": "row-audit"
+		},{
+			"btnKey": "row-audit1"
+		},{
+			"btnKey": "row-audit2"
+		}, {
+			"btnKey": "row-saledate"
+		},{
+			"btnKey": "row-desc"
 		}
+		
 	]
 }

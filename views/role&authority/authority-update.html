@@ -9,7 +9,15 @@
 		<title>编辑权限</title>
 		<link rel="stylesheet" href="../../frame/layui/css/layui.css">
 		<link rel="stylesheet" href="../../css/style.css">
-
+		<style type="text/css">
+			.operate {
+				text-align: center;
+				bottom: 0;
+				position: relative;
+				left: 0;
+				right: 0;
+			}
+		</style>
 	</head>
 
 	<body class="body">
@@ -29,7 +37,8 @@
 			<div class="layui-form-item">
 				<label class="layui-form-label">权限名称</label>
 				<div class="layui-input-block">
-					<input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="请输入权限名称" class="layui-input">
+					<!--这个menuName是后台开发  李丹起的，我感觉不是特别合适 ，因为权限不只是导航，也可能是按钮，名字应该兼顾到这两种情况-->
+					<input type="text" name="menuName" lay-verify="required" autocomplete="off" placeholder="请输入权限名称" class="layui-input">
 				</div>
 			</div>
 
@@ -37,37 +46,68 @@
 				<label class="layui-form-label">权限链接</label>
 
 				<div class="layui-input-block">
-					<input type="text" name="url" lay-verify="required|url" autocomplete="off" placeholder="请输入权限链接" class="layui-input">
+					<!--这个menuName是后台开发  李丹起的，我感觉不是特别合适 ，因为权限不只是导航，也可能是按钮，名字应该兼顾到这两种情况-->
+					<input type="text" name="menuUrl" autocomplete="off" placeholder="请输入权限链接" class="layui-input">
 				</div>
 			</div>
 
 			<div class="layui-form-item">
 				<label class="layui-form-label">节点类型</label>
-				<div class="layui-input-inline">
-					<input type="radio" name="type" lay-filter="btn-type" value="1" title="导航菜单">
-					<input type="radio" name="type" lay-filter="btn-type" value="0" title="按钮">
+				<div id="node-type" class="layui-input-inline">
+					<input type="radio" name="type" lay-filter="btn-type" value="0" title="导航菜单">
+					<input type="radio" name="type" lay-filter="btn-type" value="1" title="按钮">
 				</div>
 				<div id="btn-class-style" style="display: none;">
-					<label class="layui-form-label">按钮样式</label>
+					<label class="layui-form-label">按钮类型</label>
 					<div class="layui-input-inline">
-						<input type="text" name="btnStyle" lay-verify="style" autocomplete="off" placeholder="请输入按钮样式" class="layui-input">
+						<select name="btnKey">
+							<option value="">请选择</option>
+							<option value="add">添加</option>
+							<option value="edit">编辑</option>
+							<option value="delete">删除</option>
+							<option value="export">导出</option>
+							<option value="refresh">刷新</option>
+							<option value="audit">提审</option>
+							<option value="copy">复制</option>
+							<optgroup label="行内-切换按钮">
+								<option value="row-switch">启用停用</option>
+								<option value="row-switch-sale">上架下架</option>
+							</optgroup>
+							<optgroup label="行内-普通按钮">
+
+								<option value="row-edit">编辑</option>
+								<option value="row-view">产看</option>
+								<option value="row-config">配置</option>
+								<option value="row-reset-pwd">重置密码</option>
+								<option value="row-audit">审核</option>
+								<option value="row-audit1">一审</option>
+								<option value="row-audit2">二审</option>
+								<option value="row-saledate">销售期</option>
+								<option value="row-desc">描述</option>
+
+							</optgroup>
+
+						</select>
+
+						<!--<input type="text" name="btnKey" lay-verify="style" autocomplete="off" placeholder="请输入按钮样式" class="layui-input">-->
 					</div>
 				</div>
 
 			</div>
 
-			<div class="layui-form-item">
-				<div class="layui-input-block">
-					<button class="layui-btn" lay-submit="" lay-filter="authority-form">
+			<div class="layui-form-item operate">
+				<!--<div class="layui-input-block">-->
+				<button class="layui-btn" type="button" lay-submit="" lay-filter="authority-form">
 						<i class="layui-icon">&#xe605;</i>
 						提交
 					</button>
-					<button type="reset" class="layui-btn layui-btn-primary">
+				<button type="button" id="cancel" class="layui-btn layui-btn-primary">
 						 <i class="layui-icon">&#x1006;</i>
-						 重置
+						 取消
 					</button>
-				</div>
+				<!--</div>-->
 			</div>
+			<input type="hidden" name="id" />
 		</form>
 		<script type="text/javascript" src="../../js/common/module-manage.js"></script>
 		<script type="text/javascript" charset="utf8" src="../../frame/layui/layui.js"></script>

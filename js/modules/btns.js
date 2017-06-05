@@ -32,30 +32,70 @@ layui.define(function(exports) {
 			icon: '&#xe61e;',
 			name:'导出'
 		},
+		'copy': {
+			className: baseBtnClass + 'layui-btn-normal copy',
+			icon: '&#xe630;',
+			name:'复制'
+		},
+		'audit': {
+			className: baseBtnClass + 'layui-btn audit',
+			icon: '&#xe605;',
+			name:'提审'
+		},
 		'row-edit': {
 			className: baseBtnClass + 'layui-btn-small layui-btn-warm row-edit',
 			icon: '&#xe642;',
 			name:'编辑'
 		},
 		'row-view': {
-			className: baseBtnClass + 'layui-btn-small layui-btn-warm row-view',
+			className: baseBtnClass + 'layui-btn-small layui-btn-normal row-view',
 			icon: '&#xe615;',
 			name:'查看'
 		},
 		'row-config': {
-			className: baseBtnClass + 'layui-btn-small layui-btn-warm row-config',
+			className: baseBtnClass + 'layui-btn-small layui-btn-primary row-config',
 			icon: '&#xe620;',
 			name:'配置'
 		},
 		'row-reset-pwd': {
-			className: baseBtnClass + 'layui-btn-small layui-btn-warm row-reset-pwd',
-			icon: '&#xe620;',
+			className: baseBtnClass + 'layui-btn-small layui-btn-primary row-reset-pwd',
+			icon: '&#x1002;',
 			name:'重置密码'
 		},
 		'row-switch': {
 			className: 'row-switch',
 			prop: 'enable',//对应提交时候的name值
 			name: '启用|禁用'//对应显示的字
+		},
+		'row-switch-sale': {
+			className: 'row-switch-sale',
+			prop: 'sale',//对应提交时候的name值
+			name: '上架|下架'//对应显示的字
+		},
+		'row-audit': {
+			className: baseBtnClass + 'layui-btn-small layui-btn-danger row-audit',
+			icon: '&#xe605;',
+			name:'审核'
+		},
+		'row-audit1': {
+			className: baseBtnClass + 'layui-btn-small layui-btn-danger row-audit1',
+			icon: '&#xe605;',
+			name:'一审'
+		},
+		'row-audit2': {
+			className: baseBtnClass + 'layui-btn-small layui-btn-danger row-audit2',
+			icon: '&#xe605;',
+			name:'二审'
+		},
+		'row-saledate': {
+			className: baseBtnClass + 'layui-btn-small layui-btn-warm row-saledate',
+			icon: '&#xe637;',
+			name:'销售期'
+		},
+		'row-desc': {
+			className: baseBtnClass + 'layui-btn-small layui-btn-normal row-desc',
+			icon: '&#xe60b;',
+			name:'描述'
 		}
 	};
 	
@@ -158,22 +198,35 @@ layui.define(function(exports) {
 		 * @param {Object} name 指定的name值
 		 * @param {Object} text 开关显示名字  启用|停用
 		 * @param {Boolean} isChecked 默认开还是关
+		 * @param {Boolean} isDisable 是否禁用
 		 */
-		renderSwitch: function(name, text, isChecked) {
+		renderSwitch: function(name, text, isChecked,isDisable) {
 			var checkStr = '';
 			if(isChecked){
 				checkStr = 'checked';
 			}
+			var disabled = '';
+			if(isDisable){
+				disabled = 'disabled'
+			}
 			return '<div class="layui-form" style="display:inline-block;margin-right:10px;">' +
-				'<input type="checkbox" '+checkStr+' lay-filter="'+name+'" name="' + name + '" lay-skin="switch" lay-text="' + text + '">' +
+				'<input type="checkbox" '+checkStr+' '+disabled+' lay-filter="'+name+'" name="' + name + '" lay-skin="switch" lay-text="' + text + '">' +
 				'</div>';
 		},
 
-		renderBtn: function(className, btnName, btnIcon,isDisable) {
+		renderBtn: function(className, btnName, btnIcon,isDisable,otherOpt) {
+			if(otherOpt){
+				btnName = otherOpt.btnName || btnName;//自定义名字
+				className = otherOpt.className || className;//自定义样式
+			}
+			
 			if(isDisable){
 				className+=' layui-btn-disabled';
+				return '<button class="' + className + '" disabled="disabled"><i class="layui-icon">'+btnIcon+'</i> '+btnName+'</button>';
+			}else{
+				return '<button class="' + className + '" ><i class="layui-icon">'+btnIcon+'</i> '+btnName+'</button>';
 			}
-			return '<button class="' + className + '" ><i class="layui-icon">'+btnIcon+'</i> '+btnName+'</button>';
+			
 		}
 
 	}

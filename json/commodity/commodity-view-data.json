@@ -1,0 +1,152 @@
+{
+	"data": {
+		"id": "143fcd0c-ad86-4376-b1bd-632ca1bb0242",
+		"commodityName": "学酷测试09",
+		"commodityCode": "C016YS32SP37",
+		"commoditySort": "非实物商品",
+		"createDate": 1495850128000,
+		"originalPrice": 33333,
+		"discount": 0.333,
+		"currentPrice": 23423424,
+		"commodityProducts": [
+			{
+				"areaName": "南昌县",
+				"auditStatus": null,
+				"billType": "计时",
+				"code": null,
+				"commodityCode": null,
+				"commodityId": "143fcd0c-ad86-4376-b1bd-632ca1bb0242",
+				"commodityName": "学酷测试09",
+				"createDate": null,
+				"currentPrice": null,
+				"expiryLength": "100",
+				"gradeName": null,
+				"ids": null,
+				"isPass": null,
+				"isSingleProduct": null,
+				"number": null,
+				"productCurrentPrice": null,
+				"productId": "727d0463-8281-4056-9c13-83d68a2603bd",
+				"productLineName": "学酷1",
+				"productOriginalPrice": 0,
+				"productSource": null,
+				"productType": "同步课程",
+				"saleStatus": null,
+				"singleCommodityId": null,
+				"singleCommodityName": null,
+				"specialtyName": null,
+				"timeLength": "100",
+				"unitPrice": null,
+				"unit": "天"
+			}
+		],
+		"promotionList": [],
+
+		"auditList": [
+			{
+				"sponsor": "小名",
+				"auditStatus": "1",
+				"auditOpinion": "通过",
+				"auditDate": 1495850128000,
+				"auditor": "小名",
+				"currentNode": "当前节点"
+			}
+		],
+		"commodityEducational": [],
+		"commoditySpecialty": [],
+		"commoditySaledepartments": [],
+		"areaIds": "",
+		"saleDateList": [
+			{
+				"commodityId": "00fc2ee7-2f32-49a3-99c6-a1fb9d3a381d",
+				"currentDate": null,
+				"descList": [
+					{
+						"id": "2",
+						"descript": "sdfasdfasdfasdfasdf"
+					}, {
+						"id": "3",
+						"descript": "rrrrrrrrrrrrrr"
+					}
+				],
+				"endDate": 1495788236000,
+				"id": "0",
+				"pictureList": [
+					{
+						"id": "1",
+						"thumbnail": "/image/code.png"
+					}, {
+						"id": "2",
+						"thumbnail": "/image/v.png"
+					}
+				],
+				"startDate": null,
+				"videosList": [
+					{
+						"id": "4",
+						"video": "werert.mp4"
+					}, {
+						"id": "5",
+						"video": "ertertertet.mp4"
+					}
+				]
+			}
+		],
+		"commodityLevels": [],
+		"areaNames": "北京，天津，上海",
+		"commodityUserType": [],
+		"commodityEducational": [
+			"2"
+		],
+		"commoditySpecialty": [
+			"1"
+		],
+		"commoditySaledepartments": [
+			"2"
+		],
+		"areaIds": "511302,360121",
+		"commodityLevels": [
+			"2"
+		],
+		"areaNames": "顺庆区,南昌县",
+		"commodityUserType": [
+			"4",
+			"3"
+		],
+		"commodityCode": "C016YS37SP44",
+		"isGive": 2,
+		"commodityGrade": [
+			"1"
+		],
+		"isGive": 2,
+		"commodityGrade": [],
+
+		"businessType": "2",
+		"saledate": {
+			"startDate": 1495850128000,
+			"endDate": 1495850128000,
+			"descList": [
+				{
+					"descript": "werwerwerwerwerwer"
+				}, {
+					"descript": "werwerwerwerwerwer"
+				}
+			],
+			"videosList": [
+				{
+					"video": "eee.mov"
+				}, {
+					"video": "eee.mov"
+				}
+			],
+			"pictureList": [
+				{
+					"thumbnail": "/operateSystemApplicationUi/image/test.jpg"
+				}, {
+					"thumbnail":"/operateSystemApplicationUi/image/code.png"
+				}
+			]
+		}
+	},
+	"status": true
+}

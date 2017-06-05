@@ -1,0 +1,20 @@
+{
+	"data": [
+		{
+		
+			"areaName": "新泰市",
+			"billType": "计时",
+			"currentPrice": 33,
+			"expiryLength": "1",
+			"number": 2,
+			"productLineName": "cp3",
+			"productOriginalPrice": 33,
+			"productType": "同步课程",
+			"singleCommodityId": "2a643f2e-01b0-4930-a900-11aab4ebaf2b",
+			"commodityName": "101产品10",
+			"timeLength": "12",
+			"unitPrice": 22
+		}
+	],
+	"status": true
+}

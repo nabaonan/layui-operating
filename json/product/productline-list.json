@@ -1,15 +1,260 @@
 {
 	"data": [
 		{
-			"businessType": [
+			"businessId": [
+				"1"
+			],
+			"businessName": [
+				"个人"
+			],
+			"businessType": "1",
+			"code": "C002",
+			"comments": "备注...",
+			"createDate": 1494476666000,
+			"creater": "admin",
+			"departmentId": ["1","2"],
+			"departmentName": [],
+			"effDate": 1494476666000,
+			"effStatus": "1",
+			"header": "admin",
+			"id": "35010891-162b-4981-9fb2-d530f54ee20d",
+			"name": "产品线2",
+			"phone": "123456789",
+			"portalAddress": "http://www.baidu.com",
+			"startUse": "2"
+		}, {
+			"businessId": [
+				"3"
+			],
+			"businessName": [
+				"组织+个人"
+			],
+			"businessType": "3",
+			"code": "A006",
+			"comments": "备注...",
+			"createDate": 1494577373000,
+			"creater": "admin",
+			"departmentId": [
+				"1"
+			],
+			"departmentName": [
+				"学校事业部"
+			],
+			"effDate": 1494577373000,
+			"effStatus": "1",
+			"header": "admin",
+			"id": "4633cada-8131-4daa-8851-9503424f693b",
+			"name": "产品线5",
+			"phone": "123456789",
+			"portalAddress": "http://www.baidu.com",
+			"startUse": "2"
+		}, {
+			"businessId": [
 				"2"
 			],
 			"businessName": [
 				"组织"
 			],
-			"code": null,
+			"businessType": "2",
+			"code": "C003",
 			"comments": "备注...",
-			"createDate": 1494259200000,
+			"createDate": 1494476767000,
+			"creater": "admin",
+			"departmentId": [
+				"2"
+			],
+			"departmentName": [
+				"学生事业部"
+			],
+			"effDate": null,
+			"effStatus": null,
+			"header": "admin",
+			"id": "556a8a13-3c36-4ed5-897f-c8624ee0c086",
+			"name": "产品线7",
+			"phone": "123456789",
+			"portalAddress": "http://www.baidu.com",
+			"startUse": null
+		}, {
+			"businessId": [
+				"1"
+			],
+			"businessName": [
+				"个人"
+			],
+			"businessType": "1",
+			"code": "C004",
+			"comments": null,
+			"createDate": 1494816696000,
+			"creater": "写死的",
+			"departmentId": [],
+			"departmentName": [],
+			"effDate": 1494816696000,
+			"effStatus": "1",
+			"header": "123",
+			"id": "55a4bcf0-4df8-4827-b4c7-f69f84f3507e",
+			"name": "cp2",
+			"phone": "1234567890",
+			"portalAddress": "www.baidu.com",
+			"startUse": "2"
+		}, {
+			"businessId": [
+				"2"
+			],
+			"businessName": [
+				"组织"
+			],
+			"businessType": "2",
+			"code": "B002",
+			"comments": "备注...",
+			"createDate": 1494577432000,
+			"creater": "admin",
+			"departmentId": [
+				"1"
+			],
+			"departmentName": [
+				"学校事业部"
+			],
+			"effDate": 1494577432000,
+			"effStatus": "1",
+			"header": "admin",
+			"id": "6ed01232-02cd-4c1b-9e96-240a224ccc41",
+			"name": "产品线7",
+			"phone": "123456789",
+			"portalAddress": "http://www.baidu.com",
+			"startUse": "2"
+		}, {
+			"businessId": [
+				"2"
+			],
+			"businessName": [
+				"组织"
+			],
+			"businessType": "2",
+			"code": "B003",
+			"comments": "备注...",
+			"createDate": 1494577450000,
+			"creater": "admin",
+			"departmentId": [
+				"1"
+			],
+			"departmentName": [
+				"学校事业部"
+			],
+			"effDate": 1494577450000,
+			"effStatus": "1",
+			"header": "admin",
+			"id": "72f4de42-11fa-41bd-ba63-d84dc8005589",
+			"name": "产品线7",
+			"phone": "123456789",
+			"portalAddress": "http://www.baidu.com",
+			"startUse": "2"
+		}, {
+			"businessId": [
+				"1"
+			],
+			"businessName": [
+				"个人"
+			],
+			"businessType": "1",
+			"code": "C005",
+			"comments": null,
+			"createDate": 1494819379000,
+			"creater": "写死的",
+			"departmentId": [],
+			"departmentName": [],
+			"effDate": 1494819379000,
+			"effStatus": "1",
+			"header": "123",
+			"id": "79c52ed3-ae34-4a75-96a6-fd3ba9ace8e1",
+			"name": "cp3",
+			"phone": "1234567890",
+			"portalAddress": "www.baidu.com",
+			"startUse": "2"
+		}, {
+			"businessId": [
+				"2"
+			],
+			"businessName": [
+				"组织"
+			],
+			"businessType": "2",
+			"code": "B004",
+			"comments": "备注...",
+			"createDate": 1494577585000,
+			"creater": "admin",
+			"departmentId": [
+				"2"
+			],
+			"departmentName": [
+				"学生事业部"
+			],
+			"effDate": 1494577585000,
+			"effStatus": "1",
+			"header": "admin",
+			"id": "a0f69b85-ab0c-4d00-b001-83dce29282e7",
+			"name": "产品线7",
+			"phone": "123456789",
+			"portalAddress": "http://www.baidu.com",
+			"startUse": "2"
+		}, {
+			"businessId": [
+				"3"
+			],
+			"businessName": [
+				"组织+个人"
+			],
+			"businessType": "3",
+			"code": "A005",
+			"comments": "备注...",
+			"createDate": 1494577286000,
+			"creater": "admin",
+			"departmentId": [
+				"2"
+			],
+			"departmentName": [
+				"学生事业部"
+			],
+			"effDate": 1494577286000,
+			"effStatus": "1",
+			"header": "admin",
+			"id": "cd980099-0cba-4cf6-8068-1c508b29c13e",
+			"name": "产品线5",
+			"phone": "123456789",
+			"portalAddress": "http://www.baidu.com",
+			"startUse": "2"
+		}, {
+			"businessId": [
+				"1"
+			],
+			"businessName": [
+				"个人"
+			],
+			"businessType": "1",
+			"code": "C003",
+			"comments": null,
+			"createDate": 1494816453000,
+			"creater": "写死的",
+			"departmentId": [],
+			"departmentName": [],
+			"effDate": 1494816453000,
+			"effStatus": "1",
+			"header": "123",
+			"id": "d8db9d84-652f-4963-9c9c-382ab3b43adb",
+			"name": "cp1",
+			"phone": "1234567890",
+			"portalAddress": "www.baidu.com",
+			"startUse": "2"
+		}, {
+			"businessId": [
+				"2"
+			],
+			"businessName": [
+				"组织"
+			],
+			"businessType": "2",
+			"code": "A007",
+			"comments": "备注...",
+			"createDate": 1494577415000,
 			"creater": "admin",
 			"departmentId": [
 				"1",
@@ -19,22 +264,18 @@
 				"学校事业部",
 				"学生事业部"
 			],
-			"effDate": null,
-			"effStatus": null,
+			"effDate": 1494577415000,
+			"effStatus": "1",
 			"header": "admin",
-			"id": "05d0819d-4dc4-4595-af48-a780f35ce72d",
-			"name": "产品线7",
+			"id": "e1d6f0b7-1f67-449e-acd7-e8d4603132eb",
+			"name": "05171356",
 			"phone": "123456789",
 			"portalAddress": "http://www.baidu.com",
-			"startUse": null
+			"startUse": "2"
 		}
 	],
 	"msg": null,
-	"recordsFiltered": "1",
+	"recordsFiltered": "null",
+	"recordsTotal": null,
 	"status": true
 }
-
-
-
-
-

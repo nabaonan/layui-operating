@@ -1,0 +1,13 @@
+{
+	"data": [
+		{
+			"key": 1,
+			"value": "选择1"
+		}, {
+			"key": 2,
+			"value": "选择2"
+		}
+	],
+	
+	"status": true
+}

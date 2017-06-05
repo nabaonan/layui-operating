@@ -1,35 +1,113 @@
 {
 	"data": [
 		{
-			"id": 1,
-			"code":"c001",
-			"name":"业务名称",
-			"businessType":"业务类型",
-			"portalAddress":"http://sadfasdfasdf.com",
-			"header":"负责人",
-			"phone":"13401111111",
-			"schoolSystem":"学制",
-			"schoolLevel":"学段",
-			"timeLength":"时长",
-			"grade":"年级",
-			"specialty":"学科",
-			
-			"phone":"13401111111",
-			
-			"effDate":"2017-01-02 22:22:33"
-			
+			"area": [
+				"北京市",
+				"天津市"
+			],
+			"billType": "计时",
+			"businessType": "个人+组织",
+			"code": "Coo1ys003",
+			"department": "",
+			"productType": "同步课程",
+			"effStatus": "1",
+			"elementType": "同步课程",
+			"expiryDate": 1495214737000,
+			"expiryLength": "100",
+			"grade": "初二",
+			"id": "06cd6312-5a66-4704-99fa-0eb36a0c059f",
+			"name": "初一数学人教版",
+			"productLine": "学酷1对1",
+			"reviewStatus": "2",
+			"reviewer": null,
+			"schoolLevel": "初中",
+			"schoolSystem": "五四制",
+			"specialty": "历史",
+			"timeLength": "12",
+			"unit": "1",
+			"uploadDate": 1495163371000
 		}, {
-			"id": 2,
-			"code":"c002",
-			"name":"业务名称",
-			"businessType":"业务类型",
-			"portalAddress":"http://sadfasdfasdf.com",
-			"header":"负责人",
-			"phone":"13401111111",
-			"effDate":"2017-01-02 22:22:33"
-			
+			"area": [
+				"北京市",
+				"天津市"
+			],
+			"billType": "计时",
+			"businessType": "个人",
+			"code": "Coo1ys001",
+			"department": "",
+			"productType": "同步课程",
+			"effStatus": "1",
+			"elementType": "同步课程",
+			"expiryDate": null,
+			"expiryLength": "100",
+			"grade": "",
+			"id": "28c40ce4-1052-4573-96b0-980f866f41c4",
+			"name": "初一数学人教版",
+			"productLine": "学酷1对1",
+			"reviewStatus": "1",
+			"reviewer": null,
+			"schoolLevel": "",
+			"schoolSystem": "",
+			"specialty": "",
+			"timeLength": "1234",
+			"unit": "1",
+			"uploadDate": 1494556604000
+		}, {
+			"area": [
+				"北京市",
+				"天津市"
+			],
+			"billType": "计时",
+			"businessType": "个人",
+			"code": "Coo1ys002",
+			"department": "",
+			"productType": "同步课程",
+			"effStatus": "1",
+			"elementType": "同步课程",
+			"expiryDate": null,
+			"expiryLength": "100",
+			"grade": "初二",
+			"id": "d3554308-b05a-4e6d-9009-ccccd507a471",
+			"name": "初一数学人教版",
+			"productLine": "学酷1对1",
+			"reviewStatus": "1",
+			"reviewer": null,
+			"schoolLevel": "",
+			"schoolSystem": "",
+			"specialty": "",
+			"timeLength": "1234",
+			"unit": "1",
+			"uploadDate": 1494557152000
+		}, {
+			"area": [
+				"北京市",
+				"天津市"
+			],
+			"billType": "计时",
+			"businessType": "个人",
+			"code": "Coo1ys004",
+			"department": "",
+			"productType": "同步课程",
+			"effStatus": "1",
+			"elementType": "同步课程",
+			"expiryDate": 1495214776000,
+			"expiryLength": "100",
+			"grade": "初二",
+			"id": "fe558360-1723-493a-8bcc-fccd1f82d7d8",
+			"name": "初一数学人教版",
+			"productLine": "学酷1对1",
+			"reviewStatus": "2",
+			"reviewer": null,
+			"schoolLevel": "初中",
+			"schoolSystem": "五四制",
+			"specialty": "历史",
+			"timeLength": "12",
+			"unit": "1",
+			"uploadDate": 1495164711000
 		}
 	],
-	"recordsFiltered": "1",
+	"msg": null,
+	"recordsFiltered": "4",
+	"recordsTotal": "4",
 	"status": true
 }

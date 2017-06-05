@@ -24,8 +24,8 @@ layui.config({
 
 	//对外开方api，供父iframe访问
 	window.tree = {
-		getSelectData: function() {
-			return treeUtil.getSelectData(treeId);
+		getCheckedData: function() {
+			return treeUtil.getCheckedData(treeId);
 		}
 	}
 

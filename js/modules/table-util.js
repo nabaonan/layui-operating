@@ -4,7 +4,10 @@
 //	baseUrl:'api/baseUrl',//这里配置命名最好按照驼峰命名规范,
 //});
 
-var requireModules = ['base-url','form-util'];
+var requireModules = [
+'base-url',
+'form-util',
+'form'];
 
 window.top.registeModule(window,requireModules);
 
@@ -12,8 +15,9 @@ window.top.registeModule(window,requireModules);
 layui.define(requireModules, function(exports) {
 
 //	console.log("1222222",layui.baseUrl);
-	var baseUrl = layui.baseUrl;
+	var baseUrl = layui['base-url'];
 	var $ = layui.jquery;
+	var f = layui.form();
 
 	var util = {
 		
@@ -35,6 +39,7 @@ layui.define(requireModules, function(exports) {
 				paginationType: "full_numbers",
 				ajax: {
 					url: option.url,
+					type: option.type||'get',
 					dataSrc: "data",
 					data: function(requestParam) {
 						var param;
@@ -66,16 +71,36 @@ layui.define(requireModules, function(exports) {
 				processing: true,
 				serverSide: true,
 				language: {
-					url: '/operating-authority/frame/datatables/language/chs.json'
+					url: baseUrl.getUrl('datatables/language').url
 				}
 			};
 
 			var totalConfig = $.extend(true, config, option);
+			if(option.isStatic){
+				delete totalConfig.ajax;
+			}
+			
 			return $table.dataTable(totalConfig).api();
+		},
+		
+		renderStaticTable: function($table,options) {
+			var opt = {
+				dom: "t",
+				data: [],
+				retrieve: true,
+				autoWidth:true,
+				ordering: false,
+				language: {
+					url: baseUrl.getUrl('datatables/language').url
+				}
+			}
+			var totalOpt = $.extend(true,opt,options);
+			$table.dataTable(totalOpt).api();
 		},
 
 		reloadData: function($table) {
 			this.getTable($table).ajax.reload();
+			$table.find('thead :checkbox').prop('checked',false).trigger('change');//解决全选check不能恢复默认状态
 		},
 		
 		getTable: function($table) {
@@ -85,15 +110,32 @@ layui.define(requireModules, function(exports) {
 		getRowData: function($table,$elem) {
 			return this.getTable($table).row($elem.parents('tr')).data();
 		},
+		
+		addRow: function($table,data){
+			$table.DataTable().rows.add(data).draw();
+		},
+		
+		deleteRow: function($table,$elem) {
+			this.getTable($table).row($elem.parents('tr')).remove().draw();
+		},
 
 		getSelectData: function($table) {
 			var results = [];
 			var _this = this;
-			$table.find("tbody input[type='checkbox']:checked").each(function() {
-				var data = _this.getRowData($table);
+			$table.find("tbody :checkbox[lay-skin='primary']:checked").each(function() {
+				var data = _this.getRowData($table,$(this));
 				results.push(data);
 			});
 			return results;
+		},
+		
+		getTableDatas: function($table) {
+			var result = [];
+			var datas = $table.DataTable().data()
+			$.each(datas,function(index,item){
+			 	result.push(item);
+			 })
+			 return result;
 		},
 		
 		getSelectIds: function($table) {
@@ -144,58 +186,6 @@ layui.define(requireModules, function(exports) {
 				});
 			}
 		},
-		
-		// 转换时间戳为日期时间(时间戳,显示年月日时分,加8小时显示正常时间区)
-		UnixToDate: function(unixTime, isFull, timeZone) {
-			if(unixTime == '' || unixTime == null) {
-				return '';
-			}
-			if(typeof(timeZone) == 'number') {
-				unixTime = parseInt(unixTime) + parseInt(timeZone) * 60 * 60;
-			}
-			var time = new Date(unixTime * 1000);
-			var ymdhis = "";
-			var year, month, date, hours, minutes, seconds;
-			if(time.getUTCFullYear() < 10) {
-				year = '0' + time.getUTCFullYear();
-			} else {
-				year = time.getUTCFullYear();
-			}
-			if((time.getUTCMonth() + 1) < 10) {
-				month = '0' + (time.getUTCMonth() + 1);
-			} else {
-				month = (time.getUTCMonth() + 1);
-			}
-			if(time.getUTCDate() < 10) {
-				date = '0' + time.getUTCDate();
-			} else {
-				date = time.getUTCDate();
-			}
-			ymdhis += year + "-";
-			ymdhis += month + "-";
-			ymdhis += date;
-			if(isFull === true) {
-				if(time.getUTCHours() < 10) {
-					hours = '0' + time.getUTCHours();
-				} else {
-					hours = time.getUTCHours();
-				}
-				if(time.getUTCMinutes() < 10) {
-					minutes = '0' + time.getUTCMinutes();
-				} else {
-					minutes = time.getUTCMinutes();
-				}
-				if(time.getUTCSeconds() < 10) {
-					seconds = '0' + time.getUTCSeconds();
-				} else {
-					seconds = time.getUTCSeconds();
-				}
-				ymdhis += " " + hours + ":";
-				ymdhis += minutes;
-				// ymdhis += seconds;
-			}
-			return ymdhis;
-		},
 		// 批量删除 返回需要的 ids
 		getIds: function(o, str) {
 			var obj = o.find('tbody tr td:first-child input[type="checkbox"]:checked');
@@ -208,7 +198,6 @@ layui.define(requireModules, function(exports) {
 			return list;
 		},
 		bindEvent: function() {
-			console.log('绑定tableutil时间');
 			// 表格选中
 			$('.layui-table').on('click', 'tbody tr input[type="checkbox"]', function() {
 				var obj = $(this).parent().parent();
@@ -220,7 +209,7 @@ layui.define(requireModules, function(exports) {
 			});
 
 			// 全选和反选
-			$('.layui-table').on('click', 'thead tr input[type="checkbox"]', function() {
+			$('.layui-table').on('click', '.all', function() {
 				var obj = $(".layui-table tbody input[type='checkbox']:checkbox");
 				var allTr = $(".layui-table tbody tr");
 				if(this.checked) {
@@ -230,6 +219,20 @@ layui.define(requireModules, function(exports) {
 					obj.prop("checked", false);
 					allTr.removeClass('selected');
 				}
+			});
+			
+			//全选反选
+			f.on('checkbox(all)', function(data){
+				$('tbody :checkbox[lay-skin="primary"]').each(function(){
+					$(this).prop('checked',data.elem.checked);
+					f.render('checkbox');
+				});
+			});   
+			
+			//表格重绘后渲染checkbox
+			$('table').on('draw.dt', function() {
+				f.render('checkbox');
+				$(this).width('100%');
 			});
 		}
 

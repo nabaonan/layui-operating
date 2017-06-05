@@ -43,7 +43,7 @@ layui.use(['jquery'], function() {
 			},
 			activeMenu: function() {
 
-				console.log('这里做一些菜单选择,但是jquery选择器需要绑定到顶级window');
+//				console.log('这里做一些菜单选择,但是jquery选择器需要绑定到顶级window');
 			}
 		});
 

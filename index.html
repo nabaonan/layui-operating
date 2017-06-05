@@ -9,7 +9,7 @@
 		<title>首页</title>
 		<link rel="stylesheet" href="frame/layui/css/layui.css">
 		<link rel="stylesheet" href="css/style.css">
-		<link rel="icon" href="image/code.png">
+		<link rel="icon" href="image/logo.png">
 	</head>
 
 	<body>
@@ -21,7 +21,13 @@
 			<div class="layui-header my-header">
 				<a href="index.html">
 					<div class="my-header-logo">运营管理系统</div>
+					
 				</a>
+				<div class="my-header-btn">
+		            <button type="button" class="layui-btn layui-btn-radius layui-btn-normal layui-btn-small btn-nav">
+		            	<i class="layui-icon"></i>
+		            </button>
+		        </div>
 			
 				<ul class="layui-nav my-header-user-nav" lay-filter="side-right">
 					<!--<li class="layui-nav-item"><a href="javascript:;" class="pay" href-url="">支持作者</a></li>-->
@@ -40,7 +46,11 @@
 						</dl>
 					</li>
 					<li class="layui-nav-item">
-						<a class="name" href="javascript:;"><img src="image/code.png" alt="logo">管理员 </a>
+						<a class="name" href="javascript:;">
+							<i class="layui-icon">
+								&#xe612;
+							</i>
+							管理员 </a>
 						<dl class="layui-nav-child">
 							<dd>
 								<a href="javascript:;" href-url="demo/login.html"><i class="layui-icon">&#xe621;</i>个人信息</a>
@@ -58,16 +68,16 @@
 					
 				<script id="navs" type="text/html">
 					<ul class="layui-nav layui-nav-tree" lay-filter="side">
-						{{#  layui.each(d.navs, function(index, item){ }}
+						{{#  layui.each(d, function(index, item){ }}
 						  <li class="layui-nav-item">
-						  	<a href="javascript:;" href-url="{{item.href}}" data-id="{{item.id}}">{{item.name}}</a>
+						  	<a href="javascript:;" href-url="{{item.menuUrl}}" data-id="{{item.id}}">{{item.menuName}}</a>
 						  	
 						  	{{# if(item.children){	}}
 						  		<dl class="layui-nav-child">
 						  	 	{{#layui.each(item.children, function(index, sub){ }}
 						  			<dd >
-										<a href="javascript:;" href-url="{{sub.href}}"  data-id="{{sub.id}}">
-											<i class="layui-icon">&#xe621;</i>{{sub.name}}
+										<a href="javascript:;" href-url="{{sub.menuUrl}}"  data-id="{{sub.id}}">
+											<i class="layui-icon">&#xe621;</i>{{sub.menuName}}
 										</a>
 									</dd>
 						  		{{#	});	}}

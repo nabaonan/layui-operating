@@ -9,8 +9,7 @@ var requireModules =[
 window.top.registeModule(window,requireModules);
 layui.define('base-url', function(exports) {
 	var baseApi = layui['base-url'];//这里的名字必须和模块输出的名字一样，但是使用layui.use自动传参就可以自己随意起名
-	console.log(baseApi);
-
+	
 	var url = {
 		namespace: 'user/',
 		"getAll": {

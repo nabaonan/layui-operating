@@ -480,6 +480,19 @@ html body .layui-nav .layui-nav-bar {
 .layui-btn-group{
 	margin: 20px 0;
 }
+/*自定义追加样式*/
+.layui-btn[class*='row-']{
+	margin-left: 15px;
+	margin-top: 10px;
+}
+
+.layui-table{
+	width: 100%;
+}
+
+.layui-table th{
+	text-align: center;
+}
 
 /* media */
 @media screen and (max-width: 1023px) {
