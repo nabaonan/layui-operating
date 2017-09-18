@@ -11,6 +11,7 @@ var requireModules = [
 	'request',
 	'role&authority-api',
 	'toast',
+	'key-bind',
 	'valid-login'
 ];
 
@@ -22,7 +23,8 @@ layui.use(requireModules, function(
 	layer, 
 	ajax,
 	roleApi,
-	toast
+	toast,
+	keyBind
 ) {
 	var $ = layui.jquery;
 	var param = ajax.getAllUrlParam();

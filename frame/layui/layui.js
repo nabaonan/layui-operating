@@ -1,2 +1,432 @@
-/** layui-v1.0.9_rls MIT License By http://www.layui.com */
- ;!function(e){"use strict";var t=function(){this.v="1.0.9_rls"};t.fn=t.prototype;var n=document,o=t.fn.cache={},i=function(){var e=n.scripts,t=e[e.length-1].src;return t.substring(0,t.lastIndexOf("/")+1)}(),r=function(t){e.console&&console.error&&console.error("Layui hint: "+t)},l="undefined"!=typeof opera&&"[object Opera]"===opera.toString(),a={layer:"modules/layer",laydate:"modules/laydate",laypage:"modules/laypage",laytpl:"modules/laytpl",layim:"modules/layim",layedit:"modules/layedit",form:"modules/form",upload:"modules/upload",tree:"modules/tree",table:"modules/table",element:"modules/element",util:"modules/util",flow:"modules/flow",carousel:"modules/carousel",code:"modules/code",jquery:"modules/jquery",mobile:"modules/mobile","layui.all":"dest/layui.all"};o.modules={},o.status={},o.timeout=10,o.event={},t.fn.define=function(e,t){var n=this,i="function"==typeof e,r=function(){return"function"==typeof t&&t(function(e,t){layui[e]=t,o.status[e]=!0}),this};return i&&(t=e,e=[]),layui["layui.all"]||!layui["layui.all"]&&layui["layui.mobile"]?r.call(n):(n.use(e,r),n)},t.fn.use=function(e,t,u){function s(e,t){var n="PLaySTATION 3"===navigator.platform?/^complete$/:/^(complete|loaded)$/;("load"===e.type||n.test((e.currentTarget||e.srcElement).readyState))&&(o.modules[m]=t,y.removeChild(p),function i(){return++v>1e3*o.timeout/4?r(m+" is not a valid module"):void(o.status[m]?c():setTimeout(i,4))}())}function c(){u.push(layui[m]),e.length>1?f.use(e.slice(1),t,u):"function"==typeof t&&t.apply(layui,u)}var f=this,d=o.dir=o.dir?o.dir:i,y=n.getElementsByTagName("head")[0];e="string"==typeof e?[e]:e,window.jQuery&&jQuery.fn.on&&(f.each(e,function(t,n){"jquery"===n&&e.splice(t,1)}),layui.jquery=jQuery);var m=e[0],v=0;if(u=u||[],o.host=o.host||(d.match(/\/\/([\s\S]+?)\//)||["//"+location.host+"/"])[0],0===e.length||layui["layui.all"]&&a[m]||!layui["layui.all"]&&layui["layui.mobile"]&&a[m])return c(),f;var p=n.createElement("script"),h=(a[m]?d+"lay/":o.base||"")+(f.modules[m]||m)+".js";return p.async=!0,p.charset="utf-8",p.src=h+function(){var e=o.version===!0?o.v||(new Date).getTime():o.version||"";return e?"?v="+e:""}(),o.modules[m]?!function g(){return++v>1e3*o.timeout/4?r(m+" is not a valid module"):void("string"==typeof o.modules[m]&&o.status[m]?c():setTimeout(g,4))}():(y.appendChild(p),!p.attachEvent||p.attachEvent.toString&&p.attachEvent.toString().indexOf("[native code")<0||l?p.addEventListener("load",function(e){s(e,h)},!1):p.attachEvent("onreadystatechange",function(e){s(e,h)})),o.modules[m]=h,f},t.fn.getStyle=function(t,n){var o=t.currentStyle?t.currentStyle:e.getComputedStyle(t,null);return o[o.getPropertyValue?"getPropertyValue":"getAttribute"](n)},t.fn.link=function(e,t,i){var l=this,a=n.createElement("link"),u=n.getElementsByTagName("head")[0];"string"==typeof t&&(i=t);var s=(i||e).replace(/\.|\//g,""),c=a.id="layuicss-"+s,f=0;a.rel="stylesheet",a.href=e+(o.debug?"?v="+(new Date).getTime():""),a.media="all",n.getElementById(c)||u.appendChild(a),"function"==typeof t&&!function d(){return++f>1e3*o.timeout/100?r(e+" timeout"):void(1989===parseInt(l.getStyle(n.getElementById(c),"width"))?function(){t()}():setTimeout(d,100))}()},t.fn.addcss=function(e,t,n){layui.link(o.dir+"css/"+e,t,n)},t.fn.img=function(e,t,n){var o=new Image;return o.src=e,o.complete?t(o):(o.onload=function(){o.onload=null,t(o)},void(o.onerror=function(e){o.onerror=null,n(e)}))},t.fn.config=function(e){e=e||{};for(var t in e)o[t]=e[t];return this},t.fn.modules=function(){var e={};for(var t in a)e[t]=a[t];return e}(),t.fn.extend=function(e){var t=this;e=e||{};for(var n in e)t[n]||t.modules[n]?r("模块名 "+n+" 已被占用"):t.modules[n]=e[n];return t},t.fn.router=function(e){for(var t,n=(e||location.hash).replace(/^#/,"").split("/")||[],o={dir:[]},i=0;i<n.length;i++)t=n[i].split("="),/^\w+=/.test(n[i])?function(){"dir"!==t[0]&&(o[t[0]]=t[1])}():o.dir.push(n[i]),t=null;return o},t.fn.data=function(t,n){if(t=t||"layui",e.JSON&&e.JSON.parse){if(null===n)return delete localStorage[t];n="object"==typeof n?n:{key:n};try{var o=JSON.parse(localStorage[t])}catch(i){var o={}}return n.value&&(o[n.key]=n.value),n.remove&&delete o[n.key],localStorage[t]=JSON.stringify(o),n.key?o[n.key]:o}},t.fn.device=function(t){var n=navigator.userAgent.toLowerCase(),o=function(e){var t=new RegExp(e+"/([^\\s\\_\\-]+)");return e=(n.match(t)||[])[1],e||!1},i={os:function(){return/windows/.test(n)?"windows":/linux/.test(n)?"linux":/iphone|ipod|ipad|ios/.test(n)?"ios":void 0}(),ie:function(){return!!(e.ActiveXObject||"ActiveXObject"in e)&&((n.match(/msie\s(\d+)/)||[])[1]||"11")}(),weixin:o("micromessenger")};return t&&!i[t]&&(i[t]=o(t)),i.android=/android/.test(n),i.ios="ios"===i.os,i},t.fn.hint=function(){return{error:r}},t.fn.each=function(e,t){var n,o=this;if("function"!=typeof t)return o;if(e=e||[],e.constructor===Object){for(n in e)if(t.call(e[n],n,e[n]))break}else for(n=0;n<e.length&&!t.call(e[n],n,e[n]);n++);return o},t.fn.stope=function(t){t=t||e.event,t.stopPropagation?t.stopPropagation():t.cancelBubble=!0},t.fn.onevent=function(e,t,n){return"string"!=typeof e||"function"!=typeof n?this:(o.event[e+"."+t]=[n],this)},t.fn.event=function(e,t,n){var i=this,r=null,l=t.match(/\(.*\)$/)||[],a=(t=e+"."+t).replace(l,""),u=function(e,t){var o=t&&t.call(i,n);o===!1&&null===r&&(r=!1)};return layui.each(o.event[a],u),l[0]&&layui.each(o.event[t],u),r},e.layui=new t}(window);
+/*!
+
+ @Title: Layui
+ @Description：经典模块化前端框架
+ @Site: www.layui.com
+ @Author: 贤心
+ @License：MIT
+
+ */
+
+;!function(win){
+
+"use strict";
+
+var Lay = function(){
+  this.v = '1.0.9_rls'; //版本号
+};
+
+Lay.fn = Lay.prototype;
+
+var doc = document, config = Lay.fn.cache = {},
+
+//获取layui所在目录
+getPath = function(){
+  var js = doc.scripts, jsPath = js[js.length - 1].src;
+  return jsPath.substring(0, jsPath.lastIndexOf('/') + 1);
+}(),
+
+//异常提示
+error = function(msg){
+  win.console && console.error && console.error('Layui hint: ' + msg);
+},
+
+isOpera = typeof opera !== 'undefined' && opera.toString() === '[object Opera]',
+
+//内置模块
+modules = {
+  layer: 'modules/layer' //弹层
+  ,laydate: 'modules/laydate' //日期
+  ,laypage: 'modules/laypage' //分页
+  ,laytpl: 'modules/laytpl' //模板引擎
+  ,layim: 'modules/layim' //web通讯
+  ,layedit: 'modules/layedit' //富文本编辑器
+  ,form: 'modules/form' //表单集
+  ,upload: 'modules/upload' //上传
+  ,tree: 'modules/tree' //树结构
+  ,table: 'modules/table' //富表格
+  ,element: 'modules/element' //常用元素操作
+  ,util: 'modules/util' //工具块
+  ,flow: 'modules/flow' //流加载
+  ,carousel: 'modules/carousel' //轮播
+  ,code: 'modules/code' //代码修饰器
+  ,jquery: 'modules/jquery' //DOM库（第三方）
+
+  ,mobile: 'modules/mobile' //移动大模块 | 若当前为开发目录，则为移动模块入口，否则为移动模块集合
+  ,'layui.all': 'dest/layui.all' //PC模块合并版
+};
+
+config.modules = {}; //记录模块物理路径
+config.status = {}; //记录模块加载状态
+config.timeout = 10; //符合规范的模块请求最长等待秒数
+config.event = {}; //记录模块自定义事件
+
+//定义模块
+Lay.fn.define = function(deps, callback){
+  var that = this
+  ,type = typeof deps === 'function'
+  ,mods = function(){
+    typeof callback === 'function' && callback(function(app, exports){
+      layui[app] = exports;
+      config.status[app] = true;
+    });
+    return this;
+  };
+
+  type && (
+    callback = deps,
+    deps = []
+  );
+
+  if(layui['layui.all'] || (!layui['layui.all'] && layui['layui.mobile'])){
+    return mods.call(that);
+  }
+
+  that.use(deps, mods);
+  return that;
+};
+
+//使用特定模块
+Lay.fn.use = function(apps, callback, exports){
+  var that = this, dir = config.dir = config.dir ? config.dir : getPath;
+  var head = doc.getElementsByTagName('head')[0];
+
+  apps = typeof apps === 'string' ? [apps] : apps;
+
+  //如果页面已经存在jQuery1.7+库且所定义的模块依赖jQuery，则不加载内部jquery模块
+  if(window.jQuery && jQuery.fn.on){
+    that.each(apps, function(index, item){
+      if(item === 'jquery'){
+        apps.splice(index, 1);
+      }
+    });
+    layui.jquery = jQuery;
+  }
+
+  var item = apps[0], timeout = 0;
+  exports = exports || [];
+
+  //静态资源host
+  config.host = config.host || (dir.match(/\/\/([\s\S]+?)\//)||['//'+ location.host +'/'])[0];
+
+  if(apps.length === 0
+  || (layui['layui.all'] && modules[item])
+  || (!layui['layui.all'] && layui['layui.mobile'] && modules[item])
+  ){
+    return onCallback(), that;
+  }
+
+  //加载完毕
+  function onScriptLoad(e, url){
+    var readyRegExp = navigator.platform === 'PLaySTATION 3' ? /^complete$/ : /^(complete|loaded)$/
+    if (e.type === 'load' || (readyRegExp.test((e.currentTarget || e.srcElement).readyState))) {
+      config.modules[item] = url;
+      head.removeChild(node);
+      (function poll() {
+        if(++timeout > config.timeout * 1000 / 4){
+          return error(item + ' is not a valid module');
+        };
+        config.status[item] ? onCallback() : setTimeout(poll, 4);
+      }());
+    }
+  }
+
+  //加载模块
+  var node = doc.createElement('script'), url =  (
+    modules[item] ? (dir + 'lay/') : (config.base || '')
+  ) + (that.modules[item] || item) + '.js';
+  node.async = true;
+  node.charset = 'utf-8';
+  node.src = url + function(){
+    var version = config.version === true
+    ? (config.v || (new Date()).getTime())
+    : (config.version||'');
+    return version ? ('?v=' + version) : '';
+  }();
+
+  //首次加载
+  if(!config.modules[item]){
+    head.appendChild(node);
+    if(node.attachEvent && !(node.attachEvent.toString && node.attachEvent.toString().indexOf('[native code') < 0) && !isOpera){
+      node.attachEvent('onreadystatechange', function(e){
+        onScriptLoad(e, url);
+      });
+    } else {
+      node.addEventListener('load', function(e){
+        onScriptLoad(e, url);
+      }, false);
+    }
+  } else {
+    (function poll() {
+      if(++timeout > config.timeout * 1000 / 4){
+        return error(item + ' is not a valid module');
+      };
+      (typeof config.modules[item] === 'string' && config.status[item])
+      ? onCallback()
+      : setTimeout(poll, 4);
+    }());
+  }
+
+  config.modules[item] = url;
+
+  //回调
+  function onCallback(){
+    exports.push(layui[item]);
+    apps.length > 1 ?
+      that.use(apps.slice(1), callback, exports)
+    : ( typeof callback === 'function' && callback.apply(layui, exports) );
+  }
+
+  return that;
+
+};
+
+//获取节点的style属性值
+Lay.fn.getStyle = function(node, name){
+  var style = node.currentStyle ? node.currentStyle : win.getComputedStyle(node, null);
+  return style[style.getPropertyValue ? 'getPropertyValue' : 'getAttribute'](name);
+};
+
+//css外部加载器
+Lay.fn.link = function(href, fn, cssname){
+  var that = this, link = doc.createElement('link');
+  var head = doc.getElementsByTagName('head')[0];
+  if(typeof fn === 'string') cssname = fn;
+  var app = (cssname || href).replace(/\.|\//g, '');
+  var id = link.id = 'layuicss-'+app, timeout = 0;
+
+  link.rel = 'stylesheet';
+  link.href = href + (config.debug ? '?v='+new Date().getTime() : '');
+  link.media = 'all';
+
+  if(!doc.getElementById(id)){
+    head.appendChild(link);
+  }
+
+  if(typeof fn !== 'function') return that;
+
+  //轮询css是否加载完毕
+  (function poll() {
+    if(++timeout > config.timeout * 1000 / 100){
+      return error(href + ' timeout');
+    };
+    parseInt(that.getStyle(doc.getElementById(id), 'width')) === 1989 ? function(){
+      fn();
+    }() : setTimeout(poll, 100);
+  }());
+
+  return that;
+};
+
+//css内部加载器
+Lay.fn.addcss = function(firename, fn, cssname){
+  return layui.link(config.dir + 'css/' + firename, fn, cssname);
+};
+
+//图片预加载
+Lay.fn.img = function(url, callback, error) {
+  var img = new Image();
+  img.src = url;
+  if(img.complete){
+    return callback(img);
+  }
+  img.onload = function(){
+    img.onload = null;
+    callback(img);
+  };
+  img.onerror = function(e){
+    img.onerror = null;
+    error(e);
+  };
+};
+
+//全局配置
+Lay.fn.config = function(options){
+  options = options || {};
+  for(var key in options){
+    config[key] = options[key];
+  }
+  return this;
+};
+
+//记录全部模块
+Lay.fn.modules = function(){
+  var clone = {};
+  for(var o in modules){
+    clone[o] = modules[o];
+  }
+  return clone;
+}();
+
+//拓展模块
+Lay.fn.extend = function(options){
+  var that = this;
+
+  //验证模块是否被占用
+  options = options || {};
+  for(var o in options){
+    if(that[o] || that.modules[o]){
+      error('\u6A21\u5757\u540D '+ o +' \u5DF2\u88AB\u5360\u7528');
+    } else {
+      that.modules[o] = options[o];
+    }
+  }
+
+  return that;
+};
+
+//路由解析
+Lay.fn.router = function(hash){
+  var that = this, hash = hash || location.hash, data = {
+    path: []
+    ,search: {}
+    ,hash: (hash.match(/[^#](#.*$)/) || [])[1] || ''
+  };
+
+  if(!/^#\//.test(hash)) return data; //禁止非路由规范
+  hash = hash.replace(/^#\//, '').replace(/([^#])(#.*$)/, '$1').split('/') || [];
+
+  //提取Hash结构
+  that.each(hash, function(index, item){
+    /^\w+=/.test(item) ? function(){
+      item = item.split('=');
+      data.search[item[0]] = item[1];
+    }() : data.path.push(item);
+  });
+
+  return data;
+};
+
+//本地存储
+Lay.fn.data = function(table, settings){
+  table = table || 'layui';
+
+  if(!win.JSON || !win.JSON.parse) return;
+
+  //如果settings为null，则删除表
+  if(settings === null){
+    return delete localStorage[table];
+  }
+
+  settings = typeof settings === 'object'
+    ? settings
+  : {key: settings};
+
+  try{
+    var data = JSON.parse(localStorage[table]);
+  } catch(e){
+    var data = {};
+  }
+
+  if(settings.value) data[settings.key] = settings.value;
+  if(settings.remove) delete data[settings.key];
+  localStorage[table] = JSON.stringify(data);
+
+  return settings.key ? data[settings.key] : data;
+};
+
+//设备信息
+Lay.fn.device = function(key){
+  var agent = navigator.userAgent.toLowerCase();
+
+  //获取版本号
+  var getVersion = function(label){
+    var exp = new RegExp(label + '/([^\\s\\_\\-]+)');
+    label = (agent.match(exp)||[])[1];
+    return label || false;
+  };
+
+  var result = {
+    os: function(){ //底层操作系统
+      if(/windows/.test(agent)){
+        return 'windows';
+      } else if(/linux/.test(agent)){
+        return 'linux';
+      } else if(/mac/.test(agent)){
+        return 'mac';
+      } else if(/iphone|ipod|ipad|ios/.test(agent)){
+        return 'ios';
+      }
+    }()
+    ,ie: function(){ //ie版本
+      return (!!win.ActiveXObject || "ActiveXObject" in win) ? (
+        (agent.match(/msie\s(\d+)/) || [])[1] || '11' //由于ie11并没有msie的标识
+      ) : false;
+    }()
+    ,weixin: getVersion('micromessenger')  //是否微信
+  };
+
+  //任意的key
+  if(key && !result[key]){
+    result[key] = getVersion(key);
+  }
+
+  //移动设备
+  result.android = /android/.test(agent);
+  result.ios = result.os === 'ios';
+
+  return result;
+};
+
+//提示
+Lay.fn.hint = function(){
+  return {
+    error: error
+  }
+};
+
+//遍历
+Lay.fn.each = function(obj, fn){
+  var that = this, key;
+  if(typeof fn !== 'function') return that;
+  obj = obj || [];
+  if(obj.constructor === Object){
+    for(key in obj){
+      if(fn.call(obj[key], key, obj[key])) break;
+    }
+  } else {
+    for(key = 0; key < obj.length; key++){
+      if(fn.call(obj[key], key, obj[key])) break;
+    }
+  }
+  return that;
+};
+
+//阻止事件冒泡
+Lay.fn.stope = function(e){
+  e = e || win.event;
+  e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true;
+};
+
+//自定义模块事件
+Lay.fn.onevent = function(modName, events, callback){
+  if(typeof modName !== 'string'
+  || typeof callback !== 'function') return this;
+  config.event[modName + '.' + events] = [callback];
+
+  //不再对多次事件监听做支持
+///modify by nbn  原来是注释调的
+  // config.event[modName + '.' + events]
+  //   ? config.event[modName + '.' + events].push(callback)
+  // : config.event[modName + '.' + events] = [callback];
+
+
+  return this;
+};
+
+//执行自定义模块事件
+Lay.fn.event = function(modName, events, params){
+  var that = this, result = null, filter = events.match(/\(.*\)$/)||[]; //提取事件过滤器
+  var set = (events = modName + '.'+ events).replace(filter, ''); //获取事件本体名
+  var callback = function(_, item){
+    var res = item && item.call(that, params);
+    res === false && result === null && (result = false);
+  };
+  layui.each(config.event[set], callback);
+  filter[0] && layui.each(config.event[events], callback); //执行过滤器中的事件
+  return result;
+};
+
+win.layui = new Lay();
+
+}(window);

@@ -10,6 +10,7 @@ var requireModules = [
 	'request',
 	'role&authority-api',
 	'toast',
+	'key-bind',
 	'valid-login'
 
 ];
@@ -23,7 +24,8 @@ layui.use(requireModules, function(
 	formUtil,
 	ajax,
 	roleApi,
-	toast
+	toast,
+	keyBind
 	) {
 	var $ = layui.jquery;
 	var f = new form();

@@ -18,7 +18,7 @@ function getWebName() {
 	var pathName = window.location.pathname.substring(1);
 	var webName = pathName == '' ? '' : pathName.substring(0, pathName.indexOf('/'));
 	return "/"+webName;
-	
+
 }
 
 function toLowerCase(str){
@@ -32,6 +32,8 @@ function toCamel(str){
     });
 }
 
+
+
 /**
  * 管理扩展模块
  * @param {Object} window  当前iframe的window对象
@@ -41,11 +43,11 @@ function toCamel(str){
 function registeModule(window,modulesYouWanted,otherModules) {
 	var layui = window.layui;
 	window.apiConfig = window.apiConfig || {}
-	
+
 	var apiConfig = window.apiConfig;
 	layui.use('jquery',function(){
 		var $ = layui.jquery;
-		
+
 		//预定好的扩展的自定义modules
 		var myModules = {//只有模块下中的子目录模块需要在这里配置
 			 //可以在这里定义依赖的js，路径	都是相对于base的,这里不能用相对路径写，感觉这个应该有待改进
@@ -55,9 +57,15 @@ function registeModule(window,modulesYouWanted,otherModules) {
 			'role&authority-api':'api/role&authority-api',
 			'user-api':'api/user-api',
 			'product-api':'api/product-api',
-			'file-api':'api/file-api'
+			'file-api':'api/file-api',
+			'branch-center-api':'api/branch-center-api',
+			'payment-api':'api/payment-api',
+			'contract-api':'api/contract-api',
+			'finance-api':'api/finance-api',
+			'school-report-api':'api/school-report-api',
+			'student-report-api':'api/student-report-api'
 		}
-		
+
 		//刨除系统自带modules
 		var exceptModules = {
 		  layer: 'modules/layer' //弹层
@@ -79,8 +87,8 @@ function registeModule(window,modulesYouWanted,otherModules) {
 		  ,mobile: 'modules/mobile' //移动大模块 | 若当前为开发目录，则为移动模块入口，否则为移动模块集合
 		  ,'layui.all': 'dest/layui.all' //PC模块合并版
 		};
-		
-		
+
+
 		var totalModules;
 		if(otherModules){
 			 totalModules = $.extend(true,myModules, otherModules);
@@ -89,19 +97,20 @@ function registeModule(window,modulesYouWanted,otherModules) {
 		}
 
 		var extendModules = {};
-		
+
 		$.each(modulesYouWanted,function(key,moduleKey){
-			
+
 			if(!exceptModules[moduleKey] && totalModules[moduleKey] && !apiConfig[moduleKey] ){
 				extendModules[moduleKey] = totalModules[moduleKey];
 				apiConfig[moduleKey] = totalModules[moduleKey];//全局变量注册
-				
+
 			}
 		});
-		
+
 		if(!$.isEmptyObject(extendModules)){
 			layui.extend(extendModules);
 		}
-		
+
 	});
+
 }

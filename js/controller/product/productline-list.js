@@ -16,6 +16,7 @@ var requireModules = [
 	'product-api',
 	'date-util',
 	'toast',
+	'key-bind',
 	'valid-login'
 ];
 
@@ -33,7 +34,8 @@ layui.use(requireModules, function(
 	formUtil,
 	productApi,
 	dateUtil,
-	toast
+	toast,
+	keyBind
 
 ) {
 	var $ = layui.jquery;
@@ -135,7 +137,7 @@ layui.use(requireModules, function(
 						title: '生效时间',
 						render: function(data) {
 							if($.trim(data) !== '') {
-								return dateUtil.formatStr(new Date(parseInt(data)), "yyyy-MM-dd");
+								return dateUtil.formatStr(new Date(parseInt(data)), "yyyy-MM-dd HH:mm");
 							}
 							return "";
 						}

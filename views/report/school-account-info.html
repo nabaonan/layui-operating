@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>帐号信息</title>
+    <link rel="stylesheet" href="../../frame/layui/css/layui.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/font/iconfont.css" />
+    <style media="screen">
+        #condition {
+            margin-top: 10px;
+        }
+
+        td {
+            text-align: center;
+        }
+        .number-label{
+            text-align: left;
+            width: 120px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <fieldset class="layui-elem-field" ms-controller="school-account-info">
+        <legend>第3-2步 帐号信息</legend>
+        <div class="layui-field-box">
+            <div class="layui-tab layui-tab-card" lay-filter="account-info">
+                <ul class="layui-tab-title">
+                    <li class="layui-this" lay-id="student-account">学生帐号</li>
+                    <li>教师帐号</li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <form id="student-info" class="layui-form layui-form-pane" action="">
+
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">
+                                        学校名称:
+                                    </label>
+                                    <div class="layui-input-inline">
+                                        <input readonly :duplex="schoolName" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <fieldset class="layui-elem-field">
+                                <legend>年级</legend>
+                                <div class="layui-field-box" >
+                                    <div class="layui-form-item" ms-if="@primarySchoolGrades.length != 0">
+                                        <div class="layui-block">
+                                            <label class="layui-form-label">
+                                                小学:
+                                            </label>
+                                            <div class="layui-input-block" >
+                                                <input type="checkbox" name="grade" :attr="{value:item.key,title:item.value}" ms-for="item in @primarySchoolGrades"  data-for-rendered="@backRender">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item" ms-if="@middleSchoolGrades.length != 0">
+                                        <div class="layui-block">
+                                            <label class="layui-form-label">
+                                                初中:
+                                            </label>
+                                            <div class="layui-input-block">
+                                                <input type="checkbox" name="grade"  :attr="{value:item.key,title:item.value}" ms-for="item in @middleSchoolGrades" data-for-rendered="@backRender" >
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item" ms-if="@seniorSchoolGrades.length != 0">
+                                        <div class="layui-block">
+                                            <label class="layui-form-label">
+                                                高中:
+                                            </label>
+                                            <div class="layui-input-block">
+                                                <input type="checkbox" name="grade" :attr="{value:item.key,title:item.value}" ms-for="item in @seniorSchoolGrades" data-for-rendered="@backRender" >
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="layui-form-item">
+                                        <div class="layui-block">
+
+                                            <div class="layui-input-block">
+                                                <input type="checkbox" name="grade" title="未激活" value="notActive" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <div class="layui-form-item">
+                                <div class="layui-block">
+                                    <label class="layui-form-label">
+                                        学号/姓名:
+                                    </label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" :duplex="searchStudentContent" class="layui-input" >
+                                    </div>
+
+                                    <div class="layui-inline">
+                                        <button type="button" class="layui-btn search-student" >
+                                            <i class="layui-icon">&#xe615;</i> 查询
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+
+
+                        <div class="layui-form" >
+                            <fieldset class="layui-elem-field layui-field-title site-title">
+                                <legend><a name="row">学生列表</a></legend>
+                            </fieldset>
+                            <div class="layui-inline operate">
+
+
+
+                                <div class="layui-form-label number-label">
+                                    班级数:{{gradeNumber}}个
+                                </div>
+
+                                <div class="layui-form-label number-label">
+                                    学生数:{{studentNumber}}人
+                                </div>
+
+                                <!-- 如果是追加帐号显示 -->
+                                <button ms-if="@operate == 'appendAccount'" type="button" class="layui-btn mgl-20 start-student">
+                                    <i class="layui-icon">&#xe623;</i>
+                                    启用帐号
+                                </button>
+
+                                <button ms-if="@operate == 'appendAccount'" type="button" class="layui-btn layui-btn-danger mgl-20 stop-student">
+                                    <i class="layui-icon">&#x1006;</i>
+                                    停用帐号
+                                </button>
+
+                                <button ms-if="@operate == 'appendAccount'" type="button" class="layui-btn mgl-20 add-student">
+                                    <i class="layui-icon">&#xe608;</i>
+                                    新加帐号
+                                </button>
+
+                                <button type="button" class="layui-btn layui-btn-danger mgl-20 delete-account" ms-if="@operate != 'viewAccount'">
+                                    <i class="layui-icon">&#xe640;</i>
+                                    删除帐号
+                                </button>
+
+                                <button type="button" class="layui-btn mgl-20 export-student">
+                                    <i class="layui-icon">&#xe61e;</i>
+                                    导出
+                                </button>
+
+                                <button type="button" class="layui-btn mgl-20 download-template">
+                                    <i class="layui-icon">&#xe601;</i>
+                                    下载导入模版
+                                </button>
+                            </div>
+
+                            <table class="layui-table" id="student-table">
+                                <thead>
+                                    <tr>
+                                        <th ms-if="@operate != 'viewAccount'">
+                                            <input type="checkbox" value="all" lay-filter="all" class="all" lay-skin="primary">
+                                        </th>
+                                        <th>序号</th>
+                                        <th>年级</th>
+                                        <th>在读年级</th>
+                                        <th>姓名</th>
+                                        <th>101学号</th>
+                                        <th>密码</th>
+                                        <th>课程</th>
+                                        <th>课程有效期</th>
+                                        <th>生成时间</th>
+                                        <th>状态</th>
+                                        <th>备注</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ms-for="($index,student) in @students" data-for-rendered='@tableRendered'>
+                                        <td ms-if="@operate != 'viewAccount'">
+                                            <input type="checkbox" :attr="{'value':@student.id}" lay-skin="primary" ms-duplex-checked="@student.checked">
+                                        </td>
+                                        <td>{{$index+1}}</td>
+                                        <td>{{student.gradeName}}</td>
+                                        <td>{{student.inGradeName}}</td>
+                                        <td>{{student.name}}</td>
+                                        <td>{{student.account}}</td>
+                                        <td>{{student.password}}</td>
+                                        <td>
+                                            <a href="javascript:;" :attr="{'data-order-number':student.orderNumber,'data-name':student.name,'data-account':student.account}"  class="showClass">{{student.courseName}}</a>
+                                        </td>
+                                        <td>
+                                            <span ms-if="student.courseStartDate">{{student.courseStartDate}} ~ {{student.courseStopDate}}</span>
+                                        </td>
+                                        <td>{{student.createDate}}</td>
+                                        <td>{{student.accountStatusName}}</td>
+                                        <td>
+                                            <!-- 查看帐号不能更改备注 -->
+                                            <span ms-if="@operate == 'viewAccount'">{{@student.remark}}</span>
+                                            <input type="text" ms-if="@operate != 'viewAccount'" :attr="{'data-id':@student.id}" :duplex="@student.remark" class="layui-input">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td ms-if="@students.length == 0" :attr="{'colspan':(@operate == 'viewAccount'?11:12)}" >暂无数据</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+
+                    </div>
+                    <div class="layui-tab-item">
+                        <form id="teacher-info" class="layui-form layui-form-pane" action="">
+
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">
+                                        学校名称:
+                                    </label>
+                                    <div class="layui-input-inline">
+                                        <input readonly :duplex="schoolName" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">
+                                        帐号查询:
+                                    </label>
+                                    <div class="layui-input-inline">
+                                        <input :duplex="searchTeacherContent" class="layui-input">
+                                    </div>
+                                </div>
+
+                                <div class="layui-inline">
+
+                                    <button type="button" class="layui-btn search-teacher">
+                                        <i class="layui-icon">&#xe615;</i> 查询
+                                    </button>
+
+                                </div>
+                            </div>
+                        </form>
+                        <div class="layui-form">
+                            <fieldset class="layui-elem-field layui-field-title site-title">
+                                <legend><a name="row">教师列表</a></legend>
+                            </fieldset>
+                            <div class="layui-inline operate">
+
+
+                                <div class="layui-form-label number-label">
+                                    管理员数:{{managerNumber}}个
+                                </div>
+                                <div class="layui-form-label number-label">
+                                    校领导数:{{leaderNumber}}人
+                                </div>
+                                <div class="layui-form-label number-label">
+                                    教师数:{{teacherNumber}}人
+                                </div>
+
+                                <!-- 追加帐号显示 -->
+
+                                <button ms-if="@operate == 'appendAccount'" type="button" class="layui-btn mgl-20 start-teacher">
+                                    <i class="layui-icon">&#xe623;</i>
+                                    启用帐号
+                                </button>
+
+                                <button ms-if="@operate == 'appendAccount'" type="button" class="layui-btn layui-btn-danger mgl-20 stop-teacher">
+                                    <i class="layui-icon">&#x1006;</i>
+                                    停用帐号
+                                </button>
+
+                                <button ms-if="@operate == 'appendAccount'" type="button" class="layui-btn mgl-20 add-teacher">
+                                    <i class="layui-icon">&#xe608;</i>
+                                    新加帐号
+                                </button>
+
+                                <button type="button" class="layui-btn layui-btn-danger mgl-20 delete-account" ms-if="@operate != 'viewAccount'">
+                                    <i class="layui-icon">&#xe640;</i>
+                                    删除帐号
+                                </button>
+
+                                <button type="button" class="layui-btn mgl-20 export-teacher">
+                                    <i class="layui-icon">&#xe61e;</i>
+                                    导出
+                                </button>
+                            </div>
+                            <table class="layui-table"  id="teacher-table">
+                                <thead>
+                                    <tr>
+                                        <th ms-if="@operate != 'viewAccount'">
+                                            <input type="checkbox"  value="all" lay-filter="all" class="all" lay-skin="primary">
+                                        </th>
+                                        <th>序号</th>
+                                        <th>姓名</th>
+                                        <th>帐号</th>
+                                        <th>密码</th>
+                                        <th>身份</th>
+                                        <th>生成时间</th>
+                                        <th>操作类型</th>
+                                        <th>状态</th>
+                                        <th>备注</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ms-for="($index,teacher) in @teachers" data-for-rendered='@tableRendered'>
+                                        <td ms-if="@operate != 'viewAccount'">
+                                            <input type="checkbox" :attr="{'value':@teacher.id}" ms-duplex-checked="@teacher.checked" lay-skin="primary" >
+                                        </td>
+                                        <td>{{$index+1}}</td>
+                                        <td>{{teacher.name}}</td>
+                                        <td>{{teacher.account}}</td>
+                                        <td>{{teacher.password}}</td>
+                                        <td>{{teacher.accountIdentifyName}}</td>
+                                        <td>{{teacher.createDate}}</td>
+                                        <td>{{teacher.isNewOpenName}}</td>
+                                        <td>{{teacher.accountStatusName}}</td>
+                                        <td>
+                                            <span ms-if="@operate == 'viewAccount'">{{@teacher.remark}}</span>
+                                            <input type="text" ms-if="@operate != 'viewAccount'" :attr="{'data-id':@teacher.id,'data-remark':@teacher.remark}" :duplex="@teacher.remark" class="layui-input">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td ms-if="@teachers.length == 0" :attr="{'colspan':(@operate == 'viewAccount'?9:10)}" >暂无数据</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item" style="text-align:center"  id="operate">
+
+                <div class="layui-inline">
+                    <button type="button" class="layui-btn layui-btn-danger prev">
+                        <i class="layui-icon">&#xe603;</i>返回
+                    </button>
+
+                    <button type="button" class="layui-btn next mgl-20" ms-if="@operate != 'viewAccount'" >
+                        下一步 <i class="layui-icon">&#xe602;</i>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <script type="text/javascript" src="../../js/common/module-manage.js"></script>
+    <script src="../../frame/avalon/avalon.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf8" src="../../js/controller/report/school-account-info.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="idea">
+sdfsdfsdfsdf
+    </div>
+    <select name="" id="select">
+        <option value="">3</option>
+        <option value="">2</option>
+        <option value="">1</option>
+        <option value="">1</option>
+        <option value="">2</option>
+    </select>
+    <script src="../frame/jquery-1.10.2.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        $('#idea').click(function() {
+            console.log('444');
+            $('#select')[0].trigger('click');
+        });
+        var a = [3,4,5,];
+        console.log(`${a}`);
+
+    </script>
+</body>
+</html>

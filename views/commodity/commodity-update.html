@@ -14,7 +14,7 @@
 			.layui-form-label {
 				width: 100px;
 			}
-			
+
 			.layui-form-label i {
 				color: red;
 			}
@@ -24,7 +24,7 @@
 				border-radius: 0 2px 2px 0;
 				background: #FBFBFB;
 			}
-			
+
 			.choose-area-input {
 				width: 50%;
 				float: left;
@@ -34,7 +34,7 @@
 				text-align: center;
 			}
 		</style>
-		
+
 	</head>
 
 	<body class="body">
@@ -42,19 +42,19 @@
 		<form id="commodity-form" class="layui-form" action="">
 			<div class="layui-form-item">
 				<div class="layui-block">
-					<label class="layui-form-label"> 
+					<label class="layui-form-label">
 						<i class="icon iconfont">&#xe635;</i>
 						商品名称
 					</label>
 					<div class="layui-input-inline">
-						<input type="text" name="commodityName" lay-verify="required" autocomplete="off" placeholder="请输入(50个字以内)" class="layui-input"> 
+						<input type="text" name="commodityName" lay-verify="required" autocomplete="off" placeholder="请输入(50个字以内)" class="layui-input">
 					</div>
 				</div>
 			</div>
 
 			<div class="layui-form-item">
 				<div class="layui-block">
-					<label class="layui-form-label"> 
+					<label class="layui-form-label">
 						<i class="icon iconfont">&#xe635;</i>
 						添加商品
 					</label>
@@ -63,16 +63,16 @@
 					</div>
 				</div>
 			</div>
-			
-			
+
+
 
 			<div class="layui-form-item">
 				<table id="selected-commodity-list" class="layui-table" lay-skin="row"></table>
 			</div>
-			
+
 			<div class="layui-form-item">
 				<div class="layui-inline">
-					<label class="layui-form-label"> 
+					<label class="layui-form-label">
 						总价
 					</label>
 
@@ -82,7 +82,7 @@
 				</div>
 
 				<div class="layui-inline">
-					<label class="layui-form-label"> 
+					<label class="layui-form-label">
 						总现价
 					</label>
 
@@ -91,7 +91,7 @@
 					</div>
 				</div>
 				<div class="layui-inline">
-					<label class="layui-form-label"> 
+					<label class="layui-form-label">
 						总折扣
 					</label>
 
@@ -104,7 +104,7 @@
 
 			<div class="layui-form-item">
 				<div class="layui-inline">
-					<label class="layui-form-label"> 
+					<label class="layui-form-label">
 						<i class="icon iconfont">&#xe635;</i>
 						商品分类
 					</label>
@@ -117,9 +117,9 @@
 					</div>
 
 				</div>
-				
+
 				<div class="layui-inline">
-					<label class="layui-form-label"> 
+					<label class="layui-form-label">
 						<i class="icon iconfont">&#xe635;</i>
 						业务类型
 					</label>
@@ -133,24 +133,24 @@
 			</div>
 
 			<!--<div class="layui-form-item">
-				
+
 			</div>-->
 
 			<div class="layui-form-item">
 				<div class="layui-block">
-					<label class="layui-form-label"> 
+					<label class="layui-form-label">
 						<i class="icon iconfont">&#xe635;</i>
 						销售部门
 					</label>
 					<div class="layui-input-block" id="saleDepartmentId">
-						
+
 					</div>
 				</div>
 			</div>
 
 			<div class="layui-form-item">
 				<div class="layui-block">
-					<label class="layui-form-label"> 
+					<label class="layui-form-label">
 						<i class="icon iconfont">&#xe635;</i>
 						学制
 					</label>
@@ -162,7 +162,7 @@
 
 			<div class="layui-form-item">
 				<div class="layui-block">
-					<label class="layui-form-label"> 
+					<label class="layui-form-label">
 						<i class="icon iconfont">&#xe635;</i>
 						学段
 					</label>
@@ -174,19 +174,19 @@
 
 			<div class="layui-form-item">
 				<div class="layui-block">
-					<label class="layui-form-label"> 
+					<label class="layui-form-label">
 						<i class="icon iconfont">&#xe635;</i>
 						年级
 					</label>
 					<div class="layui-input-block" id="grade" >
-					
+
 					</div>
 				</div>
 			</div>
 
 			<div class="layui-form-item">
 				<div class="layui-block">
-					<label class="layui-form-label"> 
+					<label class="layui-form-label">
 						<i class="icon iconfont">&#xe635;</i>
 						学科
 					</label>
@@ -198,7 +198,7 @@
 
 			<div class="layui-form-item">
 				<div class="layui-block">
-					<label class="layui-form-label"> 
+					<label class="layui-form-label">
 						<i class="icon iconfont">&#xe635;</i>
 						用户类型
 					</label>
@@ -207,7 +207,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="layui-form-item">
 				<div class="layui-block">
 					<label class="layui-form-label">适用地区</label>
@@ -222,7 +222,7 @@
 
 			<div class="layui-form-item">
 				<div class="layui-block">
-					<label class="layui-form-label"> 
+					<label class="layui-form-label">
 						<i class="icon iconfont">&#xe635;</i>
 						是否赠送
 					</label>
@@ -232,12 +232,38 @@
 					</div>
 				</div>
 			</div>
+
 			<div class="layui-form-item">
-				
-				<label class="layui-form-label"> 
+				<div class="layui-block">
+					<label class="layui-form-label">
+						<i class="icon iconfont">&#xe635;</i>
+						是否可买断
+					</label>
+					<div class="layui-input-block">
+						<input type="radio" name="isBuyout" value="1" title="是">
+						<input type="radio" name="isBuyout" value="-1" title="否" checked />
+					</div>
+				</div>
+			</div>
+
+			<div class="layui-form-item">
+				<div class="layui-block">
+					<label class="layui-form-label">
+						<!-- <i class="icon iconfont">&#xe635;</i> -->
+						可停用次数
+					</label>
+					<div class="layui-input-inline">
+						<input name="" type="number" value="3" min="0" class="layui-input">
+					</div>
+				</div>
+			</div>
+
+			<div class="layui-form-item">
+
+				<label class="layui-form-label">
 					保存后提交审核
 				</label>
-				
+
 				<div class="layui-input-block">
 					<input type="radio" name="isSubmitAudit" value="1" title="是" checked>
 					<input type="radio" name="isSubmitAudit" value="-1" title="否" checked>

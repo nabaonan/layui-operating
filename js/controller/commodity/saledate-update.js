@@ -14,6 +14,7 @@ var requireModules = [
 	'date-util',
 	'commodity-api',
 	'toast',
+	'key-bind',
 	'valid-login'
 ];
 
@@ -29,7 +30,8 @@ layui.use(requireModules, function(
 	daterangeUtil,
 	dateUtil,
 	commodityApi,
-	toast
+	toast,
+	keyBind
 ) {
 	var $ = layui.jquery;
 	var f = new form();

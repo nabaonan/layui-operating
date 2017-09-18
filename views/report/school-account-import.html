@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>导入帐号信息</title>
+    <link rel="stylesheet" href="../../frame/layui/css/layui.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        td{
+            text-align: center;
+        }
+
+        .layui-form-mid{
+            text-align: left;
+            border: 1px solid #e6e6e6;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+    </style>
+</head>
+
+<body >
+
+    <fieldset class="layui-elem-field" ms-controller="account-import">
+        <legend>第3步 帐号信息</legend>
+        <div class="layui-field-box">
+            <form id="product-info" class="layui-form layui-form-pane" action="">
+
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">
+                            学校名称
+                        </label>
+
+                        <div class="layui-input-inline">
+                            <input readonly :duplex="schoolInfo.schoolName" readonly class="layui-input">
+                        </div>
+                    </div>
+                </div>
+
+                <fieldset class="layui-elem-field layui-field-title">
+                    <legend>班级信息</legend>
+                </fieldset>
+
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">
+                            学年
+                        </label>
+                        <div class="layui-input-inline">
+                            <input readonly :duplex="productInfo.yearName" readonly class="layui-input">
+                        </div>
+                    </div>
+                </div>
+
+                <blockquote class="layui-elem-quote">请填写每个年级的开班个数和学生数</blockquote>
+
+                <button type="button" class="layui-btn layui-right download-template">下载导入模版</button>
+                <table class="layui-table" id="class-table">
+                    <thead>
+                        <tr>
+                            <th rowspan="2">年级</th>
+                            <th rowspan="2">开班个数</th>
+                            <th colspan="2">学生数</th>
+                        </tr>
+
+                        <tr>
+                            <th>批量导入</th>
+                            <th>新开</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr ms-for="($index,grade) in @grades.gradeInfo">
+                            <td>{{grade.gradeName}}</td>
+                            <td>
+                                <input type="number" min="0" class="layui-input" ms-duplex="grade.gradeNumber"/>
+                            </td>
+                            <td>
+                                <span>{{grade.studentNumber}}</span>
+                                <button type="button" class="layui-btn import" :attr="{'data-grade-id':grade.gradeId}" style="margin-left:20px">导入</button>
+                            </td>
+                            <td :attr="{rowspan:@grades.gradeInfo.length}" ms-if="$index == 0">
+                                <span style="display:inline-block;width:auto;margin-right:10px">
+                                    {{'已新开'+ @grades.newStudentNumber+'个' }}
+                                </span>
+                                <input type="number" min="0" value="0" class="layui-input"  ms-duplex="@grades.number" style="display:inline-block;width:auto;text-align:center"/>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+                <fieldset class="layui-elem-field layui-field-title">
+                    <legend>教师信息</legend>
+                </fieldset>
+
+                <table id="account-table" class="layui-table">
+                    <thead>
+                        <tr>
+                            <th>帐号类型</th>
+                            <th>选择已有</th>
+                            <th>新开</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr ms-for="teacher in @teachers">
+                            <td>{{teacher.accountIdentifyName}}</td>
+                            <td>
+                                <span >{{teacher.oldTeacherNumber}}</span>
+                                <button type="button" class="layui-btn choose" :attr="{'data-account-identify':teacher.accountIdentify}" style="margin-left:20px">选择</button>
+                            </td>
+                            <td>
+                                <span ms-if="teacher.newTeacherNumber">{{'已新开'+teacher.newTeacherNumber+'个'}}</span>
+                                <input type="number" min="0" class="layui-input" style="display:inline-block;width:auto;margin-left:20px" ms-duplex="teacher.number"/>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+
+                <div class="layui-form-item" style="text-align:center">
+                    <div class="layui-inline">
+                        <button type="button" class="layui-btn layui-btn-danger prev">
+                            <i class="layui-icon">&#xe603;</i>返回
+                        </button>
+
+                        <button type="button" lay-submit="" lay-filter="import-account" class="layui-btn next mgl-20">
+                            下一步 <i class="layui-icon">&#xe602;</i>
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </fieldset>
+
+    <script type="text/javascript" src="../../js/common/module-manage.js"></script>
+    <script src="../../frame/avalon/avalon.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf8" src="../../js/controller/report/school-account-import.js"></script>
+</body>
+
+</html>

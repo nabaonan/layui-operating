@@ -12,6 +12,7 @@ var requireModules = [
 	'table-util',
 	'date-util',
 	'form',
+	'key-bind',
 	'valid-login'
 ];
 
@@ -25,7 +26,8 @@ layui.use(requireModules, function(
 	commodityApi,
 	tableUtil,
 	dateUtil,
-	form
+	form,
+	keyBind
 ) {
 	var $ = layui.jquery;
 	var id = ajax.getFixUrlParams('id');
@@ -265,13 +267,23 @@ layui.use(requireModules, function(
 			var endDate = dateUtil.formatStr(new Date(saledate.endDate), 'yyyy-MM-dd HH:mm:ss');
 			$('.saledate-show').val(startDate + '~' + endDate);
 		},
+		
+		onerror: function() {
+			$(this).attr('src', webName+'/image/error-pic.png');
+		},
 
 		renderImages: function(datas) {
 			var dom = '';
 			$.each(datas, function(index, item) {
-				dom += '<img alt="上传的图片" layer-src="' + webName+'/..'+item.thumbnail + '" src="' + webName+'/..'+item.thumbnail + '"/>';
+				dom += '<img layer-src="' + webName+'/..'+item.thumbnail + '" src="' + webName+'/..'+item.thumbnail + '"/>';
 			});
 			$('.pic-container').html(dom);
+			
+			$('.pic-container img').each(function(){
+				$(this)[0].onerror=function(){
+					this.src = (webName+'/image/error-pic.png');
+				}
+			});
 			
 			//查看缩略图特效
 			layer.photos({

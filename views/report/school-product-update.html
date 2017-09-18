@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学校基本信息变更</title>
+    <link rel="stylesheet" href="../../frame/layui/css/layui.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/font/iconfont.css" />
+    <style media="screen">
+        div.layui-checkbox-disbaled.layui-disabled:hover i{
+            color: inherit;
+        }
+
+        div .layui-form-checked.layui-checkbox-disbaled i,
+        div .layui-form-checked.layui-checkbox-disbaled:hover i{
+            color: #98989c!important;
+        }
+        .layui-form-label{
+            width: 130px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <fieldset class="layui-elem-field" ms-controller="product">
+        <legend>第2步 学校产品信息</legend>
+        <div class="layui-field-box">
+            <form id="product-info" class="layui-form layui-form-pane" action="">
+
+
+                <fieldset class="layui-elem-field layui-field-title">
+                    <legend>分中心信息</legend>
+                </fieldset>
+
+                <blockquote class="layui-elem-quote">该分中心剩余额度：{{@branchCenterInfo.amounts}}</blockquote>
+
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label" style="width:130px">
+                            <i class="icon iconfont">&#xe635;</i>
+                            所属分中心
+                        </label>
+                        <div class="layui-input-inline">
+                            <select id="branch-center" name="centerId" lay-verify="required" :duplex="@branchCenterInfo.id" lay-filter="center" lay-search>
+                                <option value="" >请选择</option>
+                                <!-- <option :attr="{value:@item.key}" ms-for="item in @branchCenters">{{@item.value}}</option> -->
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="layui-inline">
+                        <label class="layui-form-label">
+                            分中心代码
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="text" readonly name="centerCode" :duplex="@branchCenterInfo.centerCode" autocomplete="off" placeholder="" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+
+                    <div class="layui-inline">
+                        <label class="layui-form-label">
+                            <i class="icon iconfont">&#xe635;</i>
+                            合同
+                        </label>
+                        <div class="layui-input-inline">
+                            <select id="contract" name="contractId" lay-verify="required" lay-filter="contract">
+                                <option value="">全部</option>
+                                <!-- <option :attr="{value:@item.key}" ms-for="item in @contracts">{{@item.value}}</option> -->
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="layui-inline">
+                        <label class="layui-form-label">
+                            销售人员
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="salesman" autocomplete="off" placeholder="" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">
+                            学校名称
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="text" readonly name="schoolName" :duplex="@schoolInfo.schoolName" autocomplete="off" placeholder="" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+
+                <fieldset class="layui-elem-field layui-field-title">
+                    <legend>产品信息</legend>
+                </fieldset>
+
+                <div class="layui-form-item" ms-if="@operate == 'change'">
+
+                    <div class="layui-inline">
+                        <label class="layui-form-label">改单类型</label>
+                        <div class="layui-input-block">
+                            <input type="radio" lay-filter="actionType" name="actionType" value="4"  title="替换原有产品订单" >
+                            <input type="radio" lay-filter="actionType" name="actionType" value="5"  title="使用原有账号，产品续费">
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 选择替换订单，可以更改产品，不能更改学段，更改的产品必须包含之前已选择的学段 -->
+                <!-- 改单的时候如果选择续费 则不能更改产品版本、学段、账号类型、学年 -->
+                <div class="layui-form-item" >
+                    <div class="layui-inline">
+                        <label class="layui-form-label">
+                            <i class="icon iconfont">&#xe635;</i>
+                            产品版本
+                        </label>
+                        <div class="layui-input-block" id="version">
+                            <!-- <input type="radio" name="version" :attr="{value:item.key,title:item.value}" :duplex="@productInfo.version" ms-for="item in @versions" > -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">
+                            <i class="icon iconfont">&#xe635;</i>
+                            学段
+                        </label>
+                        <div class="layui-input-block" id="level">
+                            <!-- <input type="checkbox" name="schoolLevels" :attr="{value:item.key,title:item.value}" :duplex="@productInfo.schoolLevel" ms-for="item in @schoolLevels"> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">
+                            <i class="icon iconfont">&#xe635;</i>
+                            帐号类型
+                        </label>
+                        <div class="layui-input-block" id="account-type">
+                            <!-- <input type="radio" name="accountType" :attr="{value:item.key,title:item.value}" :duplex="@productInfo.accountType" ms-for="item in @accountTypes"> -->
+                        </div>
+                    </div>
+                </div>
+
+				<!-- 暂时不使用  -->
+                <!-- <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">
+                            <i class="icon iconfont">&#xe635;</i>
+                            学年
+                        </label>
+                        <div class="layui-input-block" id="years">
+                            <input type="radio" name="years" :attr="{value:item.key,title:item.value}" :duplex="@productInfo.years" ms-for="item in @years">
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="layui-form-item">
+
+                    <div class="layui-inline">
+                        <label class="layui-form-label">
+                            <i class="icon iconfont">&#xe635;</i>
+                            有效期
+                        </label>
+                        <div class="layui-input-inline">
+                            <input id="effDate" readonly lay-verify="required" class="layui-input" name="effDate" :attr="{value:(@productInfo.startDate + '~' + @productInfo.stopDate)}" :duplex="@productInfo.effDate" placeholder="点击设置有效期" />
+                        </div>
+                        <!-- <div class="layui-form-mid">~</div>
+                        <div class="layui-input-inline">
+                            <input id="effEndTime" class="layui-input" name="stopDate" :duplex="@productInfo.stopDate" placeholder="截止时间" />
+                        </div> -->
+                    </div>
+                </div>
+
+
+
+
+                <div class="layui-form-item" style="text-align:center">
+
+                    <div class="layui-inline">
+                        <button type="button" lay-submit="" lay-filter="school-product-form"  class="layui-btn prev">
+                            <i class="layui-icon">&#xe603;</i>返回
+                        </button>
+                        <!-- 因为这里的下一步是通用的，所以不能直接写actionType=3 -->
+                        <button type="button" lay-submit="" lay-filter="school-product-form" :if="@productInfo.actionType != 4" class="layui-btn next mgl-20">
+                            下一步 <i class="layui-icon">&#xe602;</i>
+                        </button>
+
+                        <button type="button" :if="@productInfo.actionType == 4" lay-submit="" lay-filter="school-product-form" class="layui-btn confirm mgl-20">
+                            <i class="layui-icon">&#xe605;</i>确定
+                        </button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </fieldset>
+
+    <script type="text/javascript" src="../../js/common/module-manage.js"></script>
+    <script src="../../frame/avalon/avalon.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf8" src="../../js/controller/report/school-product-update.js"></script>
+</body>
+
+</html>

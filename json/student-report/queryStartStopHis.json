@@ -1,0 +1,20 @@
+{
+	"data":[
+        {
+            "id":"主键",
+            "operDate":"操作时间",
+            "operater":"操作人",
+            "operType":"操作类型"
+        },
+         {
+            "id":"主键",
+            "operDate":"操作时间",
+            "operater":"操作人",
+            "operType":"操作类型"
+        }
+    ],
+    "stopNum":"累计停用次数",
+    "stopDays":"累计停用天数",
+    "useDays":"累计使用天数",
+    "status":true
+}

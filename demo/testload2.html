@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学校基本信息变更</title>
+    <link rel="stylesheet" href="../frame/layui/css/layui.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style media="screen">
+        .layui-form input[type=checkbox], .layui-form input[type=radio], .layui-form select{
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <fieldset class="layui-elem-field" ms-controller="school-product" >
+        <legend>第2步 学校产品信息</legend>
+        <div class="layui-field-box">
+            <form id="product-info" class="layui-form layui-form-pane" action="">
+
+
+
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">
+                            帐号类型
+                        </label>
+                        <div class="layui-input-block" id="account-type">
+                            <input type="radio" name="accountType" :attr="{value:item.key,title:item.value}" ms-for="item in @accountTypes" ms-duplex-string="@productInfo.accountType" >
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+
+                    {{@accountType}}
+                </div>
+
+
+
+
+            </form>
+        </div>
+    </fieldset>
+<!-- <script src="../frame/jquery-1.10.2.min.js" charset="utf-8"></script> -->
+    <script type="text/javascript" src="../js/common/module-manage.js"></script>
+    <script src="../frame/avalon/avalon.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    var webName = getWebName();
+
+    // layui.config({
+    //     base: webName + '/js/modules/' //这个路径以页面引入的位置进行计算
+    // });
+        var vm = avalon.define({
+            $id:'school-product',
+            accountTypes:[],
+            accountType:2,
+            productInfo:{
+                accountType:'2'
+            }
+        });
+        // setTimeout(function(){
+        //     vm.accountTypes = [{
+        //         key:'1',
+        //         value:'sdfsdfsdf'
+        //     }
+        //     ]
+        //     setTimeout(function(){
+        //         vm.accountTypes.push({
+        //             key:'2',
+        //             value:'erwerwerwer'
+        //         })
+        //     },200)
+        //
+        // },300)
+
+        $.ajax({
+            url:'https://www.easy-mock.com/mock/594ccc9b8ac26d795f44bd04/oc/code/list',
+            success:function(result){
+                console.log(result.data);
+                // $.each(result.data,function(index,item){
+                //     item.key = item.key+'';
+                // })
+                vm.accountTypes = result.data;
+                //  avalon.scan();
+            }
+        });
+
+        // ajax.request({url:'https://www.easy-mock.com/mock/594ccc9b8ac26d795f44bd04/oc/code/list',type:'get'}, {
+        //     type: ''
+        // }, function(result) {
+        //     console.log();
+        //     vm.accountTypes = result.data;
+        //
+        //     // formUtil.renderRadios('#account-type', result.data,'accountType');
+        //     // count++;
+        // });
+
+//         var requireModules = [
+//             'element',
+//             'form',
+//             'layer',
+//             'request'
+//         ];
+//
+//         //参数有顺序
+//         layui.use(requireModules, function(
+//             element,
+//             form,
+//             layer,
+//             ajax
+//         ) {
+//
+//             var controller = {
+//                 init:function(){
+//                     this.renderAccountType();
+//
+//                 },
+//                 //帐号类型
+//                 renderAccountType: function() {
+//
+// setTimeout(function(){
+//     ajax.request({url:'https://www.easy-mock.com/mock/594ccc9b8ac26d795f44bd04/oc/code/list',type:'get'}, {
+//         type: ''
+//     }, function(result) {
+//         console.log();
+//         vm.accountTypes = result.data;
+//
+//         // formUtil.renderRadios('#account-type', result.data,'accountType');
+//         // count++;
+//     });
+// },300)
+//
+//
+//                 }
+//             };
+//             // controller.init();
+//
+//         });
+
+    </script>
+    <!-- <script type="text/javascript" charset="utf8" src="../js/controller/report/school-product-update.js"></script> -->
+</body>
+
+</html>

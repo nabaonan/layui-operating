@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>导入教师帐号</title>
+    <link rel="stylesheet" href="../../frame/layui/css/layui.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body ms-controller="teacher-import">
+
+
+    <table id="account-table" class="layui-table">
+        <thead>
+            <tr>
+                <th>帐号类型</th>
+                <th>选择已有</th>
+                <th>新开</th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr ms-for="teacher in @teachers">
+                <td>{{teacher.accountIdentifyName}}</td>
+                <td>
+                    <span >{{teacher.oldTeacherNumber}}</span>
+                    <button type="button" class="layui-btn choose" style="margin-left:10px;" ms-click="@choose(teacher)">选择</button>
+                </td>
+                <td>
+                    <div ms-if="teacher.newTeacherNumber" style="display:inline-block;width:auto;">已经新开{{teacher.newTeacherNumber}}个</div>
+                    <input type="number" min="0" value="0" style="display:inline-block;width:auto;margin-left:10px;" class="layui-input"  ms-duplex="teacher.number"/>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+
+
+    <script type="text/javascript" src="../../js/common/module-manage.js"></script>
+    <script src="../../frame/avalon/avalon.js" charset="utf-8"></script>
+    <script src="../../frame/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf8" src="../../js/controller/report/teacher-import-modal.js"></script>
+</body>
+
+</html>

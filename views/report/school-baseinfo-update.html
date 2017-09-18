@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学校基本信息变更</title>
+    <link rel="stylesheet" href="../../frame/layui/css/layui.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/font/iconfont.css" />
+    <!-- <link rel="stylesheet" href="../../frame/laydate/theme/default/laydate.css"> -->
+    <style media="screen">
+
+        .layui-form-label i {
+            color: red;
+        }
+
+        #condition {
+            margin-top: 10px;
+        }
+
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <fieldset class="layui-elem-field">
+        <legend>学校基本信息</legend>
+        <div class="layui-field-box">
+            <form id="school-info" class="layui-form layui-form-pane" action="">
+
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">
+                            <i class="icon iconfont">&#xe635;</i>
+                            学校名称
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="schoolName" lay-verify="required" autocomplete="off" placeholder="请输入学校名称" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-inline">
+                        <label class="layui-form-label">
+                            <i class="icon iconfont">&#xe635;</i>
+                            学校编码
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="schoolCode" lay-verify="required" autocomplete="off" placeholder="请输入学校编码" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-inline">
+                        <label class="layui-form-label">
+                            <i class="icon iconfont">&#xe635;</i>
+                            学制
+                        </label>
+                        <div class="layui-input-inline">
+                            <select id="school-system" lay-verify="required" name="education">
+                                <option value="">全部</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="layui-inline">
+                        <label class="layui-form-label">
+                            <i class="icon iconfont">&#xe635;</i>
+                            联系人
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="contact" lay-verify="required" autocomplete="off" placeholder="请输入联系人" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">
+                            <i class="icon iconfont">&#xe635;</i>
+                            学段
+                        </label>
+                        <div class="layui-input-block"  id="school-level">
+
+                        </div>
+                    </div>
+
+                    <div class="layui-inline">
+                        <label class="layui-form-label">
+                            <i class="icon iconfont">&#xe635;</i>
+                            手机号
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="phone" lay-verify="required|phone"  autocomplete="off" placeholder="请输入手机号" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-inline">
+                        <label class="layui-form-label">
+                            <i class="icon iconfont">&#xe635;</i>
+                            教学模式
+                        </label>
+                        <div class="layui-input-inline">
+                            <select id="teach-model" lay-verify="required" name="teachModel">
+                                <option value="">全部</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="layui-inline">
+                        <label class="layui-form-label">信息来源</label>
+                        <div class="layui-input-inline">
+                            <select id="source" name="messagePath">
+                              <option value="">全部</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-block">
+                        <label class="layui-form-label">所在地</label>
+                        <div class="layui-input-inline">
+                            <input type="text" readonly  id="zone" name="zoneName" autocomplete="off" placeholder="省市区" class="layui-input">
+                            <input type="hidden" name="province">
+                            <input type="hidden" name="city">
+                            <input type="hidden" name="area">
+                        </div>
+
+                        <!-- <div class="layui-input-inline" >
+                            <input type="text" name="city" autocomplete="off" placeholder="区县" class="layui-input">
+                        </div> -->
+
+                        <div class="layui-input-inline" style="width:50%">
+                            <input type="text" name="detailAddr" autocomplete="off" placeholder="请输入详细地址" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">备注</label>
+                    <div class="layui-input-block">
+                        <textarea placeholder="请输入备注"  id="remark" name="remark" class="layui-textarea"></textarea>
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="text-align:center">
+
+                    <div class="layui-inline">
+                        <button type="button" class="layui-btn cancel">
+                            <i class="layui-icon">&#x1006;</i>取消
+                        </button>
+                        <button lay-submit="" lay-filter="school-report-form" class="layui-btn mgl-20 save">
+                            <i class="layui-icon">&#xe605;</i> 保存
+                        </button>
+
+                        <button  lay-submit="" lay-filter="school-report-form" type="button" class="layui-btn layui-btn next">
+                            下一步 <i class="layui-icon">&#xe602;</i>
+                        </button>
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </fieldset>
+
+    <script type="text/javascript" src="../../js/common/module-manage.js"></script>
+    <!-- <script type="text/javascript" charset="utf8" src="../../frame/layui/layui.js"></script> -->
+    <script type="text/javascript" charset="utf8" src="../../js/controller/report/school-baseinfo-update.js"></script>
+</body>
+
+</html>

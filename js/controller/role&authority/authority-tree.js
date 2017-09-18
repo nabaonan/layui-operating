@@ -5,6 +5,7 @@ var requireModules = [
 	'role&authority-api',
 	'toast',
 	'tree-util',
+	'key-bind',
 	'valid-login'
 ];
 //这里注册没有初始化注册过的 模块路径，如果是modules下有子集 的模块需要在这里注册
@@ -15,7 +16,13 @@ registeModule(window, requireModules, {
 
 layui.config({
 	base: webName + '/js/modules/' //这个路径以页面引入的位置进行计算
-}).use(requireModules, function(ajax, authorityApi, toast, treeUtil) {
+}).use(requireModules, function(
+	ajax,
+	authorityApi,
+	toast, 
+	treeUtil,
+	keyBind
+) {
 
 	var check = ajax.getFixUrlParams('check') ? true : false;
 	var recheckData = ajax.getFixUrlParams('recheckData');

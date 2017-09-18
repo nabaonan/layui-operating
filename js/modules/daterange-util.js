@@ -13,7 +13,6 @@ layui.define('laydate', function(exports) {
 			var startElem,endElem;
 			if(startSelector instanceof $){
 				startElem = startSelector[0];
-				console.log(startElem);
 			}else{
 				
 				startElem = $(startSelector)[0];

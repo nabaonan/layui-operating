@@ -15,6 +15,7 @@ var requireModules = [
 	'commodity-api',
 	'toast',
 	'table-util',
+	'key-bind',
 	'valid-login'
 ];
 
@@ -31,7 +32,8 @@ layui.use(requireModules, function(
 	formUtil,
 	commodityApi,
 	toast,
-	tableUtil
+	tableUtil,
+	keyBind
 
 ) {
 	var $ = layui.jquery;
@@ -348,7 +350,7 @@ layui.use(requireModules, function(
 					}, function(result) {
 						//调用渲染table
 						controller.initPrice(result.data);
-						tableUtil.addRow($table, result.data);
+						tableUtil.addRows($table, result.data);
 						controller.calTotalDiscount();
 					});
 

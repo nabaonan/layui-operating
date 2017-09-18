@@ -8,6 +8,7 @@ var requireModules = [
 	'form-util',
 	'request',
 	'date-util',
+	'key-bind',
 	'valid-login'
 
 ];
@@ -19,7 +20,8 @@ layui.use(requireModules, function(
 
 	formUtil,
 	ajax,
-	dateUtil
+	dateUtil,
+	keyBind
 ) {
 	var $ = layui.jquery;
 	var data = ajax.getAllUrlParam();

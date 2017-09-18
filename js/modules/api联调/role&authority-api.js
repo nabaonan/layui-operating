@@ -45,7 +45,7 @@ layui.define('base-url', function(exports) {
 		'getUserNavs': {//获取用户左侧导航   ---左侧导航
 			url:'authority/leftMenuList'
 		},
-		'getNavBtns':{//点击导航获取右侧的按钮  
+		'getNavBtns':{//点击导航获取右侧的按钮
 			url:'authority/getBtns'
 		},
 		'getAllUsers': {//获取系统用户    --------系统用户列表
@@ -56,9 +56,12 @@ layui.define('base-url', function(exports) {
 		},
 		'resetPwd':{//重置密码
 			url:'user/resetPssword'
+		},
+		'getSignRepList':{
+			url:'user/getSignRepList'
 		}
 	}
-	
+
 	var result = $.extend({},baseApi, url);
 
 	exports('role&authority-api', result);

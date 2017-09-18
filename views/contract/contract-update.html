@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>合同添加和追加修改页面</title>
+    <link rel="stylesheet" href="../../frame/layui/css/layui.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/font/iconfont.css" />
+    <style>
+        .layui-form-label {
+            width: 100px;
+        }
+
+        .layui-form-label i {
+            color: red;
+        }
+    </style>
+</head>
+
+<body class="body">
+
+    <fieldset class="layui-elem-field">
+        <legend>基本信息</legend>
+        <div id="base-info" class="layui-field-box">
+
+        </div>
+    </fieldset>
+
+    <fieldset class="layui-elem-field">
+        <legend>合同信息</legend>
+        <div class="layui-field-box">
+            <form id="contract-form" class="layui-form" action="">
+                <div id="contract-info">
+
+                </div>
+
+                <fieldset id="payments-container" class="layui-elem-field" style="display:none">
+			        <legend>本期合同(<b class="contract-code-title"></b>) 费用清单</legend>
+			        <div id="payments" class="layui-field-box"></div>
+			    </fieldset>
+
+			    <fieldset id="summary-container" class="layui-elem-field" style="display:none">
+					<legend>本期合同(<b class="contract-code-title"></b>) 费用总结</legend>
+					<div id="summary" class="layui-field-box"></div>
+				</fieldset>
+
+                <div class="layui-form-item">
+                    <div class="layui-block">
+                        <label class="layui-form-label"></label>
+                        <input type="checkbox" lay-filter="isAudit" id="isAudit" name="isAudit" value="1" title="合同提审" lay-skin="primary" checked="checked" />
+                    </div>
+                </div>
+
+                <div id="audit-container" class="layui-form-item">
+                    <div class="layui-block">
+                        <label class="layui-form-label">
+                            <i class="icon iconfont">&#xe635;</i>
+                            说明
+                        </label>
+                        <div class="layui-input-inline" style="width: 80%;">
+                            <textarea placeholder="请输入提审理由" lay-verify="explain" name="comment" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-form-item operate" style="text-align:center">
+                    <button class="layui-btn" type="button" lay-submit="" lay-filter="contractUpdateForm">
+                        <i class="layui-icon">&#xe605;</i>
+                        提交
+                    </button>
+                    <button id="cancel" type="button" class="layui-btn layui-btn-primary">
+                         <i class="layui-icon">&#x1006;</i>
+                         关闭
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </fieldset>
+
+    <fieldset class="layui-elem-field" id="contract-records-container" style="display:none">
+        <legend>合同记录</legend>
+        <div id="contract-records" class="layui-field-box">
+            <div class="layui-tab layui-tab-card" lay-filter="contractList">
+                <ul class="layui-tab-title">
+                    <li class="layui-this" lay-id="contract-records-1">本期合同记录</li>
+                    <li>历史合同记录</li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show"></div>
+                    <div class="layui-tab-item"></div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+
+    <script type="text/javascript" src="../../js/common/module-manage.js"></script>
+    <script type="text/javascript" charset="utf8" src="../../frame/layui/layui.js"></script>
+    <script type="text/javascript" charset="utf8" src="../../js/controller/contract/contract-update.js"></script>
+</body>
+
+</html>

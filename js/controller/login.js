@@ -4,11 +4,13 @@ layui.config({
 	base: webName + '/js/modules/' //这个路径以页面引入的位置进行计算
 });
 
+
 var requireModules = [
 	'form',
 	'layer',
 	'login',
-	'login-api'
+	'login-api',
+	'key-bind'
 ];
 
 registeModule(window, requireModules);
@@ -17,7 +19,8 @@ layui.use(requireModules, function(
 	form,
 	layer,
 	login,
-	loginApi
+	loginApi,
+	keyBind
 ) {
 	var $ = layui.jquery,
 		f = form();
@@ -50,11 +53,18 @@ layui.use(requireModules, function(
 	//光标自动聚焦
 	$('input:first').focus();
 	
-	//点击回车登录
+	/*//点击回车登录
 	$(document).keyup(function(event){
 	  if(event.keyCode ==13){
-	    $(".btn-submit").trigger("click");
+	   
+	   
 	  }
+	});*/
+	
+	keyBind.bindKey({
+		13:function(){
+			$(".btn-submit").trigger("click");
+		}
 	});
 	
 	// 提交监听

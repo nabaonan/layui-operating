@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<HTML>
+
+	<HEAD>
+		<TITLE> ZTREE DEMO - checkbox & radio</TITLE>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="../frame/ztree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+		<script type="text/javascript" src="../frame/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../frame/ztree/js/jquery.ztree.core.js"></script>
+		<style>
+			input[type="checkbox"],
+			input[type="radio"] {
+				vertical-align: middle;
+			}
+		</style>
+		<SCRIPT type="text/javascript">
+			var IDMark_A = "_a";
+			var setting = {
+				view: {
+					addDiyDom: addDiyDom
+				},
+				data: {
+					simpleData: {
+						enable: true,
+						idKey: "code",
+						pIdKey: "parentCode"
+					}
+				},
+				callback: {
+					onExpand: onExpand
+				}
+			};
+
+			var zNodes = [{
+					code: 1,
+					parentCode: 0,
+					name: "父节点 1"
+				},
+				{
+					code: 11,
+					parentCode: 1,
+					name: "叶子节点 1-1"
+				},
+				{
+					code: 111,
+					parentCode: 11,
+					name: "叶子节点 1-111"
+				},
+				{
+					code: 112,
+					parentCode: 11,
+					name: "叶子节点 1-11222"
+				},
+				{
+					code: 12,
+					parentCode: 1,
+					name: "叶子节点 1-2"
+				},
+				{
+					code: 13,
+					parentCode: 1,
+					name: "叶子节点 1-3"
+				}
+			];
+
+
+			function onExpand(event, treeId, treeNode) {
+
+				$treeNode = $('#' + treeNode.code);
+				if(!$treeNode.data('has-expand')) {
+					checkChildren(treeNode, $treeNode.prop('checked'));
+					$(this).trigger('change');
+					$treeNode.data('has-expand', true);
+				}
+			}
+
+			function addDiyDom(treeId, treeNode) {
+				var aObj = $('#' + treeNode.tId + IDMark_A);
+				var ztreeObj = $.fn.zTree.getZTreeObj(treeId);
+				
+				if(treeNode.level == 0) {
+					var radioStr = '<input type="radio" name="radio_parent_' + treeNode.level + '" id="' + treeNode.code + '"  ></input>';
+					aObj.before(radioStr);
+					var $treeNode = $('#' + treeNode.code);
+					var $pNode = $('#' + treeNode.parentCode);
+					$treeNode.on('change', function() {
+
+						if(this.checked) {
+							$(':radio:not(#' + treeNode.code + ')').prop('checked', false);
+							if(treeNode.parentCode) {
+								$pNode.prop('checked', true);
+							}
+							$(':checkbox').prop('checked', false);
+							if(!$treeNode.data('has-expand')) {
+								ztreeObj.expandNode(treeNode, false, true, true);
+							}
+							checkChildren(treeNode, true);
+						} else {
+							checkChildren(treeNode, false);
+						}
+
+					});
+				} else {
+					var editStr = "<input type='checkbox' value='" + treeNode.code + "' data-isparent='" + treeNode.isParent + "' name='checkbox_" + treeNode.parentCode + "' id='" + treeNode.code + "' onfocus='this.blur();'></input>";
+					aObj.before(editStr);
+					var $treeNode = $('#' + treeNode.code);
+					$treeNode.on('change', function() {
+						if(treeNode.level == 1) {
+							if(!$treeNode.data('has-expand')) {
+								ztreeObj.expandNode(treeNode, false, true, true);
+							}
+							checkChildren(treeNode, $(this).prop('checked'));
+							recheckFather(treeNode, $(this).prop('checked'));
+						} else {
+							recheckFather(treeNode, $(this).prop('checked'));
+						}
+					});
+				}
+			}
+
+			function recheckFather(treeNode, check) {
+
+				if(treeNode) {
+					var pNode = treeNode.getParentNode();
+					var $treeNode = $('#' + treeNode.code);
+					var $pNode = pNode ? $('#' + pNode.code) : undefined;
+					if($treeNode.is(':checkbox')) {
+						var length = $(':checkbox[name="checkbox_' + pNode.code + '"]:checked').length;
+
+						if(length > 0) {
+
+							$pNode.prop('checked', true);
+							recheckFather(pNode, true);
+						} else {
+							$pNode.prop('checked', false);
+							recheckFather(pNode, false);
+						}
+					} else {
+						$(':radio[name="radio_parent_' + treeNode.level + '"]:not("#' + treeNode.code + '")').prop('checked', false).trigger('change');
+						$treeNode.prop('checked', check);
+						recheckFather(pNode, check);
+					}
+				}
+
+			}
+
+			function checkChildren(treeNode, check) {
+				if(treeNode.children) {
+					$.each(treeNode.children, function(index, item) {
+						var $child = $('#' + item.code);
+						$child.prop('checked', check);
+						checkChildren(item, check);
+					});
+				}
+
+			}
+
+			function getData() {
+				var ztreeObj = $.fn.zTree.getZTreeObj('treeDemo');
+				var ids = [];
+				var names = [];
+				$(':checkbox:checked').each(function(index, item) {
+					if(!$(this).data('isparent')) {
+						var id = $(this).val();
+						ids.push(id);
+						var treeNode = ztreeObj.getNodeByParam("code", id);
+						names.push(treeNode.name);
+					}
+				});
+				
+				return {
+					ids:ids,
+					names:names
+				};
+			}
+			
+			function renderData(ids) {
+				var ztreeObj = $.fn.zTree.getZTreeObj('treeDemo');
+				ztreeObj.expandAll(true);
+				$.each(ids, function(index,id) {
+					$('#'+id).prop('checked',true);
+					var treeNode = ztreeObj.getNodeByParam("code", id);
+					recheckFather(treeNode,true);
+				});
+				
+			}
+			
+			
+
+			$(document).ready(function() {
+
+				/*$.ajax({
+					type: "get",
+					url: "../json/product/area.json",
+					async: true,
+					success: function(result) {
+						$.fn.zTree.init($("#treeDemo"), setting, result.data);
+						renderData([11014])
+					}
+				});*/
+				
+				$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+				renderData(['12','111']);
+
+				$('#getdata').click(function() {
+					alert(getData().names);
+				});
+
+			});
+		</SCRIPT>
+
+	</HEAD>
+
+	<BODY>
+
+		<div class="content_wrap">
+			<div class="zTreeDemoBackground left">
+				<ul id="treeDemo" class="ztree"></ul>
+			</div>
+		</div>
+		<div id="content"></div>
+
+		<button id="getdata">获取数据</button>
+	</BODY>
+
+</HTML>

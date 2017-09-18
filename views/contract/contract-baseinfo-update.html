@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>合同基本信息编辑</title>
+    <link rel="stylesheet" href="../../frame/layui/css/layui.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/font/iconfont.css" />
+    <style>
+        .layui-form-label {
+            width: 200px;
+        }
+
+
+
+        .layui-form-label i {
+            color: red;
+        }
+
+        .choose-area-btn {
+            position: relative;
+            z-index: 10;
+            width: 30%;
+            border-color: #e6e6e6;
+            border-radius: 0 2px 2px 0;
+            background: #FBFBFB;
+        }
+
+        .choose-area-input {
+            width: 132px !important;
+            float: left;
+            border-right: none;
+        }
+
+        .layui-field-title {
+            text-align: center;
+        }
+
+        .compose-input{
+            display:inline-block;
+            width:150px;
+            margin-right:5px
+        }
+        b.append{
+            color: #c2c2c2 !important;
+            font-weight: normal !important;
+            font-size: 20px !important
+        }
+        #secondPartyPic{
+            cursor: pointer;
+        	display:inline-block !important;
+        	max-height:100px !important;
+        }
+
+        div .layui-checkbox-disbaled:hover i,
+        .layui-checkbox-disbaled i{
+            color: #98989c!important;
+        }
+    </style>
+</head>
+
+<body class="body">
+
+    <!-- <form id="contract-form" class="layui-form" action=""> -->
+        <fieldset class="layui-elem-field layui-field-title" style="display:block">
+            <legend>合同编号(<b id="contract-code-title"></b>)</legend>
+        </fieldset>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">
+      						<i class="icon iconfont">&#xe635;</i>
+      						所属部门
+      					</label>
+                <div class="layui-input-inline">
+                    <select id="dept" name="department" lay-filter="dept" lay-verify="required">
+						<option value="">请选择</option>
+					</select>
+                </div>
+
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+					<i class="icon iconfont">&#xe635;</i>
+					合作关系
+				</label>
+                <div class="layui-input-inline">
+                    <select id="coop" name="cooperationRel" lay-verify="required" lay-filter="coopRel">
+				    	<option value="">请选择</option>
+					</select>
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+						<i class="icon iconfont">&#xe635;</i>
+						乙方类型
+					</label>
+                <div class="layui-input-inline">
+                    <select id="second-party" name="secondPartyType" lay-verify="required">
+						<option value="">请选择</option>
+					</select>
+                </div>
+
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+					<i class="icon iconfont">&#xe635;</i>
+					合作模式
+				</label>
+                <div class="layui-input-inline">
+                    <select id="coop-type" name="cooperationType" lay-filter="coopType" lay-verify="required">
+					    <option value="">请选择</option>
+					</select>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-block">
+                <label class="layui-form-label">
+					<i class="icon iconfont">&#xe635;</i>
+					<span id="businessScopeName">业务范围</span>
+				</label>
+                <div class="layui-input-block" id="business-range">
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                	<i class="icon iconfont">&#xe635;</i>
+                    合同编号
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="contractCode" name="code" lay-verify="required" autocomplete="off" placeholder="" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">乙方名称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="secondPartyName" autocomplete="off" placeholder="" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    <i class="icon iconfont">&#xe635;</i>
+                    合同生效日
+                </label>
+                <div class="layui-input-inline">
+                    <input id="startDate" readonly lay-verify="required" class="layui-input" name="startDate" placeholder="合同生效日" />
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    <i class="icon iconfont">&#xe635;</i>
+                    合同到期日
+                </label>
+                <div class="layui-input-inline">
+                    <input id="endDate" readonly lay-verify="required" class="layui-input" name="endDate" placeholder="合同到期日" />
+                </div>
+            </div>
+
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">营业执照复印件</label>
+                <div class="layui-input-inline second-party-container">
+                    <!-- <img id="secondPartyPic" /> -->
+                    <input type="hidden" id="secondPartyPic-input" name="secondPartyPic" />
+                    <input type="file" name="file" lay-type="images" class="layui-upload-file upload-pic">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    <i class="icon iconfont">&#xe635;</i>
+                    授权区域
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" name="listAreaNames" readonly="readonly" lay-verify="required" autocomplete="off" class="layui-input choose-area-input">
+                    <button type="button" class="layui-btn layui-btn-primary choose-area-btn">
+                        <i class="layui-icon">&#xe61a;</i>
+                    </button>
+                </div>
+
+
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    自定义授权区域
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="customArea" name="customArea" autocomplete="off" placeholder="" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    <i class="icon iconfont">&#xe635;</i>
+                    合同签订代表（大区经理）
+                </label>
+                <div class="layui-input-inline">
+                    <select id="sign-rep" name="signRep"  lay-filter="signRep"  lay-verify="required">
+					    <option value="">请选择</option>
+					</select>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 不同合同这里渲染不一样 -->
+        <div id="contractContainer" class="layui-form-item"></div>
+
+        <script type="text/html" id="contractTemplate">
+
+            {{# layui.each(d,function(index,item){ }}
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    {{# if(item.must){ }}
+                        <i class="icon iconfont">&#xe635;</i>
+                    {{# } }}
+                    {{ item.labelName }}
+                </label>
+                <div class="layui-input-inline">
+                    {{# if(item.type == 'text'){ }}
+                    <input id="{{item.name}}" type="text" name="{{ item.name}}" autocomplete="off" placeholder="" class="layui-input {{item.class?item.class:''}}">
+                    {{# } }}
+
+                    {{# if(item.type == 'number'){ }}
+                    <input id="{{item.name}}" {{isNaN(item.min)? '': 'min='+item.min}} {{item.readOnly? 'readonly': ''}} lay-verify="{{item.must?'required':''}}" type="number" name="{{ item.name}}" autocomplete="off" placeholder="" class="layui-input {{item.class?item.class:''}}">
+                    {{# } }}
+
+                    {{# if(item.type == 'render'){ }}
+                        {{ item.render() }}
+                    {{# } }}
+
+                    {{# if(item.type == 'select'){ }}
+                    <select id="{{item.name}}" name="{{item.name}}" lay-verify="{{item.must?'required':''}}" lay-filter="{{item.name}}">
+
+                        {{# if(item.values){ }}
+                            {{#  layui.each(item.values,function(index,v){  }}
+                                <option value="{{v.key}}" {{v.select?'selected':''}} >
+                                    {{v.value}}
+                                </option>
+                            {{#   })  }}
+                        {{#  }  }}
+
+                        {{# if(!item.values){ }}
+                            <option value="">请选择</option>
+                        {{# } }}
+                    </select>
+                    {{# } }}
+                </div>
+            </div>
+            {{# }); }}
+        </script>
+
+        <!-- <script type="text/html" id="transTemplate">
+        </script> -->
+
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    <i class="icon iconfont">&#xe635;</i>
+                    合同签订日期
+                </label>
+                <div class="layui-input-inline">
+                    <input class="layui-input" readonly id="signDate" name="signDate" lay-verify="required" placeholder="合同签订日期" />
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-block">
+                <label class="layui-form-label">
+                    备注
+                </label>
+                <div class="layui-input-block">
+                    <textarea class="layui-textarea"  name="comments" placeholder="填写备注" style="width:85%" ></textarea>
+                </div>
+            </div>
+        </div>
+
+        <input type="hidden" name="id" />
+    <!-- </form> -->
+    <!-- <script type="text/javascript" src="../../js/common/module-manage.js"></script> -->
+    <!-- <script type="text/javascript" charset="utf8" src="../../frame/layui/layui.js"></script> -->
+    <script type="text/javascript" charset="utf8" src="../../js/controller/contract/contract-baseinfo-update.js"></script>
+</body>
+
+</html>

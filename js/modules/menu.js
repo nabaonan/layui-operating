@@ -1,8 +1,18 @@
-layui.use(['jquery'], function() {
+var requireModules = [
+	'authority',
+	'toast'
+];
+registeModule(window, requireModules);
+
+/*layui.use(['jquery','authority'], function() {*/
+layui.use(requireModules, function(
+	authority,
+	toast
+) {
 
 	var win = top.window;
 
-	var $ = layui.jQuery;
+	var $ = layui.jquery;
 
 	layui.define(function(exports) {
 
@@ -41,9 +51,22 @@ layui.use(['jquery'], function() {
 					element.init();
 				});
 			},
-			activeMenu: function() {
-
-//				console.log('这里做一些菜单选择,但是jquery选择器需要绑定到顶级window');
+			activeMenu: function(menuName) {
+				var id = "";
+				authority.getNavs().success(function(result){
+					$.each(result.data, function(index,item) {
+						$.each(item.children, function(i,child) {
+							if(child.menuName == menuName){
+								id = child.id;
+							}
+						});
+					});
+					if(id){
+						$("a[data-id='"+id+"']",window.top.document)[0].click();					
+					}else{
+						toast.warn('没有找到所查找的栏目！');
+					}
+				});
 			}
 		});
 

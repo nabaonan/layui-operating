@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学校填写报单</title>
+    <link rel="stylesheet" href="../../frame/layui/css/layui.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/font/iconfont.css" />
+    <style media="screen">
+        .layui-form-label i {
+            color: red;
+        }
+
+        button.cancel,
+        button.prev {
+            background: #c2c2c2;
+        }
+
+        #condition {
+            margin-top: 10px;
+        }
+
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script type="text/javascript" src="../../js/common/module-manage.js"></script>
+    <!-- <script src="../../frame/avalon/avalon.js" charset="utf-8"></script> -->
+    <script src="../../frame/laydate/laydate.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf8" src="../../frame/layui/layui.js"></script>
+    <script src="../../frame/jquery-1.10.2.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        var webName = getWebName();
+
+        layui.config({
+            base: webName + '/js/modules/' //这个路径以页面引入的位置进行计算
+        });
+
+        var requireModules = [
+            'request',
+            'key-bind',
+            'school-report-api',
+            'school-report-store',
+            'valid-login'
+        ];
+
+        registeModule(window, requireModules);
+        //参数有顺序
+        layui.use(requireModules, function(
+            ajax,
+            keyBind,
+            schoolReportApi,
+            schoolReportStore
+        ) {
+            var operate = ajax.getFixUrlParams('operate');
+            schoolReportStore.setOperate(operate);
+
+            switch (operate) {
+                case 'change':
+                case 'view':
+                case 'audit': //改单   查看  审核
+                    $('body').load('./school-choose-order.html');
+                    break;
+
+                case 'add':
+                case 'edit':
+                case 'appendOrder': //添加 编辑 修改 追加订单
+                    $('body').load('./school-baseinfo-update.html');
+                    break;
+
+                case 'delete':
+                case 'appendAccount':
+                case 'modify':
+                case 'viewAccount':
+                case 'viewClass':
+                case 'configClass':
+                case 'auditView':
+                 //删除  追加帐号 修改订单 查看帐号 配置班级 审核时候的查看
+                    $('body').load('./school-choose-order2.html');
+                    break;
+
+            }
+
+        });
+    </script>
+</body>
+
+</html>

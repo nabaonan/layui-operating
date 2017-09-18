@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学校开通单</title>
+    <link rel="stylesheet" href="../../frame/layui/css/layui.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/font/iconfont.css" />
+    <style media="screen">
+        select {
+            height: 37px;
+            border-radius: 2px;
+        }
+
+        .money {
+            text-align: left;
+            font-size: 20px;
+        }
+
+        .money .red {
+            color: #e31a2c;
+        }
+
+        #upload-form {
+            display: inline;
+        }
+
+        #pic-container{
+            margin-left: 110px;
+            margin-top: 20px;
+        }
+        #pic-container img{
+            height: 100px;
+        }
+        #pic-container .pic{
+            margin-right: 20px;
+            display: inline-block;
+            position: relative;
+            color: white;
+            text-align: center;
+        }
+        .closeBtn{
+            cursor: pointer;
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #FF5722;
+        }
+        .layui-form-label{
+            width: auto;
+            min-width: 80px;
+        }
+
+        .layui-form-mid{
+            text-align: left;
+            border: 1px solid #e6e6e6;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .valid-label{
+            width: 80px;
+            margin: 0 auto;
+            background: #e6e6e6;
+            color: white;
+            padding: 5px;
+        }
+        .valid-label.valid{
+            background: #57c715;
+        }
+    </style>
+
+</head>
+
+<body>
+    <fieldset class="layui-elem-field" ms-controller="school-order-info">
+        <legend>第4步 开通单</legend>
+        <div class="layui-field-box">
+            <fieldset class="layui-elem-field">
+                <legend>学校信息</legend>
+                <div class="layui-field-box">
+                    <form id="school-info" class="layui-form layui-form-pane" action="">
+
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    <i class="icon iconfont">&#xe635;</i>
+                                    学校名称
+                                </label>
+                                <div class="layui-input-inline">
+                                    <input readonly :duplex="schoolInfo.schoolName" class="layui-input">
+                                </div>
+
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    <i class="icon iconfont">&#xe635;</i>
+                                    学校编码
+                                </label>
+                                <div class="layui-input-inline">
+                                    <input readonly :duplex="schoolInfo.schoolCode" class="layui-input">
+                                </div>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    <i class="icon iconfont">&#xe635;</i>
+                                    学制
+                                </label>
+                                <div class="layui-input-inline">
+                                    <input readonly :duplex="schoolInfo.educationName" class="layui-input">
+                                </div>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    <i class="icon iconfont">&#xe635;</i>
+                                    联系人
+                                </label>
+                                <div class="layui-input-inline">
+                                    <input readonly :duplex="schoolInfo.contact" class="layui-input">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    <i class="icon iconfont">&#xe635;</i>
+                                    学段
+                                </label>
+                                <div class="layui-input-inline">
+                                    <input readonly :duplex="schoolInfo.schoolLevelsName" class="layui-input">
+                                </div>
+
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    <i class="icon iconfont">&#xe635;</i>
+                                    手机号
+                                </label>
+                                <div class="layui-input-inline">
+                                    <input readonly :duplex="schoolInfo.phone" class="layui-input">
+                                </div>
+
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    <i class="icon iconfont">&#xe635;</i>
+                                    教学模式
+                                </label>
+
+                                <div class="layui-input-inline">
+                                    <input readonly :duplex="schoolInfo.teachModelName" class="layui-input">
+                                </div>
+
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    信息来源
+                                </label>
+
+                                <div class="layui-input-inline">
+                                    <input readonly :duplex="schoolInfo.messagePathName" class="layui-input">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <div class="layui-block">
+                                <label class="layui-form-label">
+                                    所在地
+                                </label>
+
+                                <div class="layui-form-mid" style="width:50%">
+                                    {{@schoolInfo.zoneName}} {{@schoolInfo.detailAddr}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item layui-form-text">
+                            <label class="layui-form-label">
+                                备注:
+                            </label>
+                            <div class="layui-input-block">
+                                <textarea readonly :duplex="schoolInfo.remark" class="layui-textarea"></textarea>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </fieldset>
+
+            <fieldset class="layui-elem-field">
+                <legend>管理员信息</legend>
+                <div class="layui-field-box">
+
+                    <table class="layui-table">
+                        <thead>
+                            <tr>
+                                <th>管理员帐号</th>
+                                <th>密码</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ms-for="manager in @managers">
+                                <td>{{@manager.account}}</td>
+                                <td>{{@manager.password}}</td>
+                            </tr>
+                            <tr ms-if="@managers.length == 0">
+                                <td colspan="2">暂无数据</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </fieldset>
+
+
+            <fieldset class="layui-elem-field">
+                <legend>产品信息</legend>
+                <div class="layui-field-box">
+                    <button class="layui-btn add-payment">新增费用</button>
+                    <table class="layui-table" id="product-table">
+                        <thead>
+                            <tr>
+                                <th>产品名称</th>
+                                <th>学段</th>
+                                <th>学生数</th>
+                                <th>教师数</th>
+                                <th>学生版数</th>
+                                <th>帐号类型</th>
+                                <th>定价</th>
+                                <th>数量</th>
+                                <th>实收</th>
+                                <th>扣款方式</th>
+                                <th>有效期</th>
+                                <th>说明</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- commodity.isEffective   1代表商品   2代表非商品（新增费用）-->
+                            <tr ms-for="($index,commodity) in @commoditys">
+                                <td>
+                                    <span class="valid-label " ms-if="@commodity.isEffective == '1' && @schoolInfo.teachModel == '1'">走班</span>
+                                    <input ms-if="@commodity.isEffective == '2' && @commodity.hasPayed != '1'" lay-verify="required" type="text" class="layui-input" :duplex="@commodity.commodityName">
+                                    <span ms-if="@commodity.isEffective == '1'||(@commodity.isEffective == '2' && @commodity.hasPayed == '1') ">
+                                        {{@commodity.commodityName}}
+                                    </span>
+                                </td>
+                                <td>{{@commodity.schoolLevelName}}</td>
+                                <td>
+                                    <span ms-if="@commodity.isEffective == '1'">{{@commodity.studentNumber}}</span>
+                                    <!-- 显示上一次数量的情况有  改单 追加帐号  修改订单-->
+                                    <span ms-if="@commodity.isEffective == '1' && (@operate == 'change'||@operate == 'appendAccount'||@operate == 'modify') ">
+                                         ({{@commodity.oldStudentNumber}})
+                                    </span>
+                                </td>
+                                <td>
+                                    <span ms-if="@commodity.isEffective == '1'">{{@commodity.teacherNumber}}</span>
+                                    <!-- 显示上一次数量的情况有  改单 追加帐号  修改订单-->
+                                    <span ms-if="@commodity.isEffective == '1' && (@operate == 'change'||@operate == 'appendAccount'||@operate == 'modify')">
+                                        ( {{@commodity.oldTeacherNumber}} )
+                                    </span>
+                                </td>
+                                <td>
+                                    <span ms-if="@commodity.isEffective == '1'">{{@commodity.studentsNumber}}</span>
+                                </td>
+                                <td>{{@commodity.accountTypeName}}</td>
+                                <td >
+                                    <b>￥</b>
+                                    <input type="number" min="0" lay-verify="required" ms-attr="{disabled:@commodity.isEffective == '1'||(@operate == 'appendAccount' && @commodity.hasPayed == 1)}" class="layui-input" :duplex="@commodity.fixedPrice" data-duplex-changed="@change" style="display:inline-block;width:100px;margin-right:10px"/>
+                                    <del ms-if="@commodity.isEffective == '1'"><b>￥</b>{{@commodity.originalPrice}}</del>
+                                </td>
+                                <td>
+                                    <input type="number" min="0" lay-verify="required" ms-attr="{disabled:@commodity.isEffective == '1'||(@operate == 'appendAccount' && @commodity.hasPayed == 1)}" class="layui-input" :duplex="@commodity.number" data-duplex-changed="@change" />
+                                </td>
+                                <td>
+                                    <!-- 实收 -->
+                                    <b>￥</b>
+                                    <!-- 追加帐号的时候不能更改历史实收 -->
+                                    <input type="number" min="0" style="display:inline-block;width:110px;" lay-verify="required" ms-attr="{disabled:@operate == 'appendAccount' && @commodity.hasPayed == 1,value:@commodity.fixedPrice * @commodity.number}" class="layui-input" :duplex="@commodity.netReceipts" data-duplex-changed="@change"  />
+                                </td>
+                                <td>
+                                    <!-- 如果是买断，选择的商品默认是不收费，不能变 -->
+                                    <span ms-if="@commodity.isEffective == '1' && @branchCenterInfo.contractType == '4'">不收费</span>
+                                    <!-- 追加帐号的时候不能更改历史扣费方式 -->
+                                    <!-- 买断的合同的商品不收费 -->
+                                    <span ms-if="@commodity.isEffective == '1' && @branchCenterInfo.contractType == '4'">不收费</span>
+                                    <select ms-if="!(@commodity.isEffective == '1' && @branchCenterInfo.contractType == '4')" :attr="{'disabled':@operate == 'appendAccount' && @commodity.hasPayed == 1}" :duplex="@commodity.chargeback|debounce(1)" data-duplex-changed="@change">
+                                        <option ms-attr="{value:@chargeback.value}" ms-for="chargeback in @chargebacks">{{@chargeback.name}}</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <div class="valid-label" ms-if="@commodity.isEffective == '1' && @commodity.isValid == '1'">未生效</div>
+                                    <div :class="@commodity.isValid == '2'?'valid-label valid':'valid-label'" ms-if="@commodity.isEffective == '1' && @commodity.isValid == '2'">生效</div>
+                                    <div class="valid-label" ms-if="@commodity.isEffective == '1' && @commodity.isValid == '3'">失效</div>
+                                    <span ms-if="@commodity.isEffective == '1'">{{@commodity.startDate}}~{{@commodity.stopDate}}（剩余{{@commodity.leftDays}}天）</span>
+                                </td>
+                                <td>{{@commodity.remark}}</td>
+                                <td>
+                                    <!-- 已经付费的不能删除 -->
+                                    <div ms-if="@commodity.isEffective == '2' && @commodity.hasPayed != '1'" class="layui-btn layui-btn-danger delete-commodity" >
+                                        删除
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <div class="layui-form-item" >
+                        <div class="layui-inline" ms-if="@showQuota">
+                            <label class="layui-form-label">
+                                本次应扣额度
+                            </label>
+                            <label class="layui-form-label money">
+                                <b class="red" >{{@shouldTotalQuota}}</b>
+                            </label>
+                        </div>
+
+                        <div class="layui-inline" ms-if="@showPrice">
+                            <label class="layui-form-label">
+                                本次应扣金额
+                            </label>
+                            <label class="layui-form-label money">
+                                <b class="red" >{{@shouldTotalPrice}}</b>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+            </fieldset>
+
+            <fieldset class="layui-elem-field">
+                <legend>额度/款项信息</legend>
+                <div class="layui-field-box">
+                    <form id="payment-form" action="" class="layui-form" enctype="multipart/form-data">
+                        <div class="layui-form-item" ms-if="@showQuota">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    本次优惠额度
+                                </label>
+                                <label class="layui-form-label money">
+                                    <b class="red" >{{@discountQuota}}</b>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item" ms-if="@showPrice">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    本次优惠金额
+                                </label>
+                                <label class="layui-form-label money">
+                                    <b class="red">{{@discountPrice}}</b>
+                                </label>
+                            </div>
+                        </div>
+                        <!--  如果扣款方式有一项为新缴费则会显示付款方式，跟其他们有关系 -->
+                        <div class="layui-form-item" ms-if="@showPayType">
+                            <div class="layui-block">
+                                <label class="layui-form-label">
+                                    <i class="icon iconfont">&#xe635;</i>
+                                    付款方式
+                                </label>
+                                <div class="layui-input-block">
+                                    <input type="radio" lay-verify="required" name="paymentMethod" checked value="1" title="现金">
+                                    <input type="radio" lay-verify="required" name="paymentMethod" value="2" title="刷卡">
+                                    <input type="radio" lay-verify="required" name="paymentMethod" value="3" title="转账">
+                                </div>
+                                {{@renderRadio()}}
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    操作人
+                                </label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="operator" class="layui-input">
+                                </div>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    经办人
+                                </label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="handler" class="layui-input">
+                                </div>
+                            </div>
+
+                            <div class="layui-block">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">
+                                        上传合同
+                                    </label>
+
+                                    <div class="layui-input-inline">
+                                        <input id="fileName" readonly name="saleContractName" type="text" autocomplete="off" placeholder="" class="layui-input">
+                                    </div>
+                                </div>
+
+                                <div class="layui-inline">
+                                    <button type="button" class="layui-btn choose">选择</button>
+                                    <input id="filePath" name="contractPath" type="hidden" />
+                                    <input id="file" type="file" name="file" style="display:none">
+                                </div>
+
+                                <div class="layui-inline">
+                                    <button type="button" class="layui-btn layui-btn-normal upload">上传</button>
+                                </div>
+                            </div>
+                            <div class="layui-block" id="pic-container">
+
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item layui-form-text">
+                            <label class="layui-form-label">备注</label>
+                            <div class="layui-input-block">
+                                <textarea placeholder="请输入内容" name="remark" class="layui-textarea"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item layui-form-text">
+                            <div class="layui-inline" ms-if="@showQuota">
+                                <label class="layui-form-label">
+                                    实扣额度
+                                </label>
+                                <label class="layui-form-label money">
+                                    <b class="red">{{@currentRealQuota}}</b>
+                                </label>
+                            </div>
+
+                            <div class="layui-inline" ms-if="@showPrice">
+                                <label class="layui-form-label">
+                                    <!-- 这个是累加本次所有金额不包括额度 -->
+                                    实收总计
+                                </label>
+                                <label class="layui-form-label money">
+                                    <b class="red">{{@currentRealPrice}}</b>
+                                </label>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    剩余额度
+                                </label>
+                                <label class="layui-form-label money">
+                                    <b>{{@branchCenterInfo.amounts}}</b>
+                                </label>
+                            </div>
+
+                            <!-- 只有追加帐号才会显示订单总额和总额度，订单总额是累加实收，订单总额度是累加实收总额度 -->
+                            <div class="layui-inline" ms-if="@operate == 'appendAccount' && showPrice">
+                                <label class="layui-form-label">
+                                    订单总额
+                                </label>
+                                <label class="layui-form-label money">
+                                    <!-- 历史和现在的总金额 -->
+                                    <b>{{@totalPrice}}</b>
+                                </label>
+                            </div>
+
+                            <div class="layui-inline" ms-if="@operate == 'appendAccount' && showQuota">
+                                <label class="layui-form-label">
+                                    订单总额度
+                                </label>
+                                <label class="layui-form-label money">
+                                    <b>{{@totalQuota}}</b>
+                                </label>
+                            </div>
+                            <!-- 如果合同类型是买断的话显示 -->
+                            <div class="layui-inline" ms-if="@branchCenterInfo.contractType == '4'">
+                                <label class="layui-form-label">
+                                    剩余学校数:
+                                </label>
+                                <label class="layui-form-label money">
+                                    <b class="red">{{@leftSchoolNumber}}</b>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item" style="text-align:center">
+                            <div class="layui-inline">
+                                <button type="button" class="layui-btn prev">
+                                    <i class="layui-icon">&#xe603;</i>返回
+                                </button>
+                                <button lay-submit="" type="button" lay-filter="school-order-form" class="layui-btn mgl-20 save">
+                                    <i class="layui-icon">&#xe605;</i> 保存
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </fieldset>
+        </div>
+    </fieldset>
+
+    <script type="text/javascript" src="../../js/common/module-manage.js"></script>
+    <script src="../../frame/avalon/avalon.js" charset="utf-8"></script>
+    <script src="../../frame/jquery-1.10.2.min.js" charset="utf-8"></script>
+    <script src="../../frame/jQuery.print.min.js" charset="utf-8"></script>
+    <script src="../../frame/jquery.form.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf8" src="../../js/controller/report/school-order.js"></script>
+</body>
+
+</html>

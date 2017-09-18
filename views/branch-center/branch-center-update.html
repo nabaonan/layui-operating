@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>编辑分中心</title>
+		<link rel="stylesheet" href="../../frame/layui/css/layui.css">
+		<link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../../css/font/iconfont.css" />
+		<link rel="stylesheet" href="../../css/icon-key/iconfont.css">
+		<style>
+			.layui-form-label {
+				width: 120px;
+			}
+
+			th i.iconfont,
+			.layui-form-label i {
+				color: red;
+			}
+			tbody img{
+				height: 50px;
+				margin-right: 10px;
+			}
+			.add-row{
+				float: right;
+			}
+			.pic-container{
+				display: inline-block;
+			}
+
+		</style>
+	</head>
+
+	<body class="body">
+
+		<form id="branch-center-form" class="layui-form" action="">
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">
+						<i class="icon iconfont">&#xe635;</i>
+						分中心名称
+					</label>
+					<div class="layui-input-inline">
+						<input type="text" name="centerName" lay-verify="required" autocomplete="off" placeholder="请输入分中心名称" class="layui-input">
+					</div>
+
+				</div>
+
+				<div class="layui-inline">
+					<label class="layui-form-label">
+						<i class="icon iconfont">&#xe635;</i>
+						分中心代码
+					</label>
+					<div class="layui-input-inline">
+						<input id="code" type="text" lay-verify="branchCode" name="centerCode" placeholder="请输入分中心代码" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+
+				<div class="layui-inline">
+					<label class="layui-form-label">
+						<i class="icon iconfont">&#xe635;</i>
+						是否属于总部
+					</label>
+					<div class="layui-input-inline">
+						<input type="radio" name="isHQ" value="1" title="是" checked="checked">
+						<input type="radio" name="isHQ" value="0" title="否">
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="layui-form-item">
+				<div class="layui-input-block">
+					<button class="layui-btn add-row" type="button">
+						<i class="layui-icon">&#xe608;</i>
+						添加校长
+					</button>
+				</div>
+
+				<table id="school-master-list" class="layui-table" lay-skin="row"></table>
+
+			</div>
+
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">
+						<i class="icon iconfont">&#xe635;</i>
+						登录用户名
+					</label>
+					<div class="layui-input-inline">
+						<input id="login-name" type="text" name="loginName" placeholder="" readonly="readonly" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+
+				<div class="layui-inline">
+					<label class="layui-form-label">
+						<i class="icon iconfont">&#xe635;</i>
+						密码
+					</label>
+
+					<div class="layui-input-inline">
+						<input id="pwd" type="text" lay-verify="pwd"  name="password" placeholder="" readonly="readonly" autocomplete="off" class="layui-input">
+					</div>
+
+					<div class="layui-input-inline">
+						<button id="genpwd-btn" type="button" class="layui-btn layui-btn-warm">
+							<i class="iconfont">&#xe617;</i>
+							自动生成密码
+						</button>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="layui-form-item">
+				<div class="layui-inline">
+
+					<label class="layui-form-label">
+						<i class="icon iconfont">&#xe635;</i>
+						大区经理
+					</label>
+					<div class="layui-input-inline">
+						<select id="sign-rep" name="signRep" lay-verify="required">
+							<option value="">全部</option>
+						</select>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="layui-form-item layui-form-text">
+				<div class="layui-block">
+					<label class="layui-form-label">备注</label>
+					<div class="layui-input-inline" style="width: 80%;">
+						<textarea placeholder="请输入备注" lay-verify="comment" name="comment" class="layui-textarea"></textarea>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="layui-form-item"  id="expalin-check">
+				<div class="layui-block">
+					<label class="layui-form-label"></label>
+					<input type="checkbox" lay-filter="isAudit" id="isAudit" name="requestAudit" value=true title="分中心提审" lay-skin="primary" checked="checked"/>
+				</div>
+			</div>
+
+			<div id="explain-container" class="layui-form-item">
+				<div class="layui-block">
+					<label class="layui-form-label">
+							<i class="icon iconfont">&#xe635;</i>
+							说明
+						</label>
+					<div class="layui-input-inline" style="width: 80%;">
+						<textarea placeholder="请输入提审理由" lay-verify="explain" name="description" class="layui-textarea"></textarea>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="layui-form-item">
+				<div class="layui-input-block" style="text-align:center;margin-left:0;">
+					<button class="layui-btn" type="button" lay-submit="" lay-filter="branch-center-form">
+						<i class="layui-icon">&#xe605;</i>
+						提交
+					</button>
+					<button id="cancel" type="button" class="layui-btn layui-btn-primary">
+						 <i class="layui-icon">&#x1006;</i>
+						 关闭
+					</button>
+				</div>
+			</div>
+			<input type="hidden" id="id" name="id" />
+		</form>
+
+		<script type="text/javascript" src="../../js/common/module-manage.js"></script>
+		<script type="text/javascript" charset="utf8" src="../../frame/layui/layui.js"></script>
+		<script type="text/javascript" charset="utf8" src="../../frame/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" charset="utf8" src="../../frame/datatables/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" charset="utf8" src="../../js/controller/branch-center/branch-center-update.js"></script>
+	</body>
+
+</html>

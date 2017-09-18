@@ -22,6 +22,7 @@ var requireModules = [
 	'date-util',
 	'daterange-util',
 	'toast',
+	'key-bind',
 	'valid-login'
 ];
 
@@ -39,7 +40,8 @@ layui.use(requireModules, function(
 	btns,
 	dateUtil,
 	daterangeUtil,
-	toast
+	toast,
+	keyBind
 ) {
 	var $ = layui.jquery;
 	var f = form();
@@ -224,7 +226,7 @@ layui.use(requireModules, function(
 					data: 'createDate',
 					render: function(data) {
 						if($.trim(data) !== '') {
-							return dateUtil.formatStr(new Date(parseInt(data)), "yyyy-MM-dd");
+							return dateUtil.formatStr(new Date(parseInt(data)), "yyyy-MM-dd HH:mm");
 						}
 						return "";
 					}
@@ -635,6 +637,7 @@ layui.use(requireModules, function(
 				title: "审核商品",
 				area: ['80%', '80%'],
 				offset: '10%',
+				maxmin:true,
 				scrollbar: false,
 				content: url,
 				btn: ['审核通过', '驳回'],
@@ -672,6 +675,8 @@ layui.use(requireModules, function(
 					return false;
 				}
 			});
+			
+			layer.full(index);
 		},
 
 		bindEvent: function() {

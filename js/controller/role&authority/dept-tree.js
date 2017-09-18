@@ -5,6 +5,7 @@ var requireModules = [
 	'role&authority-api',
 	'toast',
 	'tree-util',
+	'key-bind',
 	'valid-login'
 
 ];
@@ -15,7 +16,13 @@ registeModule(window, requireModules, {
 
 layui.config({
 	base: webName + '/js/modules/' //这个路径以页面引入的位置进行计算
-}).use(requireModules, function(ajax, authorityApi, toast, treeUtil) {
+}).use(requireModules, function(
+	ajax, 
+	authorityApi, 
+	toast, 
+	treeUtil,
+	keyBind
+) {
 
 	var treeId = 'dept-tree';
 	ajax.request(authorityApi.getUrl('getDeptTree'), null, function(result) {

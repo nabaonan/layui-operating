@@ -14,7 +14,7 @@ layui.define(function(exports) {
 		"getKeyValue": {
 			url: "../key-value.json"
 		},
-		
+
 		getUrl: function(urlKey) {
 			var url, type;
 			try {
@@ -33,7 +33,7 @@ layui.define(function(exports) {
 		getAbsoluteUrl:function(urlKey){
 			return this[urlKey].url;
 		}
-		
+
 
 	};
 

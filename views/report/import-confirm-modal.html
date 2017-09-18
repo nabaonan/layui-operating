@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>导入预览modal</title>
+    <link rel="stylesheet" href="../../frame/layui/css/layui.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style media="screen">
+        #import-table{
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body ms-controller="import-confirm">
+    <table id="import-table" class="layui-table">
+        <thead>
+            <tr>
+                <td>序号</td>
+                <td>姓名</td>
+                <td>101学号</td>
+                <td>订单编号</td>
+                <td>课程名称</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ms-for="($index,item) in @datas" :css="{color:item.isSuccess?'inherit':'red'}">
+                <td>{{$index+1}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.account}}</td>
+                <td>{{item.order}}</td>
+                <td>{{item.courseName}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script type="text/javascript" src="../../js/common/module-manage.js"></script>
+    <script type="text/javascript" charset="utf8" src="../../frame/layui/layui.js"></script>
+    <script src="../../frame/avalon/avalon.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf8" src="../../js/controller/report/import-confirm-modal.js"></script>
+
+</body>
+</html>

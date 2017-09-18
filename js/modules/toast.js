@@ -9,7 +9,7 @@ layui.define('layer', function(exports) {
 		msg: function(msg, icon) {
 			window.top.layer.msg(msg, {
 				icon: icon, //0叹号,1对钩，2错误，3问号，4锁，5不高兴,6笑脸
-				time: 1500 //（如果不配置，默认是3秒）
+				time: 2000 //（如果不配置，默认是3秒）
 			});
 		},
 		warn: function(msg) {

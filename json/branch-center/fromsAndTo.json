@@ -1,0 +1,138 @@
+{
+    "data": [
+        {
+            "key": "bzj",
+            "to": null,
+            "value": "保证金"
+        },
+        {
+            "key": "fck",
+            "to": null,
+            "value": "分成款"
+        },
+        {
+            "key": "fse",
+            "to": null,
+            "value": "发生额(进账)"
+        },
+        {
+            "key": "fwf",
+            "to": null,
+            "value": "服务费(出账)"
+        },
+        {
+            "key": "jled",
+            "to": null,
+            "value": "奖励额度"
+        },
+        {
+            "key": "jmf",
+            "to": null,
+            "value": "加盟费"
+        },
+        {
+            "key": "kced",
+            "to": null,
+            "value": "扣除额度"
+        },
+        {
+            "key": "kcyjk",
+            "to": null,
+            "value": "扣除预交款"
+        },
+        {
+            "key": "mdfy",
+            "to": null,
+            "value": "买断费用"
+        },
+        {
+            "key": "ptf",
+            "to": null,
+            "value": "平台费"
+        },
+        {
+            "key": "qtk",
+            "to": null,
+            "value": "其他款"
+        },
+        {
+            "key": "spjhk",
+            "to": null,
+            "value": "首批进货款"
+        },
+        {
+            "key": "tbzj",
+            "to": null,
+            "value": "退保证金"
+        },
+        {
+            "key": "tyjk",
+            "to": null,
+            "value": "退预交款"
+        },
+        {
+            "key": "yjf",
+            "to": null,
+            "value": "硬件费"
+        },
+        {
+            "key": "yjkx",
+            "to": null,
+            "value": "预交款项"
+        },
+        {
+            "key": "yjkzy",
+            "to": [
+                {
+                    "key": "spjhk",
+                    "to": null,
+                    "value": "首批进货款"
+                },
+                {
+                    "key": "fck",
+                    "to": null,
+                    "value": "分成款"
+                },
+                {
+                    "key": "qtk",
+                    "to": null,
+                    "value": "其他款"
+                },
+                {
+                    "key": "jmf",
+                    "to": null,
+                    "value": "加盟费"
+                },
+                {
+                    "key": "bzj",
+                    "to": null,
+                    "value": "保证金"
+                },
+                {
+                    "key": "mdfy",
+                    "to": null,
+                    "value": "买断费用"
+                },
+                {
+                    "key": "fse",
+                    "to": null,
+                    "value": "发生额(进账)"
+                }
+            ],
+            "value": "预交款转移"
+        },
+        {
+            "key": "zydxqed",
+            "to": null,
+            "value": "转移到下期额度"
+        },
+        {
+            "key": "zydxqyjk",
+            "to": null,
+            "value": "转移到下期预交款"
+        }
+    ],
+    "errorCode": 0,
+    "msg": null,
+    "status": true
+}

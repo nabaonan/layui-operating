@@ -1,0 +1,37 @@
+{
+    "data":[
+        {
+            "key":"6",
+            "value":"编辑审核中"
+        },
+        {
+            "key":"7",
+            "value":"编辑审核驳回"
+        },
+        {
+            "key":"4",
+            "value":"审核驳回"
+        },
+        {
+            "key":"5",
+            "value":"编辑未提审"
+        },
+        {
+            "key":"2",
+            "value":"审核中"
+        },
+        {
+            "key":"3",
+            "value":"审核通过"
+        },
+        {
+            "key":"1",
+            "value":"未提审"
+        }
+    ],
+    "errorCode":0,
+    "msg":null,
+    "recordsFiltered":null,
+    "recordsTotal":null,
+    "status":true
+}

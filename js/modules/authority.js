@@ -21,28 +21,30 @@ layui.define(requireModules,function(exports) {
 	login = layui.login,
 	authority = layui.authority,
 	roleApi = layui['role&authority-api'];
-	
+
 	var authority = {
-		
+
 		getNavs: function() {//获取左侧导航信息
 			var user = login.getLoginInfo();
 			return ajax.request(roleApi.getUrl('getUserNavs'),user,function(result){
-				return result.data;
-			},false);
+
+			});
 		},
-		
+
 		getNavBtns: function(navId) {
 			var user = login.getLoginInfo();
-			return ajax.request(roleApi.getUrl('getNavBtns'),{
+			var btns ;
+			ajax.request(roleApi.getUrl('getNavBtns'),{
 				userId:user.id,
 				id:navId
 			},function(result){
-				return result.data;
+				btns = result.data;
 			},false);
+			return btns;
 		}
-	
+
 	};
-	
+
 	exports('authority',authority);
 
 });

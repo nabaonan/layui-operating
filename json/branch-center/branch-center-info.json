@@ -1,0 +1,26 @@
+{
+	"status": true,
+	"data": {
+		"code": "xer3",
+		"name": "gggg",
+		"isBeijing": 1,
+		"schoolmasters": [
+			{
+				"name": "张三",
+				"IDcard": "110100101010101033",
+				"IDcardCopyPic": "/image/test.jpg",
+				"phone": "13401111111",
+				"email": "werwer@wewer.com",
+				"addr": "asdfasdfasdf"
+			}, {
+				"name": "张三1",
+				"IDcard": "110100101010101033",
+				"IDcardCopyPic": "/image/test2.jpg",
+				"phone": "13401112222",
+				"email": "werwer@wewer.com",
+				"addr": "asdfasdfasdf"
+			}
+		]
+	}
+}
+

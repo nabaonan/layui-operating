@@ -12,8 +12,9 @@ var requireModules = [
 	'toast',
 	'authority',
 	'btns',
+	'key-bind',
 	'valid-login'
-	
+
 
 ];
 //这里注册没有初始化注册过的 模块路径，如果是modules下有子集 的模块需要在这里注册
@@ -28,19 +29,21 @@ layui.use(requireModules, function(
 	treeTable,
 	toast,
 	authority,
-	btns
+	btns,
+	keyBind
 ) {
-	
+
 	var controller = {
 
 		init: function() {
 			var navId = ajax.getFixUrlParams("navId");
-			
+
 			var totalBtns = authority.getNavBtns(navId);
+			
 			var btnObjs = btns.getBtns(totalBtns);
 			controller.pageBtns = btns.getPageBtns(btnObjs);
 			$('#page-btns').html(btns.renderBtns(controller.pageBtns));
-			
+
 			controller.renderTable();
 			controller.bindEvent();
 		},
@@ -81,9 +84,9 @@ layui.use(requireModules, function(
 			});
 
 		},
-		
+
 		deleteAuth: function() {
-			
+
 			if(!controller.selectRow) {
 				toast.warn('请选择节点');
 				return;
@@ -128,10 +131,10 @@ layui.use(requireModules, function(
 		},
 
 		clickRow: function(data) {
-			var rowData = $('tr[data-tt-id="'+data.parentId+'"]').data('rowData');			
+			var rowData = $('tr[data-tt-id="'+data.parentId+'"]').data('rowData');
 			data.fatherName = rowData?rowData.menuName:'';
 			controller.selectRow = data;
-			
+
 		},
 
 		bindEvent: function() {
@@ -151,7 +154,7 @@ layui.use(requireModules, function(
 
 	//开方外部访问api
 	window.authorityList = {
-		
+
 		refreshTable: function() {
 			controller.renderTable();
 		}

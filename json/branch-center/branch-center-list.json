@@ -1,0 +1,38 @@
+{
+	"data": [
+		{
+			"id": "1",
+			"code": 1,
+			"name": "北京分中心",
+			"schoolmaster": "张校长",
+			"phone": "一年级",
+			"startDate": 1495214737000,
+			"endDate": 1495214737000,
+			"enableStatus": "1",
+			"auditStatus": "2"
+		},{
+			"id": "2",
+			"code": 1,
+			"name": "北京分中心",
+			"schoolmaster": "张校长",
+			"phone": "一年级",
+			"startDate": 1495214737000,
+			"endDate": 1495214737000,
+			"enableStatus": "1",
+			"auditStatus": "1"
+		},{
+			"id": "3",
+			"code": 1,
+			"name": "北京分中心",
+			"schoolmaster": "张校长",
+			"phone": "一年级",
+			"startDate": 1495214737000,
+			"endDate": 1495214737000,
+			"enableStatus": "1",
+			"auditStatus": "3"
+		}
+	],
+	"recordsFiltered": "1",
+	"recordsTotal": "5",
+	"status": true
+}

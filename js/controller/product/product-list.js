@@ -17,6 +17,7 @@ var requireModules = [
 	'daterange-util',
 	'date-util',
 	'toast',
+	'key-bind',
 	'valid-login'
 ];
 
@@ -35,7 +36,8 @@ layui.use(requireModules, function(
 	productApi,
 	daterangeUtil,
 	dateUtil,
-	toast
+	toast,
+	keyBind
 
 ) {
 	var $ = layui.jquery;
@@ -265,7 +267,7 @@ layui.use(requireModules, function(
 						width: '8%',
 						render: function(data) {
 							if($.trim(data) !== '') {
-								return dateUtil.formatStr(new Date(parseInt(data)), "yyyy-MM-dd");
+								return dateUtil.formatStr(new Date(parseInt(data)), "yyyy-MM-dd HH:mm");
 							}
 							return "";
 						}

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>查看分中心</title>
+	<link rel="stylesheet" href="../../frame/layui/css/layui.css">
+	<link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../../css/order.css">
+</head>
+
+<body class="body">
+
+	<fieldset class="layui-elem-field">
+		<legend>用户信息</legend>
+		<div class="layui-field-box">
+			<form id="" class="layui-form " action="">
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">姓 名：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="name"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">学 校：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="school"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">身份证：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="idCard"></span></div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">性 别：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="sex"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">学制分科：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="schoolSystem"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">单 位：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="company"></span></div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">生 日：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="birthday"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">就读年级：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="grade"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">信息来源：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="infoSource"></span></div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">手机号：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="phone"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">家长姓名：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="parentsName"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">101学号：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="studentNum"></span></div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">邮 箱：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="email"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">家长手机：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="parentPhone"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">密 码：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="password"></span></div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">微 信：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="wechat"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">家庭角色：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="familyRole"></span></div>
+					</div>
+				</div>
+				<div class="layui-form-item layui-form-text">
+					<label class="layui-form-label">学生住址：</label>
+					<div class="layui-input-inline layui-form-mid" style="text-align:left"><span name="province"></span><span name="city"></span><span name="area"></span><span name="address"></span></div>
+				</div>
+				<div class="layui-form-item layui-form-text">
+					<label class="layui-form-label">备 注：</label>
+					<div class="layui-input-inline layui-form-mid" style="text-align:left"><span name="comment"></span></div>
+				</div>
+				<div class="layui-form-item layui-form-text">
+					<label class="layui-form-label">创建时间：</label>
+					<div class="layui-input-inline layui-form-mid" style="text-align:left"><span name="createDate"></span></div>
+				</div>
+			</form>
+		</div>
+	</fieldset>
+
+	<fieldset class="layui-elem-field">
+		<legend>订单信息</legend>
+		<div class="layui-field-box" id="orderList">
+			<div class="layui-form" id="orderClone">
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">订单号：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="id"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">订单状态：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="auditStatus"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">订单类型：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="type"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">创建时间：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="createDate"></span></div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<table id="viewAndPrint-list" class="layui-table" width="100%"></table>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+
+	<fieldset class="layui-elem-field">
+		<legend>本期合同(<span class="contractCode"></span>)款项信息</legend>
+		<div id="addFormShow" class="layui-field-box">
+			<form id="" class="layui-form " action="">
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">销售类型：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="saleType"></span></div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">应收总计：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="shouldNum"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">优惠金额：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="preferentialNum"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">实收总计：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="actualNum"></span></div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">付款方式s：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="payType"></span></div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">操作人：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="operater"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">交款人：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="payer"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">经办人：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="transactor"></span></div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">备 注：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="comment"></span></div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div id="returnFormShow" class="layui-field-box">
+			<form id="" class="layui-form " action="">
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">销售类型：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="saleType"></span></div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">本次退款：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="refundNum"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">订单金额：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="money"></span></div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">退款方式：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="payType"></span></div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">操作人：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="operater"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">经办人：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="transactor"></span></div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">退单原因：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="reason"></span></div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">备 注：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="comment"></span></div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div id="changeFormShow" class="layui-field-box">
+			<form id="" class="layui-form " action="">
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">销售类型：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="saleType"></span></div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">本次补交款：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="actualNum"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">本次优惠：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="preferentialNum"></span></div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">付款方式：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="payType"></span></div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">操作人：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="operater"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">交款人：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="payer"></span></div>
+					</div>
+					<div class="layui-inline">
+						<label class="layui-form-label">经办人：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="transactor"></span></div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">退单原因：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="reason"></span></div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">备 注：</label>
+						<div class="layui-input-inline layui-form-mid"><span name="comment"></span></div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</fieldset>
+	
+
+	<fieldset class="layui-elem-field">
+		<legend>审核信息</legend>
+		<div class="layui-field-box" id="orderList">
+			<div class="layui-form" id="orderClone">
+				<div class="layui-form-item">
+					<table id="audit-history-list" class="layui-table" width="100%"></table>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+	
+	<script type="text/javascript" src="../../js/common/module-manage.js"></script>
+	<script type="text/javascript" charset="utf8" src="../../frame/layui/layui.js"></script>
+	<script type="text/javascript" charset="utf8" src="../../frame/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="../../frame/datatables/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="../../js/controller/report-branch-center/audit-view.js"></script>
+</body>
+
+</html>

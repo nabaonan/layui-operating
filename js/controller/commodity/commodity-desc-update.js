@@ -15,9 +15,9 @@ var requireModules = [
 	'file-api',
 	'toast',
 	'layedit',
-	'upload'
-	/*,
-		'valid-login'*/
+	'upload',
+	'key-bind',
+	'valid-login'
 ];
 
 registeModule(window, requireModules);
@@ -34,7 +34,8 @@ layui.use(requireModules, function(
 	fileApi,
 	toast,
 	layedit,
-	upload
+	upload,
+	keyBind
 ) {
 	var $ = layui.jquery;
 	var f = new form();

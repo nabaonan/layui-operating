@@ -1,0 +1,809 @@
+body{
+	/*background: #edeff0;*/
+}
+/*---------列表样式---------*/
+.studentOrderId{
+	color: #333333 !important;
+}
+.studentOrderId:hover{
+	cursor: pointer !important;
+	color: #00665f !important;
+}
+/*---------搜索框---------*/
+.searchForm{
+	padding: 30px 20px;
+	overflow: auto;
+}
+.searchForm>.searchOptions{
+	float: left;
+	width: auto;
+	max-width: 1010px;
+}
+.searchForm>.searchButton{
+	float: right;
+	width: 150px;
+	text-align: center;
+	margin-top: 40px;
+}
+.searchForm>.searchOptions>form>div{
+	margin-top: 10px;
+	font-size: 0px;
+}
+.searchForm input{
+	width: 150px;
+	border: 1px solid #c6c6c6;
+	box-sizing: border-box;
+	line-height: 30px;
+	border-radius: 3px;
+	height: 30px;
+	font-size: 14px;
+	color: #333333;
+	padding-left: 10px;
+	vertical-align: top;
+}
+.searchForm textarea{
+	resize: none;
+	border: 1px solid #c6c6c6;
+	box-sizing: border-box;
+	font-size: 14px;
+	color: #333333;
+	border-radius: 3px;
+}
+.searchForm input:focus{
+	border: 1px solid #53bcb5;
+}
+.searchForm span.line{
+	color: #c6c6c6;
+	width: 20px;
+	text-align: center;
+	display: inline-block;
+	font-size: 6px;
+	line-height: 30px;
+	vertical-align: middle;
+}
+.searchForm>.searchOptions .select2-container{
+	margin-left: 20px;
+}
+#zone{
+}
+/*---------操作行---------*/
+.row-main{
+	padding: 25px 0px 20px 10px;
+}
+.row-main{
+	line-height: 30px;
+	font-size: 18px;
+	color: #666666;
+}
+/*---------步骤样式---------*/
+.step-title{
+	float: right;
+}
+.step-title>li{
+	float: left;
+	color: #d4d4d4;
+	height: 24px;
+	line-height: 24px;
+	font-size: 8px;
+}
+.step-title>li>div{
+	padding: 5px 10px;
+	font-size: 14px;
+	line-height: 14px;
+	background: url(../img/step.png) no-repeat center center;
+	background-size: 100% 100%;
+	color: #fff;
+}
+.step-title>li.active{
+	color: #01b3a7;
+}
+.step-title>li.active>div{
+	background: url(../img/step-active.png) no-repeat center center;
+	background-size: 100% 100%;
+}
+/*第一步*/
+.step1{
+	display: block;
+}
+.step1 .title{
+	padding: 15px 20px;
+	border-bottom: 1px solid #dce2e9;
+	font-size: 20px;
+	color: #333333;
+}
+.step1 .contentDiv{
+	padding: 0px 20px;
+}
+.step1 .contentDiv li{
+	font-size: 0px;
+	margin-top: 20px;
+}
+.step1 .contentDiv li>div{
+	display: inline-block;
+	vertical-align: top;
+}
+.step1 .contentDiv li>div>i{
+	display: inline-block;
+	width: 100px;
+	font-size: 14px;
+	color: #666666;
+	padding-left: 23px;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: top;
+	font-style: normal;
+}
+.step1 .contentDiv li>div>i.must{
+	background: url(../img/must.png) no-repeat 4px center;
+}
+.step1 .button-div{
+	margin-top: 80px;
+	margin-bottom: 60px;
+}
+/*预览*/
+.confirm{
+	display: none;
+	padding: 35px 40px; 
+}
+.confirm .title{
+	font-size: 16px;
+	color: #333333;
+}
+.confirm .contentDiv{
+	padding: 0px;
+}
+.confirm .contentDiv li{
+	font-size: 0px;
+	margin-top: 20px;
+}
+.confirm .contentDiv li>div{
+	display: inline-block;
+	vertical-align: top;
+	width: 30%;
+}
+.confirm .contentDiv li>div>i{
+	display: inline-block;
+	width: 85px;
+	font-size: 14px;
+	color: #666666;
+	height: 14px;
+	line-height: 14px;
+	vertical-align: top;
+	font-style: normal;
+}
+.confirm .contentDiv li>div>span{
+	font-size: 14px;
+	color: #333333;
+	height: 14px;
+	line-height: 14px;
+	vertical-align: top;
+	font-style: normal;
+}
+.confirm .button-div{
+	margin-top: 80px;
+	margin-bottom: 60px;
+}
+/*第二步*/
+.step2{
+	display: none;
+}
+.step2 .title{
+	padding: 15px 20px;
+	border-bottom: 1px solid #dce2e9;
+	font-size: 20px;
+	color: #333333;
+}
+.step2 .searchUl{
+	padding: 0px 40px;
+}
+.step2 .searchUl>li{
+	font-size: 0px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #f3f3f3;
+	padding: 10px 0px;
+}
+.step2 .searchUl li>i{
+	display: inline-block;
+	vertical-align: top;
+	font-size: 14px;
+	color: #999999;
+	height: 30px;
+	line-height: 30px;
+	width: 85px;
+	font-style: normal;
+}
+.step2 .searchUl li>div{
+	display: inline-block;
+	vertical-align: top;
+	font-size: 14px;
+	color: #333333;
+	height: 30px;
+	line-height: 30px;
+}
+.step2 .searchUl li>ul{
+	display: inline-block;
+}
+.step2 .searchUl li>ul>li+li{
+	margin-top: 10px;
+}
+.step2 .searchUl li>ul>li>i{
+	display: inline-block;
+	vertical-align: top;
+	font-size: 14px;
+	color: #666666;
+	height: 30px;
+	line-height: 30px;
+	width: 85px;
+	font-style: normal;
+}
+.step2 .searchUl li>ul>li>div{
+	display: inline-block;
+	vertical-align: top;
+	font-size: 14px;
+	color: #333333;
+	height: 30px;
+	line-height: 30px;
+}
+.step2 .searchUl li .label-value{
+	font-size: 14px;
+	color: #333333;
+	height: 16px;
+	line-height: 16px;
+    vertical-align: middle;
+    margin: 0px;
+    font-weight: bold;
+	margin-right: 45px;
+	margin-left: 5px;
+}
+.step2 .button-div{
+	margin-top: 80px;
+	margin-bottom: 60px;
+}
+.step2 .button-a{
+	font-size: 14px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.step2 .second-title{
+	font-size: 18px;
+	color: #666666;
+	padding: 20px 40px;
+}
+.step2 .commodity-list{
+	padding: 0px 40px;
+}
+.step2 .table-list{
+	width: 900px;
+	float: left;
+	padding-bottom: 20px;
+}
+.step2 .buy-list{
+	width: 200px;
+	float: right;
+}
+.step2 .buy-list #buy-list{
+	width: 200px;
+	border: 1px solid #dce2e9;
+}
+.step2 .buy-list #buy-list .title{
+	color: #999999;
+	font-size: 14px;
+	line-height: 50px;
+	border-bottom: 1px solid #dce2e9;
+	padding: 0px;
+	text-align: center;
+}
+.step2 .buy-list #buy-list .content{
+	padding-bottom: 20px;
+}
+.step2 .buy-list #buy-list .content .buttons-div{
+	margin-top: 10px;
+	text-align: center;
+}
+.step2 .buy-list #buy-list .content ul li{
+	font-size: 14px;
+	color: #999999;
+	padding-left: 8px;
+	margin-top: 20px;
+	line-height: 16px;
+}
+.step2 .buy-list #buy-list .content ul li span{
+	display: inline-block;
+	width: 155px;
+	color: #333333;
+	padding-left: 15px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.step2 .buy-list #buy-list .content ul li i{
+	display: inline-block;
+	width: 15px;
+	height: 16px;
+	background: url(../img/dustbin.png) no-repeat center center;
+	background-size: 100% 100%;
+}
+.step2 .buy-list #buy-list .content ul li i:hover{
+	cursor: pointer;
+	background: url(../img/dustbin-hover.png) no-repeat center center;
+}
+.step2 .buy-list #buy-list #listCommodityMoney{
+	font-size: 14px;
+	margin-top: 30px;
+	color: #333333;
+	text-align: center;
+}
+
+
+/*第三步*/
+.step3{
+	display: none;
+}
+.step3 .title{
+	padding: 15px 20px;
+	border-bottom: 1px solid #dce2e9;
+	font-size: 20px;
+	color: #333333;
+}
+.step3 .confirm{
+	display: block;
+	padding: 10px 40px 20px 40px; 
+}
+.step3 .confirm .title{
+	font-size: 16px;
+	color: #333333;
+	padding: 0px;
+	border-bottom: none;
+	padding: 30px 0px 20px 0px;
+}
+.step3 .button-div{
+	padding-bottom: 40px;
+}
+.step3 .paymentDiv{
+	padding: 0px;
+}
+.step3 .paymentDiv li+li{
+	margin-top: 20px;
+}
+.step3 .paymentDiv li > div {
+    display: inline-block;
+    vertical-align: top;
+}
+.step3 .paymentDiv li > div > i.must {
+    background: url(../img/must.png) no-repeat 4px center;
+}
+.step3 .paymentDiv li > div > i {
+    display: inline-block;
+    width: 100px;
+    font-size: 14px;
+    color: #666666;
+    padding-left: 23px;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: top;
+    font-style: normal;
+}
+.step3 .paymentDiv li > div+div{
+	margin-left: 20px;
+}
+.step3 .paymentDiv li > div > div{
+	display: inline-block;
+    vertical-align: top;
+    height: 30px;
+    line-height: 30px;
+}
+.step3 .paymentDiv li .label-value{
+	margin-right: 20px;
+	margin-left: 5px;
+}
+.step3 .paymentDiv li > div > span{
+	vertical-align: middle;
+	height: 30px;
+	line-height: 30px;
+	display: inline-block;
+}
+.step3 .moneyAll{
+	text-align: right;
+	color: #333333;
+	font-size: 16px;
+	padding-right: 40px;
+	padding-bottom: 15px;
+}
+.step3 .moneyAll span{
+	font-size: 24px;
+	color: #ff6600;
+}
+.step3 .validityStatus{
+	display: inline-block;
+	width: 52px;
+	height: 20px;
+	line-height: 20px;
+	background-color: #d4d4d4;
+	color: #fff;
+	font-size: 14px;
+}
+.step3 .validityStatus.good{
+	background-color: #01b3a7;
+}
+.step3 .validity{
+	line-height: 20px;
+	font-size: 14px;
+	color: #999999;
+}
+.step3 .lastDays{
+	line-height: 20px;
+	font-size: 14px;
+	color: #333333;
+}
+.step3 .corner{
+	font-size: 14px;
+	color: #fff;
+	background: url(../img/corner.png) no-repeat center center;
+}
+/*预览和打印*/
+.showAndPrint{
+	display: none;
+}
+.showAndPrint .confirm{
+	display: block;
+	padding: 10px 40px 20px 40px; 
+}
+.showAndPrint .confirm .title{
+	font-size: 16px;
+	color: #333333;
+	padding: 0px;
+	border-bottom: none;
+	padding: 35px 0px 20px 0px;
+}
+.showAndPrint .button-div{
+	margin-top: 20px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	border-top: 1px solid #dce2e9;
+}
+.showAndPrint .paymentDiv{
+	padding: 0px;
+}
+.showAndPrint .paymentDiv li+li{
+	margin-top: 20px;
+}
+.showAndPrint .paymentDiv li > div {
+    display: inline-block;
+    vertical-align: top;
+}
+.showAndPrint .paymentDiv li > div > i.must {
+    background: url(../img/must.png) no-repeat 4px center;
+}
+.showAndPrint .paymentDiv li > div > i {
+    display: inline-block;
+    width: 100px;
+    font-size: 14px;
+    color: #666666;
+    padding-left: 23px;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: top;
+    font-style: normal;
+}
+.showAndPrint .paymentDiv li > div+div{
+	margin-left: 50px;
+}
+.showAndPrint .paymentDiv li > div > div{
+	display: inline-block;
+    vertical-align: top;
+    height: 30px;
+    line-height: 30px;
+}
+.showAndPrint .paymentDiv li .label-value{
+	margin-right: 20px;
+	margin-left: 5px;
+}
+.showAndPrint .paymentDiv li > div > span{
+	vertical-align: middle;
+	height: 30px;
+	line-height: 30px;
+	display: inline-block;
+	color: #333333;
+	font-size: 14px;
+}
+.showAndPrint .moneyAll{
+	text-align: right;
+	color: #333333;
+	font-size: 16px;
+	padding-right: 40px;
+	padding-bottom: 15px;
+}
+.showAndPrint .moneyAll span{
+	font-size: 24px;
+	color: #ff6600;
+}
+.showAndPrint .validityStatus{
+	display: inline-block;
+	width: 52px;
+	height: 20px;
+	line-height: 20px;
+	background-color: #d4d4d4;
+	color: #fff;
+	font-size: 14px;
+}
+.showAndPrint .validityStatus.good{
+	background-color: #01b3a7;
+}
+.showAndPrint .validity{
+	line-height: 20px;
+	font-size: 14px;
+	color: #999999;
+}
+.showAndPrint .lastDays{
+	line-height: 20px;
+	font-size: 14px;
+	color: #333333;
+}
+.showAndPrint .corner{
+	font-size: 14px;
+	color: #fff;
+	background: url(../img/corner.png) no-repeat center center;
+}
+.studentNumStatus{
+	padding: 2px 4px !important;
+	background: #de0a0a !important;
+	color: #fff !important;
+	margin-left: 5px !important;
+}
+
+#log-msg > div {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 14px;
+    color: #666666;
+    height: 30px;
+    line-height: 30px;
+    font-style: normal;
+}
+#log-msg div > span {
+    display: inline-block;
+    color: #999999;
+}
+#log-msg > div+div{
+	margin-left: 50px;
+}
+#addFormShow,#returnFormShow,#changeFormShow{
+	display: none;
+}
+
+/*datatable表格 标题用按钮*/
+.my-dataTable a:hover{
+	text-decoration: none;
+	cursor: default;
+}
+.datatable-title-button{
+	font-size: 14px;
+	line-height: 14px;
+	padding: 5px 24px 5px 10px;
+	border: 1px solid #9ad2cd;
+	color: #999999;
+	background: url(../img/sort-down.png) no-repeat 45px center;
+	background-color: #fff;
+}
+.datatable-title-button:hover{
+	cursor: pointer;
+}
+.datatable-title-button.active{
+	background: url(../img/sort-up.png) no-repeat 45px center;
+}
+.no-left{
+	border-left: none;
+}
+.datatable-title-input{
+	width: 50px;
+	font-size: 14px;
+	line-height: 14px;
+	padding: 5px 0px 5px 18px;
+	border: 1px solid #9ad2cd;
+	color: #999999;
+	background: url(../img/y.png) no-repeat 6px center;
+	background-color: #fff;
+}
+/*datatable表格 列表信息*/
+.datatable-content-list{
+	width: 100%;
+	overflow: hidden;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.datatable-content-list>li{
+	display: inline-block;
+	height: 100px;
+	vertical-align: middle;
+}
+.datatable-content-list .img{
+	width: 170px;
+	overflow: hidden;
+}
+.datatable-content-list .img img{
+	height: 100px;
+}
+.datatable-content-list .information{
+	margin-left: 20px;
+}
+.datatable-content-list .information>div+div{
+	margin-top: 20px;
+}
+
+.datatable-content-list .information a{
+	display: inline-block;
+}
+.datatable-content-list .information .grade{
+	color: #fff;
+	font-size: 12px;
+	line-height: 12px;
+	padding: 3px 5px;
+	background-color: #fcbc4b;
+}
+.datatable-content-list .information .system{
+	color: #fff;
+	font-size: 12px;
+	line-height: 12px;
+	padding: 3px 5px;
+	background-color: #a1d958;
+	margin-left: 10px;
+}
+.datatable-content-list .information .specialty{
+	color: #fff;
+	font-size: 12px;
+	line-height: 12px;
+	padding: 3px 5px;
+	background-color: #81d6f5;
+	margin-left: 10px;
+}
+.datatable-content-list .information .commodityName{
+	line-height: 20px;
+	font-size: 20px;
+	color: #333333;
+}
+.datatable-content-list .information .commodityName:hover{
+	cursor: pointer;
+}
+.datatable-content-list .information .commodityCode{
+	line-height: 14px;
+	font-size: 14px;
+	color: #999999;
+}
+.datatable-content-list .msg{
+	margin-left: 10px;
+	height: 100px;
+	line-height: 100px;
+}
+.datatable-content-list .msg a{
+	margin-left: 20px;
+	color: #666666;
+	font-size: 14px;
+	vertical-align: middle;
+}
+.datatable-content-list .sellmoney{
+	margin-left: 50px;
+}
+.datatable-content-list .sellmoney .present{
+	font-size: 14px;
+	color: #ff6600;
+	padding-top: 32px;
+}
+.datatable-content-list .sellmoney .present span{
+	font-size: 22px;
+}
+.datatable-content-list .sellmoney .original{
+	font-size: 14px;
+	color: #999999;
+	text-decoration: line-through;
+	text-align: center;
+}
+.datatable-content-list .operation{
+	padding-top: 30px;
+	float: right;
+}
+.add-button{
+	width: 40px;
+	height: 30px;
+	border: 1px solid #01b3a7;
+	border-radius: 3px;
+	background: url(../img/add-button.png) no-repeat center center;
+}
+.add-button.active{
+	background: url(../img/add-button-active.png) no-repeat center center;
+	background-color: #01b3a7;
+}
+.yhj{
+	width: 58px;
+	height: 57px;
+	background: url(../img/yhj.png) no-repeat center center;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+/*datatable表格 已选列表信息*/
+.commodityChoose{
+	font-size: 16px;
+	color: #333333;
+	text-align: center;
+}
+.commodityChoose.first{
+	text-align: left;
+	padding-left: 30px !important;
+}
+.commodityChoose a{
+	display: inline-block;
+	color: #333333;
+}
+.commodityChoose .grade{
+	color: #fff;
+	font-size: 12px;
+	line-height: 12px;
+	padding: 3px 5px;
+	background-color: #fcbc4b;
+}
+.commodityChoose .system{
+	color: #fff;
+	font-size: 12px;
+	line-height: 12px;
+	padding: 3px 5px;
+	background-color: #a1d958;
+	margin-left: 10px;
+}
+.commodityChoose .specialty{
+	color: #fff;
+	font-size: 12px;
+	line-height: 12px;
+	padding: 3px 5px;
+	background-color: #81d6f5;
+	margin-left: 10px;
+}
+.commodityChoose .commodityName{
+	line-height: 20px;
+	font-size: 16px;
+	color: #333333;
+}
+.commodityChoose .commodityName:hover{
+	cursor: pointer;
+}
+.commodityChoose .present{
+	font-size: 16px;
+}
+.commodityChoose .original{
+	font-size: 16px;
+	color: #999999;
+	text-decoration: line-through;
+}
+.commodityChoose .num,.commodityChoose .accountActual{
+	border: 1px solid #c6c6c6;
+	border-radius: 3px;
+	color: #333333;
+	height: 30px;
+	line-height: 30px;
+	width: 80px;
+	text-align: center;
+}
+
+.commodityChoose .set,.commodityChoose .setProduct{
+	position: relative;
+}
+.commodityChoose .set i,.commodityChoose .setProduct i{
+	position: absolute;
+	top: -6px;
+	right: -6px;
+	width: 18px;
+	height: 18px;
+	font-size: 14px;
+	font-style: normal;
+	line-height: 18px;
+	color: #fff;
+	background: url(../img/corner.png) no-repeat center center;
+	background-size: 100% 100%;
+}
+
+#orderList > div+div{
+	margin-top: 20px;
+}
+
+#orderList > div > div{
+	margin-bottom: 0px;
+}

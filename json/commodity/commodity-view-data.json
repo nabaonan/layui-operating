@@ -1,152 +1,195 @@
 {
 	"data": {
-		"id": "143fcd0c-ad86-4376-b1bd-632ca1bb0242",
-		"commodityName": "学酷测试09",
-		"commodityCode": "C016YS32SP37",
 		"commoditySort": "非实物商品",
-		"createDate": 1495850128000,
-		"originalPrice": 33333,
-		"discount": 0.333,
-		"currentPrice": 23423424,
 		"commodityProducts": [
 			{
-				"areaName": "南昌县",
+				"areaName": [
+					"顺庆区",
+					"南昌县"
+				],
 				"auditStatus": null,
+				"auditor": null,
 				"billType": "计时",
 				"code": null,
 				"commodityCode": null,
-				"commodityId": "143fcd0c-ad86-4376-b1bd-632ca1bb0242",
-				"commodityName": "学酷测试09",
+				"commodityId": "2dcc9170-9014-4f3a-9999-ad883f8d20a4",
+				"commodityName": "学酷1",
 				"createDate": null,
 				"currentPrice": null,
-				"expiryLength": "100",
+				"expiryLength": "10",
 				"gradeName": null,
+				"group": null,
 				"ids": null,
 				"isPass": null,
 				"isSingleProduct": null,
-				"number": null,
-				"productCurrentPrice": null,
-				"productId": "727d0463-8281-4056-9c13-83d68a2603bd",
-				"productLineName": "学酷1",
-				"productOriginalPrice": 0,
-				"productSource": null,
+				"number": 12,
+				"productCurrentPrice": 20200,
+				"productId": "cce34e8a-0fb6-4d63-80b1-d27f4d717893",
+				"productLineName": "百度",
+				"productOriginalPrice": 22800,
+				"productSource": "1345a681-e640-4476-8c50-95c67c5833bf",
 				"productType": "同步课程",
+				"rejectOpinion": null,
 				"saleStatus": null,
 				"singleCommodityId": null,
 				"singleCommodityName": null,
 				"specialtyName": null,
 				"timeLength": "100",
-				"unitPrice": null,
-				"unit": "天"
+				"unit": "六个月",
+				"unitPrice": 1900
 			}
 		],
-		"promotionList": [],
-
 		"auditList": [
 			{
-				"sponsor": "小名",
+				"auditDate": 1496656650000,
+				"auditOpinion": null,
 				"auditStatus": "1",
-				"auditOpinion": "通过",
-				"auditDate": 1495850128000,
-				"auditor": "小名",
-				"currentNode": "当前节点"
+				"auditor": null,
+				"commodityId": "2dcc9170-9014-4f3a-9999-ad883f8d20a4",
+				"currentNode": null,
+				"id": "d781b651-1576-4569-b7cb-12f0b7c56900",
+				"sponsor": "管理员"
+			}, {
+				"auditDate": 1496656695000,
+				"auditOpinion": "一审通过",
+				"auditStatus": "2",
+				"auditor": "管理员",
+				"commodityId": "2dcc9170-9014-4f3a-9999-ad883f8d20a4",
+				"currentNode": "管理员",
+				"id": "424aad7f-9306-4406-a84f-5622ad46c43c",
+				"sponsor": "管理员"
+			}, {
+				"auditDate": 1496718881000,
+				"auditOpinion": "价格不对",
+				"auditStatus": "5",
+				"auditor": "管理员",
+				"commodityId": "2dcc9170-9014-4f3a-9999-ad883f8d20a4",
+				"currentNode": "管理员",
+				"id": "f7a95dea-d0fd-42d0-8ab9-f9337057d202",
+				"sponsor": "管理员"
+			}, {
+				"auditDate": 1496720515000,
+				"auditOpinion": null,
+				"auditStatus": "1",
+				"auditor": null,
+				"commodityId": "2dcc9170-9014-4f3a-9999-ad883f8d20a4",
+				"currentNode": null,
+				"id": "128165d0-8542-46ec-87ea-b907d2109b4a",
+				"sponsor": "管理员"
+			}, {
+				"auditDate": 1496720552000,
+				"auditOpinion": "123",
+				"auditStatus": "4",
+				"auditor": "管理员",
+				"commodityId": "2dcc9170-9014-4f3a-9999-ad883f8d20a4",
+				"currentNode": "管理员",
+				"id": "294583be-4a24-4c5a-9b08-4fee3d83bb39",
+				"sponsor": "管理员"
+			}, {
+				"auditDate": 1496720594000,
+				"auditOpinion": null,
+				"auditStatus": "1",
+				"auditor": null,
+				"commodityId": "2dcc9170-9014-4f3a-9999-ad883f8d20a4",
+				"currentNode": null,
+				"id": "e6f8be3e-27a7-4448-b576-0d2058e67f47",
+				"sponsor": "管理员"
+			}, {
+				"auditDate": 1496720603000,
+				"auditOpinion": "一审通过",
+				"auditStatus": "2",
+				"auditor": "管理员",
+				"commodityId": "2dcc9170-9014-4f3a-9999-ad883f8d20a4",
+				"currentNode": "管理员",
+				"id": "0e8a90d8-6c89-4fd4-af59-36f2214e0196",
+				"sponsor": "管理员"
+			}, {
+				"auditDate": 1496720616000,
+				"auditOpinion": "uuu",
+				"auditStatus": "5",
+				"auditor": "管理员",
+				"commodityId": "2dcc9170-9014-4f3a-9999-ad883f8d20a4",
+				"currentNode": "管理员",
+				"id": "861ae4bc-40f8-490e-9ce9-05f1d75044dd",
+				"sponsor": "管理员"
 			}
 		],
-		"commodityEducational": [],
-		"commoditySpecialty": [],
-		"commoditySaledepartments": [],
-		"areaIds": "",
-		"saleDateList": [
-			{
-				"commodityId": "00fc2ee7-2f32-49a3-99c6-a1fb9d3a381d",
-				"currentDate": null,
-				"descList": [
-					{
-						"id": "2",
-						"descript": "sdfasdfasdfasdfasdf"
-					}, {
-						"id": "3",
-						"descript": "rrrrrrrrrrrrrr"
-					}
-				],
-				"endDate": 1495788236000,
-				"id": "0",
-				"pictureList": [
-					{
-						"id": "1",
-						"thumbnail": "/image/code.png"
-					}, {
-						"id": "2",
-						"thumbnail": "/image/v.png"
-					}
-				],
-				"startDate": null,
-				"videosList": [
-					{
-						"id": "4",
-						"video": "werert.mp4"
-					}, {
-						"id": "5",
-						"video": "ertertertet.mp4"
-					}
-				]
-			}
-		],
-		"commodityLevels": [],
-		"areaNames": "北京，天津，上海",
-		"commodityUserType": [],
+		"originalPrice": 22800,
 		"commodityEducational": [
-			"2"
+			"六三制"
 		],
 		"commoditySpecialty": [
-			"1"
+			"地理",
+			"历史",
+			"生物"
 		],
 		"commoditySaledepartments": [
-			"2"
+			"学校事业部"
 		],
+		"currentPrice": 20200,
+		"discount": 0.89,
 		"areaIds": "511302,360121",
+		"saleDateList": [
+			{
+				"commodityId": "2dcc9170-9014-4f3a-9999-ad883f8d20a4",
+				"createDate": 1496715861000,
+				"creator": "管理员",
+				"currentDate": null,
+				"descList": null,
+				"endDate": 1498703059000,
+				"id": "e840a2b4-93e9-4c14-b3d9-0c12a62f177f",
+				"pictureList": null,
+				"startDate": 1496802258000,
+				"videosList": null
+			}
+		],
 		"commodityLevels": [
-			"2"
+			"初中"
 		],
 		"areaNames": "顺庆区,南昌县",
 		"commodityUserType": [
-			"4",
-			"3"
+			"学校",
+			"企业"
 		],
-		"commodityCode": "C016YS37SP44",
+		"commodityCode": "A023YS278SP296",
 		"isGive": 2,
 		"commodityGrade": [
-			"1"
+			"初中九年级"
 		],
-		"isGive": 2,
-		"commodityGrade": [],
-
-		"businessType": "2",
 		"saledate": {
-			"startDate": 1495850128000,
-			"endDate": 1495850128000,
-			"descList": [
-				{
-					"descript": "werwerwerwerwerwer"
-				}, {
-					"descript": "werwerwerwerwerwer"
-				}
-			],
-			"videosList": [
-				{
-					"video": "eee.mov"
-				}, {
-					"video": "eee.mov"
-				}
-			],
+			"commodityId": "2dcc9170-9014-4f3a-9999-ad883f8d20a4",
+			"createDate": null,
+			"creator": null,
+			"currentDate": null,
+			"descList": [],
+			"endDate": 1498703059000,
+			"id": "e840a2b4-93e9-4c14-b3d9-0c12a62f177f",
 			"pictureList": [
 				{
-					"thumbnail": "/operateSystemApplicationUi/image/test.jpg"
+					"id": "276d0a25-964e-407c-85bc-cb5b8fdfc86d",
+					"saledateId": "e840a2b4-93e9-4c14-b3d9-0c12a62f177f",
+					"thumbnail": "/upload20170606/07317432-fc98-4e7c-abfa-1b472b94c230.JPG"
 				}, {
-					"thumbnail":"/operateSystemApplicationUi/image/code.png"
+					"id": "461e491f-bb15-47ff-b3ae-56c4abd43788",
+					"saledateId": "e840a2b4-93e9-4c14-b3d9-0c12a62f177f",
+					"thumbnail": "/upload20170606/80b1b22f-14f5-4399-9a8c-3f846c23bc17.jpg"
+				}, {
+					"id": "88839cc6-ef54-47fb-bd30-a483bfdd574a",
+					"saledateId": "e840a2b4-93e9-4c14-b3d9-0c12a62f177f",
+					"thumbnail": "/upload20170606/d0a4ff6a-e96a-4317-9195-3a8a3beea4fc.jpg"
+				}, {
+					"id": "f7b1ff3a-b1f4-4e3c-8dd6-3eb74e233a5c",
+					"saledateId": "e840a2b4-93e9-4c14-b3d9-0c12a62f177f",
+					"thumbnail": "/upload20170606/10700b12-6e3e-4cec-8280-31dc5507322a.jpg"
 				}
-			]
-		}
+			],
+			"startDate": 1496802258000,
+			"videosList": []
+		},
+		"id": "2dcc9170-9014-4f3a-9999-ad883f8d20a4",
+		"businessType": "组织",
+		"commodityName": "学酷1",
+		"createDate": 1496632993000
 	},
 	"status": true
 }

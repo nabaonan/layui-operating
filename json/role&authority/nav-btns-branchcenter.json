@@ -1,0 +1,31 @@
+{
+
+    "status": true,
+    "data": [{
+        "btnKey": "add"
+    }, {
+        "btnKey": "export"
+    }, {
+        "btnKey": "audit"
+    }, {
+        "btnKey": "row-edit"
+    }, {
+        "btnKey": "row-view"
+    }, {
+        "btnKey": "row-delete"
+    }, {
+        "btnKey": "row-add-contract"
+    }, {
+        "btnKey": "row-switch"
+    }, {
+        "btnKey": "row-switch-report"
+    }, {
+        "btnKey": "row-reset-pwd"
+    }, {
+        "btnKey": "row-audit"
+    }, {
+        "btnKey": "row-continue"
+    }, {
+        "btnKey": "row-payment-change"
+    }]
+}

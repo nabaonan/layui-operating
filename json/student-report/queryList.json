@@ -1,0 +1,682 @@
+{
+    "data":[
+        {
+            "studentOrderId":"ccccc",
+            "name":"姓名",
+            "studentNum":"学生号",
+            "phone":"手机",
+             "commodity": [
+                {
+                    "accountActual": 100,
+                    "commodityId": "b86a247a-5855-4d2b-8f59-521ef3ce8888",
+                    "dateBegin": null,
+                    "dateEnd": null,
+                    "id": "562c077b-201b-40eb-9679-c71fb14649cf",
+                    "isCancel": "3",
+                    "isStop": 2,
+                    "length": null,
+                    "num": "1",
+                    "preCommodityId": null,
+                    "productId": null,
+                    "studentOrderId": "2017090700001",
+                    "commodityName":"产品090701"
+                },
+                {
+                    "accountActual": 100,
+                    "commodityId": "b86a247a-5855-4d2b-8f59-521ef3ce8887",
+                    "dateBegin": null,
+                    "dateEnd": null,
+                    "id": "562c077b-201b-40eb-9679-c71fb14649cf",
+                    "isCancel": "3",
+                    "isStop": null,
+                    "length": null,
+                    "num": "1",
+                    "preCommodityId": null,
+                    "productId": null,
+                    "studentOrderId": "2017090700001",
+                    "commodityName":"产品090702"
+                }
+            ],
+            "money":"订单金额",
+            "auditStatus":"未提审",
+            "type":"新报",
+            "createDate":"创建时间",
+        	"studentId":"学生id",
+        	"branchCenterName":"分中心名称"
+        },
+        {
+            "studentOrderId":"学生订单id",
+            "name":"姓名",
+            "studentNum":"学生号",
+            "phone":"手机",
+             "commodity": [
+                {
+                    "accountActual": 100,
+                    "commodityId": "b86a247a-5855-4d2b-8f59-521ef3ce8888",
+                    "dateBegin": null,
+                    "dateEnd": null,
+                    "id": "562c077b-201b-40eb-9679-c71fb14649cf",
+                    "isCancel": "3",
+                    "isStop": null,
+                    "length": null,
+                    "num": "1",
+                    "preCommodityId": null,
+                    "productId": null,
+                    "studentOrderId": "2017090700001",
+                    "commodityName":"产品090701"
+                }
+            ],
+
+            "commodityName": [
+                "产品090701"
+            ],
+
+            "money":"订单金额",
+            "auditStatus":"未提审",
+            "type":"续费",
+            "createDate":"创建时间",
+        	"studentId":"学生id",
+        	"branchCenterName":"分中心名称"
+        },
+        {
+            "studentOrderId":"学生订单id",
+            "name":"姓名",
+            "studentNum":"学生号",
+            "phone":"手机",
+             "commodity": [
+                {
+                    "accountActual": 100,
+                    "commodityId": "b86a247a-5855-4d2b-8f59-521ef3ce8888",
+                    "dateBegin": null,
+                    "dateEnd": null,
+                    "id": "562c077b-201b-40eb-9679-c71fb14649cf",
+                    "isCancel": "3",
+                    "isStop": null,
+                    "length": null,
+                    "num": "1",
+                    "preCommodityId": null,
+                    "productId": null,
+                    "studentOrderId": "2017090700001",
+                    "commodityName":"产品090701"
+                }
+            ],
+
+            "commodityName": [
+                "产品090701"
+            ],
+            "money":"订单金额",
+            "auditStatus":"未提审",
+            "type":"改单",
+            "createDate":"创建时间",
+        	"studentId":"学生id",
+        	"branchCenterName":"分中心名称"
+        },
+         {
+            "studentOrderId":"学生订单id",
+            "name":"姓名",
+            "studentNum":"学生号",
+            "phone":"手机",
+             "commodity": [
+                {
+                    "accountActual": 100,
+                    "commodityId": "b86a247a-5855-4d2b-8f59-521ef3ce8888",
+                    "dateBegin": null,
+                    "dateEnd": null,
+                    "id": "562c077b-201b-40eb-9679-c71fb14649cf",
+                    "isCancel": "3",
+                    "isStop": null,
+                    "length": null,
+                    "num": "1",
+                    "preCommodityId": null,
+                    "productId": null,
+                    "studentOrderId": "2017090700001",
+                    "commodityName":"产品090701"
+                }
+            ],
+
+            "commodityName": [
+                "产品090701"
+            ],
+            "money":"订单金额",
+            "auditStatus":"未提审",
+            "type":"部分退单",
+            "createDate":"创建时间",
+        	"studentId":"学生id",
+        	"branchCenterName":"分中心名称"
+        },
+         {
+            "studentOrderId":"学生订单id",
+            "name":"姓名",
+            "studentNum":"学生号",
+            "phone":"手机",
+             "commodity": [
+                {
+                    "accountActual": 100,
+                    "commodityId": "b86a247a-5855-4d2b-8f59-521ef3ce8888",
+                    "dateBegin": null,
+                    "dateEnd": null,
+                    "id": "562c077b-201b-40eb-9679-c71fb14649cf",
+                    "isCancel": "3",
+                    "isStop": null,
+                    "length": null,
+                    "num": "1",
+                    "preCommodityId": null,
+                    "productId": null,
+                    "studentOrderId": "2017090700001",
+                    "commodityName":"产品090701"
+                }
+            ],
+
+            "commodityName": [
+                "产品090701"
+            ],
+            "money":"订单金额",
+            "auditStatus":"未提审",
+            "type":"全部退单",
+            "createDate":"创建时间",
+        	"studentId":"学生id",
+        	"branchCenterName":"分中心名称"
+        },
+        
+		{
+            "studentOrderId":"ccccc",
+            "name":"姓名",
+            "studentNum":"学生号",
+            "phone":"手机",
+             "commodity": [
+                {
+                    "accountActual": 100,
+                    "commodityId": "b86a247a-5855-4d2b-8f59-521ef3ce8888",
+                    "dateBegin": null,
+                    "dateEnd": null,
+                    "id": "562c077b-201b-40eb-9679-c71fb14649cf",
+                    "isCancel": "3",
+                    "isStop": null,
+                    "length": null,
+                    "num": "1",
+                    "preCommodityId": null,
+                    "productId": null,
+                    "studentOrderId": "2017090700001",
+                    "commodityName":"产品090701"
+                }
+            ],
+
+            "commodityName": [
+                "产品090701"
+            ],
+            "money":"订单金额",
+            "auditStatus":"审核中",
+            "type":"新报",
+            "createDate":"创建时间",
+        	"studentId":"学生id",
+        	"branchCenterName":"分中心名称"
+        },
+        {
+            "studentOrderId":"学生订单id",
+            "name":"姓名",
+            "studentNum":"学生号",
+            "phone":"手机",
+             "commodity": [
+                {
+                    "accountActual": 100,
+                    "commodityId": "b86a247a-5855-4d2b-8f59-521ef3ce8888",
+                    "dateBegin": null,
+                    "dateEnd": null,
+                    "id": "562c077b-201b-40eb-9679-c71fb14649cf",
+                    "isCancel": "3",
+                    "isStop": null,
+                    "length": null,
+                    "num": "1",
+                    "preCommodityId": null,
+                    "productId": null,
+                    "studentOrderId": "2017090700001",
+                    "commodityName":"产品090701"
+                }
+            ],
+
+            "commodityName": [
+                "产品090701"
+            ],
+            "money":"订单金额",
+            "auditStatus":"审核中",
+            "type":"续费",
+            "createDate":"创建时间",
+        	"studentId":"学生id",
+        	"branchCenterName":"分中心名称"
+        },
+        {
+            "studentOrderId":"学生订单id",
+            "name":"姓名",
+            "studentNum":"学生号",
+            "phone":"手机",
+             "commodity": [
+                {
+                    "accountActual": 100,
+                    "commodityId": "b86a247a-5855-4d2b-8f59-521ef3ce8888",
+                    "dateBegin": null,
+                    "dateEnd": null,
+                    "id": "562c077b-201b-40eb-9679-c71fb14649cf",
+                    "isCancel": "3",
+                    "isStop": null,
+                    "length": null,
+                    "num": "1",
+                    "preCommodityId": null,
+                    "productId": null,
+                    "studentOrderId": "2017090700001",
+                    "commodityName":"产品090701"
+                }
+            ],
+
+            "commodityName": [
+                "产品090701"
+            ],
+            "money":"订单金额",
+            "auditStatus":"审核中",
+            "type":"改单",
+            "createDate":"创建时间",
+        	"studentId":"学生id",
+        	"branchCenterName":"分中心名称"
+        },
+         {
+            "studentOrderId":"学生订单id",
+            "name":"姓名",
+            "studentNum":"学生号",
+            "phone":"手机",
+             "commodity": [
+                {
+                    "accountActual": 100,
+                    "commodityId": "b86a247a-5855-4d2b-8f59-521ef3ce8888",
+                    "dateBegin": null,
+                    "dateEnd": null,
+                    "id": "562c077b-201b-40eb-9679-c71fb14649cf",
+                    "isCancel": "3",
+                    "isStop": null,
+                    "length": null,
+                    "num": "1",
+                    "preCommodityId": null,
+                    "productId": null,
+                    "studentOrderId": "2017090700001",
+                    "commodityName":"产品090701"
+                }
+            ],
+
+            "commodityName": [
+                "产品090701"
+            ],
+            "money":"订单金额",
+            "auditStatus":"审核中",
+            "type":"部分退单",
+            "createDate":"创建时间",
+        	"studentId":"学生id",
+        	"branchCenterName":"分中心名称"
+        },
+         {
+            "studentOrderId":"学生订单id",
+            "name":"姓名",
+            "studentNum":"学生号",
+            "phone":"手机",
+             "commodity": [
+                {
+                    "accountActual": 100,
+                    "commodityId": "b86a247a-5855-4d2b-8f59-521ef3ce8888",
+                    "dateBegin": null,
+                    "dateEnd": null,
+                    "id": "562c077b-201b-40eb-9679-c71fb14649cf",
+                    "isCancel": "3",
+                    "isStop": null,
+                    "length": null,
+                    "num": "1",
+                    "preCommodityId": null,
+                    "productId": null,
+                    "studentOrderId": "2017090700001",
+                    "commodityName":"产品090701"
+                }
+            ],
+
+            "commodityName": [
+                "产品090701"
+            ],
+            "money":"订单金额",
+            "auditStatus":"审核中",
+            "type":"全部退单",
+            "createDate":"创建时间",
+        	"studentId":"学生id",
+        	"branchCenterName":"分中心名称"
+        },
+        
+        {
+            "studentOrderId":"ccccc",
+            "name":"姓名",
+            "studentNum":"学生号",
+            "phone":"手机",
+             "commodity": [
+                {
+                    "accountActual": 100,
+                    "commodityId": "b86a247a-5855-4d2b-8f59-521ef3ce8888",
+                    "dateBegin": null,
+                    "dateEnd": null,
+                    "id": "562c077b-201b-40eb-9679-c71fb14649cf",
+                    "isCancel": "3",
+                    "isStop": null,
+                    "length": null,
+                    "num": "1",
+                    "preCommodityId": null,
+                    "productId": null,
+                    "studentOrderId": "2017090700001",
+                    "commodityName":"产品090701"
+                }
+            ],
+
+            "commodityName": [
+                "产品090701"
+            ],
+            "money":"订单金额",
+            "auditStatus":"审核通过",
+            "type":"新报",
+            "createDate":"创建时间",
+        	"studentId":"学生id",
+        	"branchCenterName":"分中心名称"
+        },
+        {
+            "studentOrderId":"学生订单id",
+            "name":"姓名",
+            "studentNum":"学生号",
+            "phone":"手机",
+             "commodity": [
+                {
+                    "accountActual": 100,
+                    "commodityId": "b86a247a-5855-4d2b-8f59-521ef3ce8888",
+                    "dateBegin": null,
+                    "dateEnd": null,
+                    "id": "562c077b-201b-40eb-9679-c71fb14649cf",
+                    "isCancel": "3",
+                    "isStop": null,
+                    "length": null,
+                    "num": "1",
+                    "preCommodityId": null,
+                    "productId": null,
+                    "studentOrderId": "2017090700001",
+                    "commodityName":"产品090701"
+                }
+            ],
+
+            "commodityName": [
+                "产品090701"
+            ],
+            "money":"订单金额",
+            "auditStatus":"审核通过",
+            "type":"续费",
+            "createDate":"创建时间",
+        	"studentId":"学生id",
+        	"branchCenterName":"分中心名称"
+        },
+        {
+            "studentOrderId":"学生订单id",
+            "name":"姓名",
+            "studentNum":"学生号",
+            "phone":"手机",
+             "commodity": [
+                {
+                    "accountActual": 100,
+                    "commodityId": "b86a247a-5855-4d2b-8f59-521ef3ce8888",
+                    "dateBegin": null,
+                    "dateEnd": null,
+                    "id": "562c077b-201b-40eb-9679-c71fb14649cf",
+                    "isCancel": "3",
+                    "isStop": null,
+                    "length": null,
+                    "num": "1",
+                    "preCommodityId": null,
+                    "productId": null,
+                    "studentOrderId": "2017090700001",
+                    "commodityName":"产品090701"
+                }
+            ],
+
+            "commodityName": [
+                "产品090701"
+            ],
+            "money":"订单金额",
+            "auditStatus":"审核通过",
+            "type":"改单",
+            "createDate":"创建时间",
+        	"studentId":"学生id",
+        	"branchCenterName":"分中心名称"
+        },
+         {
+            "studentOrderId":"学生订单id",
+            "name":"姓名",
+            "studentNum":"学生号",
+            "phone":"手机",
+             "commodity": [
+                {
+                    "accountActual": 100,
+                    "commodityId": "b86a247a-5855-4d2b-8f59-521ef3ce8888",
+                    "dateBegin": null,
+                    "dateEnd": null,
+                    "id": "562c077b-201b-40eb-9679-c71fb14649cf",
+                    "isCancel": "3",
+                    "isStop": null,
+                    "length": null,
+                    "num": "1",
+                    "preCommodityId": null,
+                    "productId": null,
+                    "studentOrderId": "2017090700001",
+                    "commodityName":"产品090701"
+                }
+            ],
+
+            "commodityName": [
+                "产品090701"
+            ],
+            "money":"订单金额",
+            "auditStatus":"审核通过",
+            "type":"部分退单",
+            "createDate":"创建时间",
+        	"studentId":"学生id",
+        	"branchCenterName":"分中心名称"
+        },
+         {
+            "studentOrderId":"学生订单id",
+            "name":"姓名",
+            "studentNum":"学生号",
+            "phone":"手机",
+             "commodity": [
+                {
+                    "accountActual": 100,
+                    "commodityId": "b86a247a-5855-4d2b-8f59-521ef3ce8888",
+                    "dateBegin": null,
+                    "dateEnd": null,
+                    "id": "562c077b-201b-40eb-9679-c71fb14649cf",
+                    "isCancel": "3",
+                    "isStop": null,
+                    "length": null,
+                    "num": "1",
+                    "preCommodityId": null,
+                    "productId": null,
+                    "studentOrderId": "2017090700001",
+                    "commodityName":"产品090701"
+                }
+            ],
+
+            "commodityName": [
+                "产品090701"
+            ],
+            "money":"订单金额",
+            "auditStatus":"审核通过",
+            "type":"全部退单",
+            "createDate":"创建时间",
+        	"studentId":"学生id",
+        	"branchCenterName":"分中心名称"
+        },
+        
+        {
+            "studentOrderId":"ccccc",
+            "name":"姓名",
+            "studentNum":"学生号",
+            "phone":"手机",
+             "commodity": [
+                {
+                    "accountActual": 100,
+                    "commodityId": "b86a247a-5855-4d2b-8f59-521ef3ce8888",
+                    "dateBegin": null,
+                    "dateEnd": null,
+                    "id": "562c077b-201b-40eb-9679-c71fb14649cf",
+                    "isCancel": "3",
+                    "isStop": null,
+                    "length": null,
+                    "num": "1",
+                    "preCommodityId": null,
+                    "productId": null,
+                    "studentOrderId": "2017090700001",
+                    "commodityName":"产品090701"
+                }
+            ],
+
+            "commodityName": [
+                "产品090701"
+            ],
+            "money":"订单金额",
+            "auditStatus":"未提审",
+            "type":"新报",
+            "createDate":"创建时间",
+        	"studentId":"学生id",
+        	"branchCenterName":"分中心名称"
+        },
+        {
+            "studentOrderId":"学生订单id",
+            "name":"姓名",
+            "studentNum":"学生号",
+            "phone":"手机",
+             "commodity": [
+                {
+                    "accountActual": 100,
+                    "commodityId": "b86a247a-5855-4d2b-8f59-521ef3ce8888",
+                    "dateBegin": null,
+                    "dateEnd": null,
+                    "id": "562c077b-201b-40eb-9679-c71fb14649cf",
+                    "isCancel": "3",
+                    "isStop": null,
+                    "length": null,
+                    "num": "1",
+                    "preCommodityId": null,
+                    "productId": null,
+                    "studentOrderId": "2017090700001",
+                    "commodityName":"产品090701"
+                }
+            ],
+
+            "commodityName": [
+                "产品090701"
+            ],
+            "money":"订单金额",
+            "auditStatus":"未提审",
+            "type":"续费",
+            "createDate":"创建时间",
+        	"studentId":"学生id",
+        	"branchCenterName":"分中心名称"
+        },
+        {
+            "studentOrderId":"学生订单id",
+            "name":"姓名",
+            "studentNum":"学生号",
+            "phone":"手机",
+             "commodity": [
+                {
+                    "accountActual": 100,
+                    "commodityId": "b86a247a-5855-4d2b-8f59-521ef3ce8888",
+                    "dateBegin": null,
+                    "dateEnd": null,
+                    "id": "562c077b-201b-40eb-9679-c71fb14649cf",
+                    "isCancel": "3",
+                    "isStop": null,
+                    "length": null,
+                    "num": "1",
+                    "preCommodityId": null,
+                    "productId": null,
+                    "studentOrderId": "2017090700001",
+                    "commodityName":"产品090701"
+                }
+            ],
+
+            "commodityName": [
+                "产品090701"
+            ],
+            "money":"订单金额",
+            "auditStatus":"未提审",
+            "type":"改单",
+            "createDate":"创建时间",
+        	"studentId":"学生id",
+        	"branchCenterName":"分中心名称"
+        },
+         {
+            "studentOrderId":"学生订单id",
+            "name":"姓名",
+            "studentNum":"学生号",
+            "phone":"手机",
+             "commodity": [
+                {
+                    "accountActual": 100,
+                    "commodityId": "b86a247a-5855-4d2b-8f59-521ef3ce8888",
+                    "dateBegin": null,
+                    "dateEnd": null,
+                    "id": "562c077b-201b-40eb-9679-c71fb14649cf",
+                    "isCancel": "3",
+                    "isStop": null,
+                    "length": null,
+                    "num": "1",
+                    "preCommodityId": null,
+                    "productId": null,
+                    "studentOrderId": "2017090700001",
+                    "commodityName":"产品090701"
+                }
+            ],
+
+            "commodityName": [
+                "产品090701"
+            ],
+            "money":"订单金额",
+            "auditStatus":"未提审",
+            "type":"部分退单",
+            "createDate":"创建时间",
+        	"studentId":"学生id",
+        	"branchCenterName":"分中心名称"
+        },
+         {
+            "studentOrderId":"学生订单id",
+            "name":"姓名",
+            "studentNum":"学生号",
+            "phone":"手机",
+             "commodity": [
+                {
+                    "accountActual": 100,
+                    "commodityId": "b86a247a-5855-4d2b-8f59-521ef3ce8888",
+                    "dateBegin": null,
+                    "dateEnd": null,
+                    "id": "562c077b-201b-40eb-9679-c71fb14649cf",
+                    "isCancel": "3",
+                    "isStop": null,
+                    "length": null,
+                    "num": "1",
+                    "preCommodityId": null,
+                    "productId": null,
+                    "studentOrderId": "2017090700001",
+                    "commodityName":"产品090701"
+                }
+            ],
+
+            "commodityName": [
+                "产品090701"
+            ],
+            "money":"订单金额",
+            "auditStatus":"未提审",
+            "type":"全部退单",
+            "createDate":"创建时间",
+        	"studentId":"学生id",
+        	"branchCenterName":"分中心名称"
+        }
+    ],
+    "recordsTotal": 50,
+	"recordsFiltered":30,
+    "status":true
+}

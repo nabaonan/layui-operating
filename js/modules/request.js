@@ -15,7 +15,7 @@ layui.config({
 	//这里专门用来请求的
 	var toast = layui.toast;
 	var $ = layui.jquery;
-	
+
 	var request = {
 
 		authorityInterceptor: function(result) {
@@ -35,7 +35,7 @@ layui.config({
 			}
 			return true; //  如果status为true或者没有返回错误码则走这里
 		},
-		
+
 		/**
 		 * 获取特定的get请求参数信息
 		 * @param {Object} name
@@ -49,34 +49,35 @@ layui.config({
 		    }
 		    return null;
 		},
-		
+
 		/**
 		 *获取所有的get请求参数信息
 		 */
-		getAllUrlParam: function() {   
-		   var url = decodeURI(location.search); //获取url中"?"符后的字串   
-		   var theRequest = new Object();   
-		   if (url.indexOf("?") != -1) {   
-		      var str = url.substr(1);   
-		      strs = str.split("&");   
-		      for(var i = 0; i < strs.length; i ++) {   
-		         theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);   
-		      }   
-		   }   
-		   return theRequest;   
+		getAllUrlParam: function() {
+		   var url = decodeURI(location.search); //获取url中"?"符后的字串
+		   var theRequest = new Object();
+		   if (url.indexOf("?") != -1) {
+		      var str = url.substr(1);
+		      strs = str.split("&");
+		      for(var i = 0; i < strs.length; i ++) {
+		         theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+		      }
+		   }
+		   return theRequest;
 		},
-		
+
 		composeUrl: function(url,data,notEncodeUri,isTransArr) {
-			
+
 			if(!$.isEmptyObject(data)){
 				var str = '&';//如果是有参数的则追加参数
 				if(url.indexOf('?') == -1){
 					str = '?';
 				}
 				
+
 				$.each(data,function(prop,value){
-					
-					
+
+
 					if(isTransArr && value instanceof Array){
 						$.each(value, function(i,v) {
 							v = (v == null?'':v);
@@ -97,10 +98,10 @@ layui.config({
 				return url;
 			}
 		},
-		
-		
+
+
 		request: function(urlObj, data, successCallback, isAsync, errorCallback, linkErrorCallback,otherOpts) {
-			var returnData;
+
 			var asy = true;
 			if(isAsync != undefined || isAsync != null) {
 				asy = isAsync;
@@ -117,10 +118,14 @@ layui.config({
 						return;
 					}
 
-					if(request.isSuccess(result)) {
-						returnData = successCallback(result);
+					if(request.isSuccess(result) ) {
+						if(successCallback){
+							successCallback(result);
+						}
 					} else {
-						toast.error(result.msg);
+						if(!(otherOpts && otherOpts.closeToast)){
+							toast.error(result.msg);
+						}
 						if(errorCallback) {
 							errorCallback(result);
 						}
@@ -128,7 +133,7 @@ layui.config({
 				},
 				error: function() {
 					toast.error("系统连接错误，请联系管理员");
-					
+
 					if(linkErrorCallback) {
 						linkErrorCallback();
 					}
@@ -136,10 +141,10 @@ layui.config({
 				}
 			};
 			var totalOpt = $.extend({}, opts, otherOpts);
-			
-			$.ajax(totalOpt);
+
+			return $.ajax(totalOpt);
 			//			$.log("请求参数是", result, opts.async);
-			return returnData; //如果设置同步请求可以返回，需要用就用，不需要就不用
+			// return returnData; //如果设置同步请求可以返回，需要用就用，不需要就不用
 		},
 
 		isSuccess: function(result) {

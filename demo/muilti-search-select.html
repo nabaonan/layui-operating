@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>测试搜索多选下拉</title>
+    <link rel="stylesheet" href="../frame/layui/css/layui.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../image/code.png">
+
+    <style media="screen">
+        dd.layui-this+dd.layui-this {
+            border-top: solid 1px white;
+        }
+    </style>
+</head>
+
+<body class="body">
+    <form class="layui-form" action="">
+        <div class="layui-form-item">
+            <label class="layui-form-label">单行选择框</label>
+            <div class="layui-input-block">
+                <select id="select" name="interest11" lay-filter="demo" multiple="multiple" lay-search>
+                    <option value=""></option>
+                    <option value="0">写作</option>
+                    <option value="1">阅读</option>
+                    <option value="2">游戏</option>
+                    <option value="3">音乐</option>
+                    <option value="4">旅行</option>
+                </select>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" type="button" lay-submit="" lay-filter="form">
+                    <i class="layui-icon">&#xe605;</i>
+                    提交
+                </button>
+                    <button id="cancel" type="button" class="layui-btn layui-btn-primary">
+                     <i class="layui-icon">&#x1006;</i>
+                     取消
+                </button>
+                </div>
+            </div>
+    </form>
+
+    <script src="../frame/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        layui.use(['form', 'layedit', 'laydate'], function() {
+
+            var $ = layui.jquery;
+            var f = layui.form();
+            var $select = $('select[multiple]');
+
+            $select.each(function(index, el) {
+                var $el = $(el); //select
+                var THIS = 'layui-this',
+                    MOD_NAME = 'form',
+                    DISABLED = 'layui-disabled'
+
+                var $selectDiv = $(this).next('.layui-form-select'),
+                    $title = $selectDiv.find('.layui-select-title'),
+                    $input = $selectDiv.find('.layui-select-title input'),
+                    $dl = $selectDiv.find('dl'),
+                    $dds = $dl.find('dd');
+
+
+
+                var $input_h = $('<input />', {
+                    type: 'hidden',
+                    name: $el.attr('name')
+                }).insertAfter($input);
+
+                $dds.off('click').on('click', function() {
+                    var othis = $(this),
+                        value = othis.attr('lay-value');
+                    var filter = $el.attr('lay-filter'); //获取过滤器
+                    if (othis.hasClass(DISABLED)) return false;
+                    $el.removeClass('layui-form-danger');
+                    var val = $el.data('val'),
+                        text = $el.data('text');
+                    if (othis.hasClass(THIS)) {
+                        var index = $.inArray(value, val);
+                        if (index !== -1) {
+                            val.splice(index, 1);
+                            text.splice(index, 1);
+                        }
+                        $el.data('val', val);
+                        $el.data('text', text);
+                        othis.removeClass(THIS);
+                    } else {
+                        if (!val) {
+                            val = [];
+                            text = [];
+                        }
+                        val.push(value);
+                        text.push(othis.text());
+                        $el.data('val', val);
+                        $el.data('text', text);
+                        othis.addClass(THIS);
+                    }
+                    $input.val(text.join(',')+',');
+                    $input_h.val(val.join(','));
+                    return false;
+                });
+
+                var notOption = function(value, callback, origin) {
+                    var num = 0;
+                    layui.each($dds, function() {
+                        var othis = $(this),
+                            text = othis.text(),
+                            not = text.indexOf(value) === -1;
+                        if (value === '' || (origin === 'blur') ? value !== text : not) num++;
+                        origin === 'keyup' && othis[not ? 'addClass' : 'removeClass'](HIDE);
+                    });
+                    var none = num === $dds.length;
+                    return callback(none), none;
+                };
+
+                $input.off('blur').off('keyup');
+
+                var thatInput,
+                    initValue = '',
+                    HIDE = 'layui-hide',
+                    NONE = 'layui-select-none';
+                //搜索匹配
+                var search = function(e) {
+                    var value = this.value.split(',').pop(),
+                        keyCode = e.keyCode;
+                    //9   tab
+                    //13 enter
+                    //37 left arrow
+                    //38 up arrow
+                    //39 right
+                    //40 down
+                    if (keyCode === 9 || keyCode === 13 ||
+                        keyCode === 37 || keyCode === 38 ||
+                        keyCode === 39 || keyCode === 40
+                    ) {
+                        console.log('@@@');
+                        return false;
+                    }
+                    //8 backspace
+                    if (keyCode === 8) {
+                        console.log('回退',value);
+                        if(this.value){
+                            var arr = this.value.split(',');
+                            var pop = arr.pop();
+
+                            $.each($dds,function(index) {
+                                if($(this).text() == pop){
+                                    $(this).removeClass(THIS);
+                                    // $el.data('text')
+                                }
+                            });
+                            this.value = arr.join(',')+',';
+                        }
+
+                        // value.split(',').pop();
+                        // console.log(value);
+                        // this.value = value;
+                        return false;
+                    }
+
+
+                    notOption(value, function(none) {
+                        if (none) {
+                            $dl.find('.' + NONE)[0] || $dl.append('<p class="' + NONE + '">无匹配项</p>');
+                        } else {
+                            $dl.find('.' + NONE).remove();
+                        }
+                    }, 'keyup');
+
+                    if (value === '') {
+                        $dl.find('.' + NONE).remove();
+                    }
+                };
+
+                var CLASS = 'layui-form-select',
+                    TITLE = 'layui-select-title';
+
+                var hide = function(e, clear) {
+                    if (!$(e.target).parent().hasClass(TITLE) || clear) {
+                        $('.' + CLASS).removeClass(CLASS + 'ed');
+                        // console.log('111111', initValue);
+                        // thatInput && initValue && thatInput.val(initValue);
+                    }
+                    thatInput = null;
+                };
+
+                var showDown = function() {
+                        $selectDiv.addClass(CLASS + 'ed');
+                        $dds.removeClass(HIDE);
+                    },
+                    hideDown = function() {
+                        $selectDiv.removeClass(CLASS + 'ed');
+                        $input.blur();
+
+                        notOption($input.val(), function(none) {
+                            if (none) {
+                                // initValue = $dl.find('.' + THIS).html();
+                                initValue = $el.data('text').join(',')+',';
+                                console.log('22222', initValue);
+                                $input && $input.val(initValue);
+                            }
+                        });
+                    };
+
+                $title.off('click');
+                //点击标题区域
+                $title.on('click', function(e) {
+                    // $selectDiv.hasClass(CLASS + 'ed') ? (
+                    //     hideDown()
+                    // ) : (
+                        hide(e, true),
+                        showDown()
+                    // );
+                    $dl.find('.' + NONE).remove();
+                });
+
+                $input.on('keyup', search).on('blur', function(e) {
+                    thatInput = $input;
+                    // initValue = $el.data('text').join(',');
+                    initValue = $dl.find('.' + THIS).html();
+                    setTimeout(function() {
+
+                        notOption($input.val().split(',').pop(), function(none) {
+                            if (none && !initValue) {
+                                console.log('没有只');
+                                // $input.val('');
+                            }
+                        }, 'blur');
+                    }, 200);
+                });
+
+
+
+
+            });
+
+            //监听提交
+            f.on('submit(form)', function(data) {
+                console.log($('#select').val());
+                layer.alert(JSON.stringify(data.field), {
+                    title: '最终的提交信息'
+                });
+                return false;
+            });
+        });
+    </script>
+</body>
+
+</html>

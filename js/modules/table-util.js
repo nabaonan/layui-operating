@@ -20,10 +20,10 @@ layui.define(requireModules, function(exports) {
 	var f = layui.form();
 
 	var util = {
-		
+
 
 		/**
-		 * 
+		 *
 		 * @param {Object} $table 指定的table的jquery对象
 		 * @param {Object} composeCondition 指定组织查询条件的function
 		 * @param {Object} option  其他扩展参数，比如设置列
@@ -50,14 +50,13 @@ layui.define(requireModules, function(exports) {
 						}
 						var orderInfo;
 						var order = requestParam.order;
-						 
+
 						var orderName,orderType;
-						
+
 						if(order && order.length!=0){//只支持单列排序，如果支持多列排序再改
 							orderName = requestParam.columns[order[0].column].data;
 							orderType = order[0].dir;
 						}
-						
 						var pageParam = {
 							start: requestParam.start,
 							length: requestParam.length,
@@ -79,10 +78,10 @@ layui.define(requireModules, function(exports) {
 			if(option.isStatic){
 				delete totalConfig.ajax;
 			}
-			
+
 			return $table.dataTable(totalConfig).api();
 		},
-		
+
 		renderStaticTable: function($table,options) {
 			var opt = {
 				dom: "t",
@@ -102,19 +101,23 @@ layui.define(requireModules, function(exports) {
 			this.getTable($table).ajax.reload();
 			$table.find('thead :checkbox').prop('checked',false).trigger('change');//解决全选check不能恢复默认状态
 		},
-		
+
 		getTable: function($table) {
 			return $table.dataTable().api();
 		},
-		
+
 		getRowData: function($table,$elem) {
 			return this.getTable($table).row($elem.parents('tr')).data();
 		},
-		
-		addRow: function($table,data){
+
+		addRows: function($table,data){
 			$table.DataTable().rows.add(data).draw();
 		},
-		
+
+		addRow: function($table,data){
+			$table.DataTable().row.add(data).draw();
+		},
+
 		deleteRow: function($table,$elem) {
 			this.getTable($table).row($elem.parents('tr')).remove().draw();
 		},
@@ -128,7 +131,7 @@ layui.define(requireModules, function(exports) {
 			});
 			return results;
 		},
-		
+
 		getTableDatas: function($table) {
 			var result = [];
 			var datas = $table.DataTable().data()
@@ -137,7 +140,7 @@ layui.define(requireModules, function(exports) {
 			 })
 			 return result;
 		},
-		
+
 		getSelectIds: function($table) {
 			var results = this.getSelectData($table);
 			var ids = [];
@@ -220,15 +223,15 @@ layui.define(requireModules, function(exports) {
 					allTr.removeClass('selected');
 				}
 			});
-			
+
 			//全选反选
 			f.on('checkbox(all)', function(data){
 				$('tbody :checkbox[lay-skin="primary"]').each(function(){
 					$(this).prop('checked',data.elem.checked);
 					f.render('checkbox');
 				});
-			});   
-			
+			});
+
 			//表格重绘后渲染checkbox
 			$('table').on('draw.dt', function() {
 				f.render('checkbox');

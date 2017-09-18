@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>分中心基本信息</title>
+    <link rel="stylesheet" href="../../frame/layui/css/layui.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/font/iconfont.css" />
+    <style>
+        .layui-form-label {
+            width: 120px;
+        }
+
+        th i.iconfont,
+        .layui-form-label i {
+            color: red;
+        }
+
+        tbody img {
+            height: 50px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body class="body">
+
+    <form id="branch-baseinfo-form" class="layui-form" action="">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">
+						<i class="icon iconfont">&#xe635;</i>
+						分中心名称
+					</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="centerName" disabled autocomplete="off" class="layui-input layui-disabled">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">
+						<i class="icon iconfont">&#xe635;</i>
+						分中心代码
+				</label>
+                <div class="layui-input-inline">
+                    <input id="code" type="text" name="centerCode" disabled autocomplete="off" class="layui-input layui-disabled">
+                </div>
+            </div>
+
+        </div>
+
+        <div id="old-name-container" class="layui-form-item" style="display:none">
+            <div class="layui-block">
+                <label class="layui-form-label">
+                    <i class="icon iconfont">&#xe635;</i>
+                    旧分中心名称
+                </label>
+                <div class="layui-input-inline">
+                    <input  type="text" name="centerNameOld" disabled autocomplete="off" class="layui-input layui-disabled">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <table id="school-master-list" class="layui-table" lay-skin="row"></table>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">
+						<i class="icon iconfont">&#xe635;</i>
+						登录用户名
+					</label>
+                <div class="layui-input-inline">
+                    <input id="login-name" type="text" name="loginName" disabled autocomplete="off" class="layui-input layui-disabled">
+
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+					<i class="icon iconfont">&#xe635;</i>
+					密码
+				</label>
+
+                <div class="layui-input-inline">
+                    <input id="pwd" type="text" lay-verify="pwd" name="password" disabled autocomplete="off" class="layui-input layui-disabled">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text">
+            <div class="layui-inline">
+                <label class="layui-form-label">
+	                <i class="icon iconfont">&#xe635;</i>
+                    大区经理
+                </label>
+                <div class="layui-input-inline" >
+                    <input name="signRepName" disabled autocomplete="off" class="layui-input layui-disabled">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text">
+            <div class="layui-block">
+                <label class="layui-form-label">备注</label>
+                <div class="layui-input-inline" style="width: 80%;">
+                    <textarea disabled name="comment" class="layui-textarea layui-disabled"></textarea>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+    <!-- <script type="text/javascript" src="../../js/common/module-manage.js"></script> -->
+    <!-- <script type="text/javascript" charset="utf8" src="../../frame/layui/layui.js"></script> -->
+    <script type="text/javascript" charset="utf8" src="../../frame/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="../../frame/datatables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="../../js/controller/branch-center/branch-baseinfo-view.js"></script>
+</body>
+
+</html>

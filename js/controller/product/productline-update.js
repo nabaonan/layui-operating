@@ -14,6 +14,7 @@ var requireModules = [
 	'form-util',
 	'product-api',
 	'toast',
+	'key-bind',
 	'valid-login'
 ];
 
@@ -29,7 +30,8 @@ layui.use(requireModules, function(
 	btns,
 	formUtil,
 	productApi,
-	toast
+	toast,
+	keyBind
 
 ) {
 	var $ = layui.jquery;
@@ -43,7 +45,6 @@ layui.use(requireModules, function(
 			var data = ajax.getAllUrlParam();
 			controller.renderBusinessType();
 			controller.renderDept();
-			
 
 			var interval = setInterval(function() {
 				if(count == 2) {
@@ -84,13 +85,18 @@ layui.use(requireModules, function(
 
 		bindEvent: function() {
 			
-			
 			f.verify({
 				telphone: function(value, item) {
 					if(value!==''){
 						if(!(/^1[34578]\d{9}$/.test(value))){
 							return '请输入正确手机号!';
 						}
+					}
+				},
+				
+				content: function(value, item) {
+					if(value!=='' && value.length>140){
+						return '备注最多只能输入140个字！';
 					}
 				}
 			});

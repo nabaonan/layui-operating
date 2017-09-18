@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>导入学生帐号</title>
+    <link rel="stylesheet" href="../../frame/layui/css/layui.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body ms-controller="student-import">
+    <blockquote class="layui-elem-quote">请填写每个年级的开班个数和学生数</blockquote>
+    <table class="layui-table">
+        <thead>
+            <tr>
+                <th rowspan="2">年级</th>
+                <th rowspan="2">开班个数</th>
+                <th colspan="2">学生数</th>
+            </tr>
+
+            <tr>
+                <th>批量导入</th>
+                <th>新开</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ms-for="($index,grade) in @grades.gradeInfo">
+                <td>{{grade.gradeName}}</td>
+                <td>
+                    <input type="number" min="0" class="layui-input" ms-duplex="grade.gradeNumber" />
+                </td>
+                <td>
+                    <span>{{grade.studentNumber}}</span>
+                    <button type="button" class="layui-btn" ms-click="@import(grade)"  style="margin-left:20px">导入</button>
+                </td>
+                <td :attr="{rowspan:@grades.gradeInfo.length}" ms-if="$index == 0">
+                    <span >已经新开{{@grades.newStudentNumber}}个</span>
+                    <input type="number" min="0" class="layui-input" ms-duplex="@grades.number" style="display:inline-block;width:auto;margin-left:20px" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <script type="text/javascript" src="../../js/common/module-manage.js"></script>
+    <script src="../../frame/avalon/avalon.js" charset="utf-8"></script>
+    <script src="../../frame/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf8" src="../../js/controller/report/student-import-modal.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+{
+	"data": {
+		"leftSPJHK": 1000,
+		"leftED": 4000,
+		"leftYJK": 2000,
+		"addBZJ":500,
+		"backBZJ":300,
+		"quotaProp":100,
+		"splitPropogation": "2.5:7.5"
+	},
+	"status": true
+}

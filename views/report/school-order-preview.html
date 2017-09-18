@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学校开通单预览</title>
+    <link rel="stylesheet" href="../../frame/layui/css/layui.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/font/iconfont.css" />
+    <style media="screen">
+        .layui-form-label i {
+            color: red;
+        }
+
+        select {
+            height: 37px;
+            border-radius: 2px;
+        }
+
+        .money {
+            text-align: left;
+            font-size: 20px;
+        }
+
+        .money .red {
+            color: #e31a2c;
+        }
+
+        .layui-form-pane .layui-form-label {
+            width: auto;
+            min-width: 110px;
+        }
+
+        #pic-container {
+            display: inline-block;
+        }
+
+        #pic-container img {
+            height: 100px;
+            margin-right: 20px;
+        }
+
+        .layui-form-mid {
+            width: auto;
+            text-align: center;
+            border: 1px solid #e6e6e6;
+            padding-left: 10px;
+            padding-right: 10px;
+            min-width: 80px;
+        }
+
+        table td {
+            text-align: center;
+        }
+        .valid-label{
+            width: 80px;
+            margin: 0 auto;
+            background: #e6e6e6;
+            color: white;
+            padding: 5px;
+        }
+        .valid-label.valid{
+            background: #57c715;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset class="layui-elem-field" ms-controller="school-order-view">
+        <legend>第4步 预览订单</legend>
+        <div class="layui-field-box">
+            <fieldset class="layui-elem-field">
+                <legend>学校信息</legend>
+                <div class="layui-field-box">
+                    <form id="school-info" class="layui-form layui-form-pane" action="">
+
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    <i class="icon iconfont">&#xe635;</i>
+                                    学校名称
+                                </label>
+                                <div class="layui-input-inline layui-form-mid">
+                                    {{@schoolInfo.schoolName}}
+                                </div>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    <i class="icon iconfont">&#xe635;</i>
+                                    学校编码
+                                </label>
+                                <div class="layui-input-inline layui-form-mid">
+                                    {{@schoolInfo.schoolCode}}
+                                </div>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    <i class="icon iconfont">&#xe635;</i>
+                                    学制
+                                </label>
+                                <div class="layui-input-inline layui-form-mid">
+                                    {{@schoolInfo.educationName}}
+                                </div>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    <i class="icon iconfont">&#xe635;</i>
+                                    联系人
+                                </label>
+                                <div class="layui-input-inline layui-form-mid">
+                                    {{@schoolInfo.contact}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    <i class="icon iconfont">&#xe635;</i>
+                                    学段
+                                </label>
+                                <div class="layui-input-inline layui-form-mid">
+                                    {{@schoolInfo.schoolLevelsName}}
+                                </div>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    <i class="icon iconfont">&#xe635;</i>
+                                    手机号
+                                </label>
+                                <div class="layui-input-inline layui-form-mid">
+                                    {{@schoolInfo.phone}}
+                                </div>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    <i class="icon iconfont">&#xe635;</i>
+                                    教学模式
+                                </label>
+                                <div class="layui-input-inline layui-form-mid">
+                                    {{@schoolInfo.teachModelName}}
+                                </div>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">信息来源</label>
+                                <div class="layui-input-inline layui-form-mid">
+                                    {{@schoolInfo.messagePathName}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <div class="layui-block">
+                                <label class="layui-form-label">所在地</label>
+                                <div class="layui-input-inline layui-form-mid" style="width:50%">
+                                    {{@schoolInfo.zoneName + @schoolInfo.detailAddr}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item layui-form-text">
+                            <label class="layui-form-label">
+                                备注:
+                            </label>
+                            <div class="layui-input-block">
+                                <textarea readonly :duplex="schoolInfo.remark" class="layui-textarea"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </fieldset>
+
+            <fieldset class="layui-elem-field">
+                <legend>管理员信息</legend>
+                <div class="layui-field-box">
+
+                    <table class="layui-table">
+                        <thead>
+                            <tr>
+                                <th>管理员帐号</th>
+                                <th>密码</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ms-for="manager in @managers">
+                                <td>{{@manager.account}}</td>
+                                <td>{{@manager.password}}</td>
+                            </tr>
+                            <tr ms-if="!@managers">
+                                <td colspan="2">暂无数据</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </fieldset>
+
+            <fieldset class="layui-elem-field">
+                <legend>订单信息</legend>
+                <div class="layui-field-box">
+                    <blockquote class="layui-elem-quote" ms-if="orderInfo.orderAuditStatus == '2'||orderInfo.orderAuditStatus == '4')">确认无误后请提交审核!</blockquote>
+                    <div class="layui-form layui-form-pane">
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    所属分中心
+                                </label>
+                                <label class="layui-form-mid">
+                                    {{@orderInfo.centerName}}
+                                </label>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    分中心编码
+                                </label>
+                                <label class="layui-form-mid">
+                                    {{@orderInfo.centerCode}}
+                                </label>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    销售人员
+                                </label>
+                                <label class="layui-form-mid">
+                                    {{@orderInfo.salesman}}
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    订单号
+                                </label>
+                                <label class="layui-form-mid">
+                                    {{@orderInfo.orderNumber}}
+                                </label>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    订单状态
+                                </label>
+                                <label class="layui-form-mid">
+                                    {{@orderInfo.orderAuditStatusName}}
+                                </label>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    订单类型
+                                </label>
+                                <label class="layui-form-mid">
+                                    {{@orderInfo.orderTypeName}}
+                                </label>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    创建时间
+                                </label>
+                                <label class="layui-form-mid">
+                                    {{@orderInfo.createDate}}
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <table class="layui-table">
+                        <thead>
+                            <tr>
+                                <th>产品名称</th>
+                                <th>学段</th>
+                                <th>学生数</th>
+                                <th>教师数</th>
+                                <th>学生版数</th>
+                                <th>帐号类型</th>
+                                <th>定价</th>
+                                <th>数量</th>
+                                <th>实收</th>
+                                <th>扣款方式</th>
+                                <th>有效期</th>
+                                <th>说明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ms-for="commodity in @orderInfo.schoolOrderCommodities">
+                                <td>
+
+                                    <span class="valid-label " ms-if="@commodity.isEffective == '1' && @schoolInfo.teachModel == '1'">走班</span>
+
+                                    <span >
+                                        {{@commodity.commodityName}}
+                                    </span>
+
+                                </td>
+                                <td>{{@commodity.schoolLevelName}}</td>
+                                <td>
+                                    <span ms-if="@commodity.isEffective == '1'">
+                                        {{@commodity.studentNumber}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span ms-if="@commodity.isEffective == '1'">{{@commodity.teacherNumber}}</span>
+                                </td>
+                                <td>
+                                    <span ms-if="@commodity.isEffective == '1'">
+                                        {{@commodity.studentEditionNumber}}
+                                    </span>
+                                </td>
+                                <td>{{@commodity.accountType}}</td>
+                                <td ms-if="@commodity.isEffective == '2'">{{@commodity.fixedPrice}}</td>
+                                <td ms-if="@commodity.isEffective == '1'">
+                                    <span><b>￥</b>{{@commodity.currentPrice}}</span>
+                                    <del><b>￥</b>{{@commodity.originalPrice}}</del>
+                                </td>
+                                <td>{{@commodity.number}}</td>
+                                <td>{{@commodity.netReceipts}}</td>
+                                <td>{{@commodity.chargebackName}}</td>
+                                <td>
+                                    <div class="valid-label" ms-if="@commodity.isEffective == '1' && @commodity.isValid == '1'">未生效</div>
+                                    <div :class="@commodity.isValid == '2'?'valid-label valid':'valid-label'" ms-if="@commodity.isEffective == '1' && @commodity.isValid == '2'">生效</div>
+                                    <div class="valid-label" ms-if="@commodity.isEffective == '1' && @commodity.isValid == '3'">失效</div>
+                                    <span ms-if="@commodity.isEffective == '1'">{{@commodity.startDate}}~{{@commodity.stopDate}}（剩余{{@commodity.leftDays}}天）</span>
+                                </td>
+                                <td>{{@commodity.remark}}</td>
+                            </tr>
+                            <tr ms-if="!@orderInfo.schoolOrderCommodities">
+                                <td colspan="13">暂无数据</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </fieldset>
+
+            <fieldset class="layui-elem-field">
+                <legend >
+                    <span ms-if="showQuota">额度</span>
+                    <span ms-if="showQuota && showPrice">/</span>
+                    <span ms-if="showPrice">款项信息</span>
+                </legend>
+
+                <div class="layui-field-box">
+                    <form action="" class="layui-form layui-form-pane">
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    产品销售合同
+                                </label>
+                                <div id="pic-container">
+                                    <!-- 目前仅支持一张图片显示，因为后台不支持多张 -->
+                                    <img :attr="{'src':pic.path,'lay-src':pic.path,'alt':pic.saleContractName}" ms-for="pic in @orderInfo.contractPath" data-for-rendered="@renderPic" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item" ms-if="showQuota">
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    应扣额度
+                                </label>
+                                <label class="layui-form-mid money">
+                                    <b class="red">{{@orderInfo.deductibleDue}}</b>
+                                </label>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    优惠额度
+                                </label>
+                                <label class="layui-form-mid money">
+                                    <b class="red">{{@orderInfo.preferentialLimit}}</b>
+                                </label>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    实扣额度
+                                </label>
+                                <label class="layui-form-mid money">
+                                    <b class="red">{{@orderInfo.paidInTotal}}</b>
+                                </label>
+                            </div>
+
+                        </div>
+
+                        <div class="layui-form-item" ms-if="showPrice">
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    应收金额
+                                </label>
+                                <label class="layui-form-mid money">
+                                    {{@orderInfo.receivableAmount}}
+                                </label>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    优惠金额
+                                </label>
+                                <label class="layui-form-mid money">
+                                    <b class="red">{{@orderInfo.preferentialAmount}}</b>
+                                </label>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    实收金额
+                                </label>
+                                <label class="layui-form-mid money">
+                                    <b class="red">{{@orderInfo.buttonAmount}}</b>
+                                </label>
+                            </div>
+
+                        </div>
+
+                        <div class="layui-form-item" ms-if="showPayMethod">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    付款方式
+                                </label>
+                                <label class="layui-form-mid">
+                                    {{@orderInfo.paymentMethodName}}
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    操作人
+                                </label>
+                                <label class="layui-form-mid">
+                                    {{@orderInfo.operator}}
+                                </label>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">
+                                    经办人
+                                </label>
+                                <label class="layui-form-mid">
+                                    {{@orderInfo.handler}}
+                                </label>
+                            </div>
+
+                        </div>
+
+                        <div class="layui-form-item">
+                            <div class="layui-form-item layui-form-text">
+                                <label class="layui-form-label">
+                                    备注:
+                                </label>
+                                <div class="layui-input-block">
+                                    <textarea readonly :duplex="@orderInfo.remark" class="layui-textarea"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </fieldset>
+            <fieldset class="layui-elem-field" ms-if="@operate == 'audit' || @operate == 'auditView'">
+                <legend>审核信息</legend>
+                <div class="layui-field-box">
+                    <table class="layui-table">
+                        <thead>
+                            <tr>
+                                <th>时间</th>
+                                <th>审核状态</th>
+                                <th>审核意见</th>
+                                <th>节点</th>
+                                <th>发起人</th>
+                                <th>审核人</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ms-for="audit in @audits">
+                                <td>{{@audit.commitDate}}</td>
+                                <td>{{@audit.auditStatus}}</td>
+                                <td>{{@audit.auditOpinion}}</td>
+                                <td>{{@audit.role}}</td>
+                                <td>{{@audit.sponsor}}</td>
+                                <td>{{@audit.auditor}}</td>
+                            </tr>
+                            <tr ms-if="@audits.length == 0" style="text-align:center">
+                                <td colspan="6">
+                                    暂无数据
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </fieldset>
+        </div>
+    </fieldset>
+
+    <script type="text/javascript" src="../../js/common/module-manage.js"></script>
+    <script src="../../frame/avalon/avalon.js" charset="utf-8"></script>
+    <script src="../../frame/layui/layui.js" charset="utf-8"></script>
+    <script src="../../frame/jquery-1.10.2.min.js" charset="utf-8"></script>
+    <script src="../../frame/jquery.form.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf8" src="../../js/controller/report/school-order-view.js"></script>
+</body>
+
+</html>

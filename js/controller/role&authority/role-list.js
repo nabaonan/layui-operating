@@ -13,6 +13,7 @@ var requireModules = [
 	'table-util',
 	'authority',
 	'btns',
+	'key-bind',
 	'valid-login'
 ];
 
@@ -29,7 +30,8 @@ layui.use(requireModules, function(
 	authorityApi,
 	tableUtil,
 	authority,
-	btns
+	btns,
+	keyBind
 
 ) {
 

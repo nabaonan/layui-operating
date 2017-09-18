@@ -14,6 +14,7 @@ var requireModules = [
 	'btns',
 	'authority',
 	'toast',
+	'key-bind',
 	'valid-login'
 ];
 
@@ -29,7 +30,8 @@ layui.use(requireModules, function(
 	tableUtil,
 	btns,
 	authority,
-	toast
+	toast,
+	keyBind
 ) {
 
 	var $ = layui.jquery;

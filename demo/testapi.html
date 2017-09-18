@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript" src="../frame/jquery-1.10.2.min.js">
+
+        </script>
+
+    <script type="text/javascript">
+        $.ajax({
+            url: 'http://www.easy-mock.com/mock/5902e4537a878d73716df886/user/list',
+            type: 'get',
+            dataType: 'json',
+            data: {param1: 'value1'},
+            success: function(result){
+                console.log(result);
+            }
+        });
+
+
+    </script>
+    </body>
+</html>

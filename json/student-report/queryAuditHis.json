@@ -1,0 +1,18 @@
+{
+	"data": [
+		{
+			"auditRole": "款项ID",
+			"auditStatus": "2",
+			"auditMsg": "审核不能通过",
+			"auditDate": "2017-06-17",
+			"auditPeople": "gjajdkkk"
+		}, {
+			"auditRole": "款项ID",
+			"auditStatus": "2",
+			"auditMsg": "审核不能通过",
+			"auditDate": "2017-06-17",
+			"auditPeople": "gjajdkkk"
+		}
+	],
+	"status": true
+}

@@ -14,9 +14,18 @@
 			"menuName": "分中心管理",
 			"children": [
 				{
-					"menuUrl": "views/user/user-list.html",
+					"menuUrl": "views/branch-center/branch-center-list.html",
 					"menuName": "分中心管理",
 					"id": "21"
+				},{
+					"menuUrl": "views/contract/contract-list.html",
+					"menuName": "合同管理",
+					"id": "22"
+				},
+				{
+					"menuUrl": "views/payment/payment-list.html",
+					"menuName": "款项管理",
+					"id": "23"
 				}
 			]
 		}, {
@@ -58,9 +67,19 @@
 			"menuName": "报单管理",
 			"children": [
 				{
-					"menuUrl": "views/report/user-list.html",
-					"menuName": "报单",
+					"menuUrl": "views/report/school-report-list.html",
+					"menuName": "学校报单管理",
 					"id": "61"
+				},
+				{
+					"menuUrl": "views/report/audit-list.html",
+					"menuName": "学校报单审核",
+					"id": "62"
+				},
+				{
+					"menuUrl": "views/report-branch-center/audit-list.html",
+					"menuName": "分中心报单",
+					"id": "63"
 				}
 			]
 		}, {
@@ -76,9 +95,19 @@
 			"menuName": "财务管理",
 			"children": [
 				{
-					"menuUrl": "views/finance/user-list.html",
-					"menuName": "财务管理",
+					"menuUrl": "views/finance/branch-center-audit-list.html",
+					"menuName": "分中心审核",
 					"id": "81"
+				},
+				{
+					"menuUrl": "views/finance/contract-audit-list.html",
+					"menuName": "合同审核",
+					"id": "82"
+				},
+				{
+					"menuUrl": "views/finance/payment-audit-list.html",
+					"menuName": "款项审核",
+					"id": "83"
 				}
 			]
 		}, {

@@ -10,6 +10,7 @@ var requireModules = [
 	'form',
 	'form-util',
 	'toast',
+	'key-bind',
 	'valid-login'
 ];
 
@@ -21,7 +22,8 @@ layui.use(requireModules, function(
 	productApi,
 	form,
 	formUtil,
-	toast
+	toast,
+	keyBind
 ) {
 	var $ = layui.jquery;
 	var f = form();

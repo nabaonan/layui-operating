@@ -1,0 +1,35 @@
+{
+
+    "status": true,
+    "data": [{
+        "btnKey": "add-report"
+    }, {
+        "btnKey": "export"
+    }, {
+        "btnKey": "row-view"
+    }, {
+        "btnKey": "row-audit"
+    }, {
+        "btnKey": "row-edit"
+    }, {
+        "btnKey": "row-delete"
+    }, {
+        "btnKey": "row-view-class"
+    }, {
+        "btnKey": "row-config-class"
+    }, {
+        "btnKey": "row-view-account"
+    }, {
+        "btnKey": "row-append-account"
+    }, {
+        "btnKey": "row-stop"
+    }, {
+        "btnKey": "row-append-report"
+    }, {
+        "btnKey": "row-switch-report"
+    }, {
+        "btnKey": "row-change-report"
+    }, {
+        "btnKey": "row-modify"
+    }]
+}

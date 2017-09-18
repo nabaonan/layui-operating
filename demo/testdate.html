@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../frame/layui/css/layui.css">
+    <link rel="stylesheet" href="../frame/laydate/theme/default/laydate.css">
+</head>
+
+<body>
+    <input type="text" id="test">
+    <script src="../frame/laydate/laydate.js" charset="utf-8"></script>
+    <script src="../frame/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        layui.use('jquery', function($) {
+            laydate.render({
+                elem: '#test' //指定元素
+            });
+        });
+    </script>
+</body>
+
+</html>

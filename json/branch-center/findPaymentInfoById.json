@@ -1,0 +1,29 @@
+{
+	"data": [
+		{
+			"id": "1",
+			"amount": "5000",
+			"from": "spjhk",
+			"to":"",
+			"incomeNum": "1000",
+			"quota": 1000,
+			"incomeDate": "2017-06-26",
+			"auditStatus": "1",
+			"creater": "创建人",
+			"remarker": "备注说明"
+		}, {
+			"id": "2",
+			"amount": "5000",
+			"from": "yjkzy",
+			"to":"spjhk",
+			"incomeNum": "1000",
+			"quota": 1000,
+			"incomeDate": "2017-06-26",
+			"auditStatus": "1",
+			"creater": "创建人",
+			"remarker": "备注说明"
+		}
+	],
+
+	"status": true
+}
